@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footer</title>
+    <!-- 引入font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul,li{
+            list-style: none;
+            padding: 0;
+        }
+        footer{
+            margin-top: 5%;
+            /* margin: 10% 0; */
+            /* background-color: #888; */
+            padding: 3vw 18vw;
+            background-image: url(./img/wallpaper.webp);
+            color: #ddd;
+        }
+        footer ul li{
+            display: block;
+            padding: 5px;
+        }
+        footer .contact_us p{
+            margin: 0;
+            padding: 5px;
+        }
+        h2{
+            margin: 15px 0 8px 0;
+        }
+        
+        /* .about_us{background-color: pink;} */
+        /* .service{background-color: tomato;} */
+        /* .contact_us{background-color: lightblue;} */
+        .footer_container{
+            display: flex;   
+        }
+        .about_us,.service,.contact_us{
+            flex: 1;
+            flex-direction: column;
+            padding: 0 1.5vw;
+            /* text-align: center; */
+        }
+        .social_icon{
+            display: flex;
+            /* justify-content: center; */
+            font-size: 20px;
+            margin: 0;
+        }
+        .social_icon li a i.fa-brands{
+            padding-right:5px;
+            /* color: aqua; */
+            /* color: #ddd; */
+            /* color: #e6dac0; */
+
+        }
+        .copyright{
+            text-align: center;
+            padding-bottom: 15px;
+        }
+        footer .contact_us p.address{
+            /* text-align: center; */
+            padding-left: 2.8vw ;
+        }
+        footer .footer_container ul li a{
+            color: #ddd;
+        }
+
+
+        /*  媒體查詢    */
+        @media (max-width:1400px){
+            .about_us,.service,.contact_us{
+                /* text-align: center; */
+                /* margin: 0; */
+                padding: 0 0.5vw;
+            }
+            footer .contact_us p.address{
+                padding-left: 2vw ;
+            }
+        }
+        @media (max-width:1200px){
+            footer{
+                padding: 2vw 14vw;
+            }
+            .about_us,.service,.contact_us{
+                padding: 0;
+            }
+            footer .contact_us p.address{
+                padding-left: 1vw ;
+            }
+        }
+        @media (max-width:992px){
+            footer .footer_container{
+                flex-direction: column;
+            }
+            .about_us,.service,.contact_us{
+                text-align: center;
+            }
+            .social_icon{
+                justify-content: center;
+                opacity: 1;
+            }
+        }
+      
+        </style>
+</head>
+<body>
+    <footer>
+        <hr>
+        <div class="footer_container">
+            <div class="about_us">
+                <h2>COMPANY</h2>
+                <ul>
+                    <li><a href="">關於品牌 | About us</a></li>
+                    <li><a href="">門市資訊 | Store-info</a></li>
+                    <li><a href="">會員優惠 | VIP</a></li>
+                    <li><a href="">異業合作 | Cooperation</a></li>
+                </ul>
+                <h2>FOLLOW US</h2>
+                <ul class="social_icon">
+                    <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-line"></i></a></li>
+                </ul>
+            </div>
+            <div class="service">
+                <h2>SERVICE</h2>
+                <ul>
+                    <li><a href="">售後服務 | After sales service</a></li>
+                    <li><a href="">飾品保養 | Maintenance</a></li>
+                    <li><a href="">運送政策 | Shipping Policy</a></li>
+                    <li><a href="">常見問題 | FAQ</a></li>
+                    <li><a href="">隱私權政策 | Privacy</a></li>
+                </ul>
+            </div>
+            <div class="contact_us">
+                <h2>CONTACT</h2>
+                <ul>
+                    <li>MON-FRI | 9:00 - 18:00</li>
+                    <li>聯絡電話 | 0912345678</li>
+                    <li>聯絡地址 | </li>
+                        <p class="address">台中市北區育才北路96號</p>
+                        <p class="address">台中市西屯區精誠路20號</p>
+                    
+                    
+                </ul>
+      
+          
+            </div>
+        </div>
+        <p class="copyright">&copy;此網站為練習使用，不做商業用途</p>
+
+    </footer>
+</body>
+</html>

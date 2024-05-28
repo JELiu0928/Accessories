@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>made_to_order</title>
+    <!-- 引入font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="./css/reserve.css"> -->
+    <style>
+        body{
+            background-image: none;
+            /* background-image: url(./img/wallpaper2.png); */
+
+            background-color: #fff;
+        }
+        header{
+            background-image: none;
+            height: 70px;
+        }
+        .container{
+            height: 70px;
+            background-image: url(./img/wallpaper.webp);
+            position: fixed;
+        }
+        /*          made_to_order:      ;*/
+        .order_container{
+            width: 100%;
+            /* height: 50%; */
+            /* text-align: center; */
+            
+        }
+        .banner>img{
+            width: 100%;
+            /* object-fit: cover; */
+        }
+        .banner{
+            position: relative;
+        }
+        .banner_text{
+            position: absolute;
+            right: 15%;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-family: monospace;
+            letter-spacing: 3px;
+            font-size: 1rem;
+            
+        }
+        .banner_text p:first-child{
+            font-family: "Playfair Display",serif;
+            font-weight: bold;
+            font-size: 2rem;
+            margin: 16px 0;
+        }
+        .order_outer{
+            margin:  200px;
+            text-align: center;
+            /* border: 2px solid red; */
+        }
+        .order_outer h2{
+            font-size: 2rem;
+            letter-spacing: 5px;
+            color: #183165;
+            /* border-bottom: 1px solid #183165; */
+            /* width: 20%; */
+            /* margin: 10px; */
+        }
+        .arrangement_inner{
+            display: grid;
+            grid-template-columns: repeat(2,1fr );
+            align-items: center;
+        }
+        .arrangement_inner>img{
+            justify-self: end;
+            width: 300px;
+            /* width: 80%; */
+        }
+        
+        .order_text {
+            text-align: start;
+            /* margin: 0 5%; */
+        }
+       
+        .shape_inner{
+            display: grid;
+            /* grid-template-columns: repeat(4,1fr); */
+            grid-template-columns: repeat(4, calc((100% - 60px) / 4));
+            justify-content: center;
+            gap: 20px;
+            margin-top: 80px;
+            /* width: 80%; */
+            /* margin: 0 20px; */
+        }
+    
+        .order_item>img{
+            width: 200px;
+
+        }
+        .arrangement,.shape,.bullion,.combination,.gems{
+            margin: 200px 0;
+        }
+        .bullion_inner{
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(3, calc((100% - 40px) / 3));
+            gap: 20px;
+        }
+        .bullion_inner>img{
+            width: 500px;
+
+
+        }
+        div[class$="inner"],h2+p{
+            font-size: 0.9rem;
+            font-family: monospace;
+            letter-spacing: 3px;
+        }
+
+        .texture_inner{
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(4, calc((100% - 60px) / 4));
+            /* grid-template-rows: repeat(2, 1fr); */
+            gap: 20px;
+        }
+        .combination_inner{
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(3, calc((100% - 40px) / 3));
+            gap: 20px;
+        }
+        .gems_inner{
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(2,1fr );
+            align-items: center;
+            justify-items: center;
+            margin: 0 25px;
+        }
+        .gems_inner>img{
+            width: 450px;
+            border-radius: 30px;
+            /* justify-self: end; */
+            margin-right: 25px;
+        }
+        .motif_inner{
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            align-items: center;
+            justify-items: center;
+            margin: 0 25px;
+        }
+        .motif_inner>img{
+            width: 450px;
+            border-radius: 30px;
+            margin-left: 25px;
+        }
+       
+        .atelier{
+            position: relative;
+        }
+
+        .reserve_container{
+            width: 600px;
+            height: 650px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0%;
+            transform: translateY();
+            background-image: url(./img/wallpaper2.png);
+            padding: 30px;
+            border-radius: 20px;
+            opacity: 0.1;
+            pointer-events: none;
+            transition: opacity .5s;
+        }
+        .reserve_show{
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .reserve_container>h2{
+            text-align: center;
+        }
+
+        .cancel_btn{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+            font-size: 25px;
+            color: var(--color-primary);
+        }
+        .reserve_form{
+            position: relative;
+        }
+        .reserve_form >div[class^="map"] {
+            position: absolute;
+            right: 0;
+            top: 0;
+            opacity: 0;
+        }
+        .reserve_form .map_tpe.tpe_show,.reserve_form .map_tph.tph_show{
+            opacity: 1;
+
+        }
+        
+        input[type="radio"],input[type="checkbox"]{
+            display: none;
+        }
+    
+        input[type="radio"]+label,select,input[type="date"],.submit{
+            color: #fff;
+            display: inline-block;
+            background-color: var(--color-primary);
+            cursor: pointer;
+            padding: 10px;
+            transition: .3s;
+            border: none;
+        }
+        .submit{
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        input[type="radio"]+label:hover,input[type="radio"]:checked +label,.submit:hover
+        {
+            color: var(--color-primary);
+            background-color: #fff;
+        }
+        
+        input[type="text"],input[type="tel"]{
+            display: block;
+            box-sizing: border-box;
+            background-color: rgb(240, 229, 214); 
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 0;
+            border-bottom: 5px solid var(--color-primary);
+            font-size: 18px;
+            outline: none;
+        }
+        .fullname{
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .lastName,.firstName{
+            width: 80%;
+        }
+        
+        input[type="date"]{
+            width: 200px;
+        }
+        .reserve_container>p, label[for="phone"],label[for="lastName"],label[for="firstName"]{
+            display: block;
+            margin: 16px 0;
+        }
+
+
+        @media screen and (max-width:1200px) {
+            .order_outer{
+                margin:  120px;
+            }
+            .texture_inner{
+                grid-template-columns: repeat(3, calc((100% - 40px) / 3));
+            }
+            .gems_inner>img,.motif_inner>img{
+                width: 400px;
+            }
+        }
+        @media screen and (max-width:992px) {
+            .shape_inner{
+                grid-template-columns: repeat(2, calc((100% - 20px) / 2));
+                margin: 0 100px;
+                margin-top: 80px;
+            }
+            .order_outer{
+                margin:  30px;
+            }
+            .gems_inner>img,.motif_inner>img{
+                /* width: 400px; */
+                margin: 10px;
+            }
+        }
+        @media screen and (max-width:768px) {
+            .banner_text{
+                right: 8%;
+                font-size: 0.8rem;
+            }
+            .banner_text p:first-child{
+                font-size: 1.5rem;
+            }
+            .shape_inner{
+                margin: 0;
+                margin-top: 80px;
+            }
+            .bullion_inner,.texture_inner{
+                grid-template-columns: repeat(2, calc((100% - 20px) / 2));
+            }
+            
+            .gems_inner>img,.motif_inner>img{
+                margin: 10px;
+            }
+            /* 表單 */
+            .reserve_container{
+                width: 450px;
+                height: 760px;
+                opacity: .8;
+                pointer-events: none;
+
+            }
+            .reserve_show{
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .reserve_container>h2{
+                font-size: 1.5rem;
+                margin: 0;
+            }
+            .reserve_form >div[class^="map"] {
+                position: static;
+                display: none;
+            }
+            .reserve_form .map_tpe.tpe_show,.reserve_form .map_tph.tph_show{
+                /* opacity: 1; */
+                display: block;
+                margin-top: 5px;
+            }
+            
+            .reserve_form>p, label[for="phone"],label[for="lastName"],label[for="firstName"]{
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+                <a href="/index.html"><img class="logo" src="./img/logo.png"></a>
+                <div class="menu ">
+                    <ul class="social_icon">
+                        <li>
+                            <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-line"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        </li>
+                    </ul>
+                    <ul class="menu_link">
+                        <!-- <li  class="flex-1"><a href="" data-menu_item="HOME">HOME</a></li> -->
+                        <li class="dropdown_link flex-1">
+                            <a href="product.html" data-menu_item="PRODUCT">PRODUCT</a>
+                            <ul class="dropdown">
+                                <li class="dropdown_item"><a href="">耳環 Earring</a></li>
+                                <li class="dropdown_item"><a href="">耳夾 Earclip</a></li>
+                                <li class="dropdown_item"><a href="">戒指 Rings</a></li>
+                                <li class="dropdown_item"><a href="">項鍊 Necklaces</a></li>
+                                <li class="dropdown_item"><a href="">手鍊 Bracelets</a></li>
+                                <li class="dropdown_item"><a href="">訂婚鑽戒 Engagement Rings</a></li>
+                                <li class="dropdown_item"><a href="">結婚對戒 Wedding Rings</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown_link flex-1">
+                            <a href="made_to_order.html" data-menu_item="CONTACT">DESIGNS</a>
+                            <ul class="dropdown">
+                                <li class="dropdown_item"><a href="">結婚對戒 Wedding Rings</a></li>
+                                <li class="dropdown_item"><a href="">訂婚鑽戒 Engagement Rings</a></li>
+                                <li class="dropdown_item"><a href="">珠寶 Gems</a></li>
+                                <li class="dropdown_item"><a href="">雕刻 Engraving</a></li>
+                                <li class="dropdown_item"><a href="">客製化 Made To Order</a></li>
+                            </ul>
+                        </li>
+                        <li class="flex-1"><a href="" data-menu_item="CONTACT">CONTACT</a></li>
+                        <li class="flex-1"><a href="login.html" data-menu_item="LOGIN">LOGIN</a></li>
+                    </ul>
+                </div>
+                <div class="menu_btn">
+                    <span>MENU <i class="fa-solid fa-bars"></i></span>
+                </div>
+                <div class="menu_bg "></div>
+        </nav>
+    </header>
+    <div class="order_container">
+        <div class="banner">
+            <img src="./img/order/banner.jpg" alt="">
+            <div class="banner_text">
+                <p>100DESIGNS</p>
+                <p>從多款戒指中挑選喜歡的設計</p>
+                <p>簡約款式、纖細而富動感的造型、手工質感的設計、</p>
+                <p>帶有溫度的復古風格等，</p>
+                <p>您可從約100種戒指中尋找喜愛的款式。</p>
+            </div>
+        </div>
+        <div class="order_outer">
+            <div class="arrangement">
+                <h2>ARRANGEMENT</h2>
+                <div class="arrangement_inner">
+                    <img src="./img/order/arrangement_animation.gif" alt="">
+                    <div class="order_text">
+                        <p>挑選喜歡的戒指款式，再加上專屬自己的點綴。</p>
+                        <p>自由發揮創意就是ith的客製化訂製最大的魅力。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="shape">
+                <h2>SHAPE</h2>
+                <p>更改戒指的寬度及造型</p>
+                <div class="shape_inner">
+                    <div class="order_item">
+                        <img src="./img/order/shape_s.jpg.webp" alt="">
+                        <p>S型</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/shape_u.jpg.webp" alt="">
+                        <p>U型</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/shape_v.jpg.webp" alt="">
+                        <p>V型</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/shape_straight.jpg.webp" alt="">
+                        <p>直線</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bullion">
+                <h2>BULLION</h2>
+                <p>更改金屬材質</p>
+                <div class="bullion_inner">
+                    <div class="order_item">
+                        <img src="./img/order/bullion_platinum.jpg.webp" alt="">
+                        <p>鉑金</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/bullion_white_gold.jpg.webp" alt="">
+                        <p>白K金</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/bullion_champagne_gold.jpg.webp" alt="">
+                        <p>香檳金</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/bullion_lime_gold.jpg.webp" alt="">
+                        <p>萊姆金</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/bullion_pink_gold.jpg.webp" alt="">
+                        <p>玫瑰金</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/bullion_yellow_gold.jpg.webp" alt="">
+                        <p>黃K金</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="texture">
+                <h2>TEXTURE</h2>
+                <p>更改金屬紋理</p>
+                <div class="texture_inner">
+                    <div class="order_item">
+                        <img src="./img/order/texture_hairline.jpg.webp" alt="">
+                        <p>鉑金</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/texture_honing.jpg.webp" alt="">
+                        <p>白K金</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/texture_kyomen.jpg.webp" alt="">
+                        <p>香檳金</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/texture_mese.jpg.webp" alt="">
+                        <p>萊姆金</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/texture_neve.jpg.webp" alt="">
+                        <p>玫瑰金</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/texture_stardust.jpg.webp" alt="">
+                        <p>黃K金</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/texture_tsuchime_aki.jpg.webp" alt="">
+                        <p>黃K金</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="combination">
+                <h2>COMBINATION COLOR</h2>
+                <p>更改金屬雙色組合</p>
+                <div class="combination_inner">
+                    <div class="order_item">
+                        <img src="./img/order/combination_a.jpg.webp" alt="">
+                        <p>雙色組合A</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/combination_b.jpg.webp" alt="">
+                        <p>雙色組合B</p>
+                    </div>
+                    <div class="order_item">
+                        <img src="./img/order/combination_c.jpg.webp" alt="">
+                        <p>雙色組合C</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gems">
+                <h2>GEMS</h2>
+                <p>新增鑽石或天然石</p>
+                <div class="gems_inner">
+                    <img src="./img/order/gems.jpg.webp" alt="">
+                    <div class="order_text">
+                        <p>可在主石的旁邊或戒指的內側，</p>
+                        <p>加上鑽石或誕生石等喜歡的天然石。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="motif">
+                <h2>MOTIF</h2>
+                <p>根據主題設計戒指</p>
+                <div class="motif_inner">
+                    <div class="order_text">
+                        <p>我們將根據顧客的要求製作戒指，</p>
+                        <p>並透過設計圖等確認您對設計的構想。</p>
+                    </div>
+                    <img src="./img/order/motif.jpg.webp" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="atelier">
+            <h2>Atelier</h2>
+            <img src="./img/atelier.jpg.webp" alt="">
+            <p>歡迎來店試戴諮詢</p>
+            <button>預約</button>
+
+            <!-- <div id="reserve"></div> -->
+            <div class="reserve_container">
+                <div class="cancel_btn">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+                <h2>預約表</h2>
+                <form class="reserve_form" action="">
+                    <p>選擇工坊</p>
+                    <input type="radio" name="store" id="TPE">
+                    <label for="TPE">台北忠孝大安</label>
+                    <input type="radio" name="store" id="TPH">
+                    <label for="TPH">新北板橋文化</label>
+                    <div class="map_tpe ">
+                        <iframe  width="250" height="200"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.5846358171275!2d121.4585141752288!3d25.014226177829226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9fd211ad76d%3A0x8a588ddae7807528!2zaXRoIOaWsOWMl-adv-api-aWh-WMluW3peWdig!5e0!3m2!1szh-TW!2stw!4v1716730983830!5m2!1szh-TW!2stw" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="map_tph">
+                        <iframe width="250" height="200" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14459.200067591903!2d121.53561525150766!3d25.040859944987538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab53f03922a9%3A0x9802df08b10ee44!2zaXRoIOWPsOWMl-W_oOWtneWkp-WuieW3peWdig!5e0!3m2!1szh-TW!2stw!4v1716731683556!5m2!1szh-TW!2stw" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <p>預約日期 (目前僅接受一個月內的預定)</p>
+                    <input id="reserveDate" type="date" name="reserveDate" required>
+                    <select name="reserveTime">
+                        <option value="" >請選擇時段</option>
+                        <option value="">08:00</option>
+                        <option value="">10:00</option>
+                        <option value="">13:00</option>
+                        <option value="">15:00</option>
+                    </select>
+                    <div class="fullname">
+                        <div class="lastName">
+                            <label for="lastName">姓</label>
+                            <input type="text" name="lastName" id="lastName" required>
+                        </div>
+                        <div class="firstName">
+                            <label for="firstName">名</label>
+                            <input type="text" name="firstName" id="firstName" required>
+                        </div>
+                    </div>
+                    <label for="phone">電話</label>
+                    <input type="tel" pattern="^09[0-9]{8}" name="phone" id="phone" placeholder="請輸入臺灣手機號碼10碼" required>
+                    <h4>注意事項</h4>
+                    <p>訂製諮詢約 2 小時， 建議保留充裕時間體驗完整諮詢服務。</p>
+                    <p>如當日不克前來，還請聯繫告知。</p>
+                    <p>如欲當日前往，歡迎來電與我們確認預約狀況。</p>
+                    <input type="submit" class="submit" value="預約">
+                </form>
+            </div>
+
+            <!--  要不要做遮罩 -->
+            <div class="overlay"></div>
+        </div>
+    </div>
+    <div id="footer"></div>
+
+
+
+    <script src="./js/header.js"></script>
+
+    <script>
+
+
+
+
+        let reserve = document.querySelector('.reserve_container')
+        let reserveBtn = document.querySelector('.atelier>button')
+        let cancelBtn = document.querySelector('.cancel_btn')
+        let TPE = document.getElementById('TPE')
+        let mapTpe = document.querySelector('.map_tpe')
+        let mapTph = document.querySelector('.map_tph')
+        let TPH = document.getElementById('TPH')
+
+        reserveBtn.addEventListener('click',()=>{
+            reserve.classList.toggle('reserve_show')
+            console.log(window.getComputedStyle(reserve).getPropertyValue('opacity'))
+        })
+        cancelBtn.addEventListener('click',()=>{
+            reserve.classList.remove('reserve_show')
+
+        })
+        TPE.addEventListener('click',()=>{ 
+            mapTpe.classList.add('tpe_show')
+            if(mapTpe.classList.contains('tpe_show')){
+                mapTph.classList.remove('tph_show')
+            }
+            }
+            
+        )
+        TPH.addEventListener('click',()=>{ 
+            mapTph.classList.add('tph_show')
+            if(mapTph.classList.contains('tph_show')){
+                mapTpe.classList.remove('tpe_show')
+            }
+        })
+
+        //日期 
+        let date = new Date()
+        // console.log(date)
+        let today = date.toISOString().split('T')[0];
+        // console.log('today',today.toISOString().split('T')[0])
+        let reserveDate = document.getElementsByName("reserveDate")
+        //設置最小日期與最大日期
+        reserveDate[0].setAttribute('min', today);
+        date.setMonth(date.getMonth() + 1);
+        let month = date.toISOString().split('T')[0];
+        reserveDate[0].setAttribute('max', month);
+        
+
+
+        // console.log(date);
+        // console.log(twoMonths);
+
+        // let menuBtn = document.querySelector(".menu_btn");
+        // let toggleBtn = document.querySelector(".fa-bars");
+        // let menuBg = document.querySelector(".menu_bg");
+        
+        // let menu = document.querySelector(".menu");
+        // let logo = document.querySelector(".logo")
+        // let dropdownLink = document.querySelector(".dropdown_link")
+        // let dropdown = document.querySelector(".dropdown")
+        // menuBtn.addEventListener('click',()=>{
+        //     toggleBtn.classList.toggle('fa-x')
+        //     menu.classList.toggle('menu_toggle')
+        //     menuBg.classList.toggle('menu_bg_show')
+        // })
+        // window.onscroll = function() {
+        //     var navbar = document.querySelector('.container');
+        //     let logo = document.querySelector('.logo')
+        //     if (window.pageYOffset > 0 ) {
+        //         // navbar.style.height = "70px";  // 導航欄的高度變小
+        //         navbar.style.backgroundColor = "#183165";    
+        //         navbar.style.position = "fixed";  // 導航欄固定在頂部
+
+        //     } 
+        // }
+
+
+        // fetch('reserve.html')
+        //     .then(response => response.text())
+        //     .then(html => {
+        //         document.getElementById('reserve').innerHTML = html;
+        // });  
+
+          // 加載 footer.html
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer').innerHTML = html;
+        });   
+
+        
+    </script> 
+
+</body>
+</html>
