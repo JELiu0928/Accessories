@@ -187,14 +187,80 @@
             font-size: 2rem;
             color: red;
         }
+        input[type="radio"]{
+            display: none;
+                
+        }
+        input[type="radio"]+label{
+            background-color: var(--color-primary);
+            color: #fff;
+            width: 150px;
+            padding: 10px;
+            border-radius: 10px;   
+            cursor: pointer;
+                
+        }
+
+        input[type="radio"]+label:hover,input[type="radio"]:checked +label{
+            color: var(--color-primary);
+            background-color: #fff;
+        }
+
+
         .cart_container{
             position: absolute;
             right: 0;
             top: 0;
             background-color: yellowgreen;
-            height: 100vh;
+            width: 400px;
+            height: 100%;
+            z-index: 20;
+            padding: 20px;
+            text-align: center;
         }
-
+        #cart_item{
+            background-color: transparent;
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 120px 300px;
+            grid-template-rows: repeat(2,1fr);
+            align-items: center;
+            justify-items: center;
+        }
+        #cart_img{
+            width: 100px;
+            height: 100px;
+            background-position: center;
+            background-size: cover;
+            grid-row: 1/3;
+            /* grid-column: 1/4; */
+        }
+        #cart_img img{
+            /******test******/
+            width: 100%;
+        }
+        #cartbtn_group>button{
+            border: none;
+            width: 30px;
+            height: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            background-color: var(--color-primary);
+            color: #fff;
+            border-radius: 50%;
+        }
+        #cartbtn_group>input{
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            font-size: 1.2rem;
+        }
+        #cartbtn_group span+button{
+            /* display: inline-block; */
+            margin-left: 30px;
+        }
         @media screen and (max-width:1400px) {
            
             
@@ -296,14 +362,19 @@
                 <p>全館任選四件82折，優惠後特價 NT$298</p>
                 <p class="price">NT$363</p>
                 <p>顏色：</p>
-                <button class="colorBtn">Silver / 銀色 </button>
-                <button class="colorBtn">Rose Gold / 玫瑰金</button>
+                <!-- <button class="colorBtn">Silver / 銀色 </button> -->
+                <!-- <button class="colorBtn">Rose Gold / 玫瑰金</button> -->
+                <input type="radio" id="silver" name="color" value="silver">
+                <label for="silver">Silver / 銀色</label>
+                <input type="radio" id="roseGold" name="color" value="roseGold">
+                <label for="roseGold">Rose Gold / 玫瑰金</label>
+
                 <!-- <p></p> -->
                 <div class="input_group">
-                    <label for="quantity">數量</label>
+                    <!-- <label for="quantity">數量</label>
                     <button id="minus_btn">-</button>
                     <input type="text" name="quantity" id="quantity" value="1">
-                    <button id="plus_btn">+</button>
+                    <button id="plus_btn">+</button> -->
                     <button id="add_cart">加入購物車</button>
                 </div>
                 <div class="favorite"><i class="fa-regular fa-heart"></i></div>
@@ -329,9 +400,29 @@
             </ul>
         </div>
     </div>
-    <!-- <div class="cart_container">
+    <div class="cart_container">
+        
+        <div id="cart_item">
 
-    </div> -->
+            <div id="cart_img">
+                <!-- <img src="./img/EternalNecklace/01.webp" alt=""> -->
+            </div>
+            <!-- <div id="cartItem_title">${goodsTitle.innerText}</div> -->
+            
+            <!-- <div id="cartbtn_group"> -->
+                <!-- <span id="total">${金額}</span> -->
+                <!-- <button id="minus_btn">-</button> -->
+                <!-- <input type="text" name="quantity" id="quantity" value="1"> -->
+                <!-- <button id="plus_btn">+</button> -->
+            <!-- </div> -->
+        </div>
+        <!-- <div id="cart_img"></div> -->
+            <!-- <div id="cartItem_title"></div> -->
+            <!-- <div id="cartbtn_group">   </div>-->
+                
+            
+      
+    </div>
 
 
     <div id="footer"></div>
@@ -346,6 +437,15 @@
         let manifierImg = document.getElementById("manifier_img");
         let manifierShow = document.querySelector(".magnifier_show");
         let thumbnail = document.querySelector(".thumbnail");
+        let goodsTitle = document.querySelector(".goods_title");
+        let addCartBtn = document.getElementById("add_cart");
+        let cartItemTitle = document.getElementById("cartItem_title");
+        let silver = document.getElementById("silver");
+        let roseGold = document.getElementById("roseGold");
+        // let colorBtn = document.querySelectorAll('.colorBtn')
+        let cartbtnGroup = document.getElementById('cartbtn_group')
+        let cartItem = document.getElementById('cart_item')
+        let originImgBgImg = window.getComputedStyle(originImg).getPropertyValue('background-image')
         let thumbnailArr = [
             "./img/EternalNecklace/01.webp",
             "./img/EternalNecklace/02.webp",
@@ -357,17 +457,70 @@
             "./img/EternalNecklace/08.webp",
             "./img/EternalNecklace/09.webp"
         ]
+        roseGold.onclick = ()=>{
+            originImg.style.backgroundImage = `url(${thumbnailArr[0]})`
+            // console.log(roseGold)
+        }
+        silver.onclick = ()=>{
+            originImg.style.backgroundImage = `url(${thumbnailArr[1]})`
+        }
+
+        
         for(let i = 0;i <= thumbnailArr.length-1 ; i++){
             let myImg = document.createElement('img')
-            myImg.setAttribute('src',thumbnailArr[i])
-            thumbnail.appendChild(myImg)
-            myImg.onclick = ()=>{
-                let originImgBgImg = window.getComputedStyle(originImg).getPropertyValue('background-image')
-                originImg.style.backgroundImage = `url(${thumbnailArr[i]})`
-                manifierImg.src = thumbnailArr[i]
-            }
-            // thumbnail.innerHTML = thumbnailItem[i]
+                myImg.setAttribute('src',thumbnailArr[i])
+                thumbnail.appendChild(myImg)
+                myImg.onclick = ()=>{
+                    // let originImgBgImg = window.getComputedStyle(originImg).getPropertyValue('background-image')
+                    originImg.style.backgroundImage = `url(${thumbnailArr[i]})`
+                    manifierImg.src = thumbnailArr[i]
+                }
         }   
+        
+        addCartBtn.onclick = ()=>{
+               
+               // cartImg.style.backgroundImage = `url(${thumbnailArr[1]})`
+             
+               // cartImg.style.backgroundImage = `url(${thumbnailArr[i]})`
+          
+           // cartItemTitle.innerText =  goodsTitle.innerText
+            let num = 0
+
+           cartItem.innerHTML = 
+           ` <div id="cart_img"></div>
+           <div id="cartItem_title">${goodsTitle.innerText}</div>
+            
+            <div id="cartbtn_group">
+                <span id="total">${num * quantity.value}</span>
+                <button id="minus_btn">-</button>
+                <input type="text" name="quantity" id="quantity" value="1">
+                <button id="plus_btn">+</button>
+            </div>
+            `
+            let plusBtn = document.getElementById('plus_btn')
+            let minusBtn = document.getElementById('minus_btn')
+            let quantity = document.getElementById('quantity')
+            plusBtn.onclick = ()=>{
+                let currentNum = document.querySelector('#quantity').value
+            
+                quantity.value = `${parseInt(currentNum) + 1}`
+
+            }
+                // console.log(quantity.value)
+            minusBtn.onclick = ()=>{
+                let currentNum = parseInt(document.querySelector('#quantity').value)
+                if(quantity.value == 0){quantity.value = 0}
+                quantity.value == 0 ? quantity.value = 0 : quantity.value = currentNum - 1
+                
+            }
+            let cartImg = document.getElementById("cart_img");
+
+            cartImg.style.backgroundImage = `url(${thumbnailArr[1]})`
+
+            
+
+           
+       }
        
 
         originImg.onmouseover = () =>{
