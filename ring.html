@@ -54,7 +54,50 @@
         .goods_img{
             display: flex;
             flex-direction: column;
+            
+        }
+        .manifier{
             width: 400px;
+            height: 400px;
+            position: relative;
+        }
+        /* .manifier>img{
+            width: 100%;
+        } */
+        .magnifier_show{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 400px;
+            opacity: 1;
+            z-index: 2;
+            display: none;
+        }
+        #manifier_img{
+            width: 800px;
+            height: 800px;
+            position: absolute;
+          
+        }
+        #img_mask{
+            width: 200px;
+            height: 200px;
+            background-color: hsla(221, 62%, 25%, 0.397);
+            /* border: #183165 5px solid; */
+            position: absolute;
+            display: none;
+            /* top: 0; */
+            /* left: 0; */
+
+        }
+        .originImg{
+            background-image: url(./img/EternalNecklace/01.webp);
+            width: 400px;
+            height: 400px;
+            /* background-position: center; */
+            background-size: cover;
         }
         .thumbnail{
             display: grid;
@@ -68,7 +111,6 @@
             /* height: 100px; */
         }
         .thumbnail img{
-
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -101,6 +143,7 @@
 
 
         }
+        .originImg{}
         .good_describe >h4{
             width: 200px;
             color: var(--color-primary);
@@ -113,10 +156,11 @@
         }
         .favorite{
             position: absolute;
-            right: 0;
-            top: 0;
+            /* right: 0; */
+            /* top: 0; */
             font-size: 2rem;
         }
+      
 
         @media screen and (max-width:1400px) {
            
@@ -188,7 +232,15 @@
         <div class="product_wrapper">
            
             <div class="goods_img">
-                <img src="./img/EternalNecklace/01.webp" alt="">
+                <div class="manifier">
+                    <div class="originImg">
+                        <!-- <img src="./img/EternalNecklace/01.webp" alt=""> -->
+                        <div id="img_mask"></div>
+                    </div>
+                    <div class="magnifier_show">
+                        <img id="manifier_img" src="./img/EternalNecklace/01.webp" alt="">
+                    </div>
+                </div>
                 <div class="thumbnail">
                     <img src="./img/EternalNecklace/02.webp" alt="">
                     <img src="./img/EternalNecklace/03.webp" alt="">
@@ -201,6 +253,7 @@
                 </div>
               
             </div>
+           
 
             <div class="goods_box">
                 <h1 class="goods_title">[鋼飾] 永恆承諾鎖骨鍊 / 2色 / Eternal Commitment Necklace</h1>
@@ -246,10 +299,52 @@
 
     <script>
         let favoriteBtn = document.querySelector(".fa-heart");
-        // let toggleBtn = document.querySelector(".fa-bars");
-        // let menuBg = document.querySelector(".menu_bg");
+        let imgMask = document.getElementById("img_mask");
+        let originImg = document.querySelector(".originImg");
+        let manifierImg = document.getElementById("manifier_img");
+        let manifierShow = document.querySelector(".magnifier_show");
+        let thumbnail = document.querySelector(".thumbnail");
         
-       
+
+        originImg.onmouseover = () =>{
+            imgMask.style.display = 'block'
+            manifierShow.style.display = 'block'
+        }
+        originImg.onmouseout = () =>{
+            imgMask.style.display = 'none'
+            manifierShow.style.display = 'none'
+            
+        }
+        // coordinate:座標
+        originImg.onmousemove = (coordinate)=>{
+            // 圖片相對於視窗的位置
+            let originImgCoordinate = originImg.getBoundingClientRect()
+            // console.log('originImgCoordinate',originImgCoordinate)
+            // console.log('coordinate.clientX',coordinate.clientX)
+            let mouseX = coordinate.clientX - originImgCoordinate.left - 100
+            let mouseY = coordinate.clientY - originImgCoordinate.top - 100
+            // console.log(mouseX)
+            
+            if(mouseX >= 200){mouseX = 200}
+            if(mouseX < 0){mouseX = 0}
+            if(mouseY >= 200){mouseY = 200}
+            if(mouseY < 0){mouseY = 0}
+            imgMask.style.left = `${mouseX}px`
+            imgMask.style.top = `${mouseY}px`
+
+            let manifierImg2 = window.getComputedStyle(manifierImg).getPropertyValue('left')
+            console.log(manifierImg2)
+            manifierImg.style.left = `${-2 * mouseX}px`
+            manifierImg.style.top = `${-2 * mouseY}px`
+
+            
+        }
+
+        manifierImg.onclick =()=>{
+            // alert('0000')
+        }
+
+
         favoriteBtn.addEventListener('click',()=>{
             if( favoriteBtn.classList.contains('fa-regular')){
                 favoriteBtn.classList.toggle('fa-solid')
