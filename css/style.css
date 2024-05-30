@@ -80,6 +80,7 @@ header{
     letter-spacing: 1.5px;
     line-height: 45px;
     transition: 1s;
+    pointer-events: auto;
 
 }
 

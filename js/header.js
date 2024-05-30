@@ -10,7 +10,20 @@ let dropdown = document.querySelector(".dropdown")
 let menuIcon = document.querySelector('.menu .social_icon ')
 let menuLink = document.querySelector('.menu_link')
 
+function originPointerEvent(){
+    if(window.innerWidth>992){
+        menuLink.style.pointerEvents = 'auto'
+        menuIcon.style.pointerEvents = 'auto'
+    }else{
+        menuLink.style.pointerEvents = ''
+        menuIcon.style.pointerEvents = ''
+    }
+} 
 
+originPointerEvent();
+
+// 文件視圖（視窗）調整大小時會觸發 resize 事件
+window.addEventListener('resize', originPointerEvent);
 // .getPropertyValue('pointerEvents')
 menuBtn.addEventListener('click',()=>{
     toggleBtn.classList.toggle('fa-x')
@@ -25,9 +38,20 @@ menuBtn.addEventListener('click',()=>{
     menuLink.style.pointerEvents = newPointerEvents;
     menuIcon.style.pointerEvents = newPointerEvents;
     
+
+
+    
     console.log('menuLink.style.pointerEvents',menuLink.style.pointerEvents);
     console.log('menuIcon.style.pointerEvents',menuIcon.style.pointerEvents);
 })
+// originPointerEvent();
+
+
+
+
+
+
+
 // PRODUCT點選後
 dropdownLink.addEventListener('click',(event)=>{
     // event.stopPropagation();
