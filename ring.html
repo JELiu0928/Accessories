@@ -19,6 +19,8 @@
         }
         body{
             background-image: url(./img/wallpaper2.png);
+            overflow-x: hidden;
+            /* filter: brightness(0.5); */
         }
         header{
             background-image: none;
@@ -158,6 +160,9 @@
         #add_cart{
             /* display: block; */
             margin-top: 30px;
+            width: 300px;
+            height: 40px;
+
 
             /* line-height: 30px; */
             /* vertical-align: middle; */
@@ -175,6 +180,10 @@
             width: 100%;
             align-items: center;
         }
+        .good_describe ul li:first-child{
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
         .good_describe >h4{
             width: 200px;
             color: var(--color-primary);
@@ -185,6 +194,15 @@
        
         .goods_box{
             position: relative;
+        }
+        .goods_box p>span:first-child{
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+        .goods_box p>span:last-child{
+            color: #888;
+            font-size: 0.9rem;
+            /* font-weight: bold; */
         }
         .favorite{
             position: absolute;
@@ -220,14 +238,16 @@
             top: 0;
             background-image: url(./img/wallpaper.webp);
             /* background-color: var(--color-primary); */
-            width: 400px;
-            height: 100%;
-            z-index: 20;
-            padding: 20px;
+            width: 450px;
+            /* height: 100%; */
+            /* z-index: 20; */
+            z-index: 51;
+            padding: 10px;
             text-align: center;
             color: #fff;
-            transform: translateX(440px);
+            transform: translateX(550px);
             transition: 1s;
+
         }
         .cart_item{
             background-color: transparent;
@@ -294,12 +314,13 @@
             font-size: 30px;
             transform: translateX(-50px);
             transition: 1s ease-in-out;
+            
         }
         .cart_cancel{
             background-color: rgb(255, 255, 255);
             position: absolute;
-            top: 200px;
-            left: 0;
+            bottom:  50px;
+            left: -50px;
             /* margin: auto; */
             display: flex;
             justify-content: center;
@@ -307,6 +328,21 @@
             width: 50px;
             height: 50px;
             font-size: 30px;
+            color: var(--color-primary);
+            box-shadow: -2px 2px 4px var(--color-primary);
+            
+        }
+        .cart_cancel:active{
+            background-color: var(--color-secondary);
+
+        }
+        .body_mask{
+            width: 100vw;
+            height: 100vh;
+            background-color: #0000009a;
+            position: absolute;
+            z-index: 50;
+            display: none;
         }
         @media screen and (max-width:1400px) {
            
@@ -319,6 +355,7 @@
     </style>
 </head>
 <body>
+    <div class="body_mask"></div>
     <header>
         <nav class="container">
                 <a href="/index.html"><img class="logo" src="./img/logo.png"></a>
@@ -424,13 +461,24 @@
                     <button id="plus_btn">+</button> -->
                     <button id="add_cart">加入購物車</button>
                 </div>
-                <!-- <div class="favorite"><i class="fa-regular fa-heart"></i></div> -->
+                <p>
+                    <span>付款</span>
+                    <span>超商貨到付款《刻字、訂製、預購無法使用貨到付款》、超商代碼、信用卡一次付清與國內分期零利率、ATM轉帳、LINE Pay、PayPal</span>	
+                </p>  
+                <p>
+                    <span>配送</span>
+                    <span>超商取貨、本島與外島宅配、海外順豐速運 Pay、PayPal</span>	
+                </p>  
+                    
+                
+                <!-- <div class="favorite"><i class="fa-regular fa-heart"></i>加入追蹤清單</div> -->
             </div>
 
         </div>
         <div class="good_describe">
             <h4>商品描述</h4>
             <ul>
+                <li>預購商品預計14-20天出貨，待商品到貨與現貨合併寄出</li>
                 <li>提供30日退換貨服務，請詳閱「售後服務」</li>
                 <li>商品材質：鋯石 / 鋼</li>
                 <li>項鍊總長SIZE約：41.4 cm (不含延長鍊)</li>
@@ -448,7 +496,7 @@
         </div>
     </div>
     <div class="cart_container">
-        
+        <div class="cart_cancel"><i class="fa-solid fa-arrow-right"></i></div> 
         <!-- <div id="cart_item"> -->
 
             <!-- <div id="cart_img"></div> -->
@@ -468,9 +516,8 @@
             <!-- <div id="cartbtn_group">   </div>-->
                 
             
-      
+                
     </div>
-    <div class="cart_cancel"><i class="fa-solid fa-arrow-right"></i></div>  
     
     <div class="cart_icon"><i class="fa-solid fa-bag-shopping"></i></div>
     <div id="footer"></div>
@@ -494,7 +541,6 @@
         // let colorBtn = document.querySelectorAll('.colorBtn')
         let cartContainer = document.querySelector(".cart_container");
         let cartIcon = document.querySelector(".cart_icon");
-        let cartCancel = document.querySelector(".cart_cancel");
         // let cartbtnGroup = document.querySelector('cartbtn_group')
         let originImgBgImg = window.getComputedStyle(originImg).getPropertyValue('background-image')
         let thumbnailArr = [
@@ -515,16 +561,14 @@
         roseGold.onclick = ()=>{
             originImg.style.backgroundImage = `url(${thumbnailArr[0]})`
             manifierImg.src = thumbnailArr[0]
-
             selectColor = 'roseGoldColor'
-
-            updateSelectedColor(selectColor) 
+        
         }
         silver.onclick = ()=>{
             originImg.style.backgroundImage = `url(${thumbnailArr[1]})`
             manifierImg.src = thumbnailArr[1]
             selectColor = 'silverColor'
-            updateSelectedColor(selectColor) 
+            // updateSelectedColor(selectColor) 
            
         }
         
@@ -536,10 +580,7 @@
             myImg.onclick = ()=>{
                 originImg.style.backgroundImage = `url(${thumbnailArr[i]})`
                 manifierImg.src = thumbnailArr[i]
-                }
-                // if( roseGold.onclick) {
-                //     originImg.style.backgroundImage = `url(${thumbnailArr[0]})`
-                // }
+            }
         }   
        
         addCartBtn.onclick = ()=>{
@@ -548,20 +589,21 @@
             }
             
             addCartItem();
-
             let cartItems = document.querySelectorAll(".cart_item");
             // 獲取最新產生的購物車項目
             let cartItem = cartItems[cartItems.length - 1]; 
             let cartImg = cartItem.querySelector(".cart_img");
-
+            console.log('cartItems[0]',cartItems[0])
+            console.log('cartItems[1]',cartItems[1])
             // 選擇該顏色時，購物車照片要是該顏色
-            if (selectColor == 'roseGoldColor') {
-                cartImg.style.backgroundImage = `url(${thumbnailArr[0]})`;
-            } else 
-            // if (selectColor == 'silverColor') 
-            {
-                cartImg.style.backgroundImage = `url(${thumbnailArr[1]})`;
+            if(cartImg.classList.contains('silverColor')){
+                cartImg.style.backgroundImage = `url(${thumbnailArr[1]})`
+            }else{
+                cartImg.style.backgroundImage = `url(${thumbnailArr[0]})`
             }
+
+            
+
            
             let plusBtn = cartItem.querySelector('.plus_btn')
             let minusBtn = cartItem.querySelector('.minus_btn')
@@ -588,22 +630,36 @@
 
             cartIcon.style.transform = `translateX(${0}px)`;
         }
-
-
-       cartIcon.onclick = ()=>{
+        
+        let bodyMask = document.querySelector('.body_mask')
+        
+        cartIcon.onclick = ()=>{
             cartContainer.style.transform = `translateX(${0}px)`;
-       }
-       cartCancel.onclick = ()=>{
-            cartContainer.style.transform = `translateX(${440}px)`;
-       }
+            bodyMask.style.display = "block"
+
+        }
+        let cartCancel = document.querySelector(".cart_cancel");
+        cartCancel.onclick = ()=>{
+            cartContainer.style.transform = `translateX(${550}px)`;
+            console.log(cartContainer)
+            bodyMask.style.display = "none"
+
+        }
         function addCartItem(){
             let cartItem ;
-
             let existCartItem = document.querySelector(`.cart_item[data-color="${selectColor}"]`)
+            
+            console.log(existCartItem)
             if(existCartItem){
+                
                 let existItemQuantity = existCartItem.querySelector('.quantity')
                 let currentQuantity = parseInt(existItemQuantity.value)
                 existItemQuantity.value = currentQuantity + 1
+                
+                
+                let existCartItemImg = existCartItem.querySelector(`.cart_img`)
+                // existCartItemImg.style.backgroundImage = existCartItemImg.style.backgroundImage
+                // console.log()
             }else{
 
                 cartItem = document.createElement('div')
@@ -611,7 +667,7 @@
                 // 創建一個購物車項目時帶上data-color屬性 = 選擇的顏色
                 cartItem.dataset.color = selectColor;
                 cartItem.innerHTML = 
-                    `   <div class="cart_img"></div>
+                    `   <div class="cart_img ${selectColor}"></div>
                         <div class="cartItem_title">${goodsTitle.innerText} - ${selectColor}</div>
                         <div class="cartbtn_group">
                             <span class="total"> ${goodPrice}</span>
@@ -619,17 +675,30 @@
                             <input type="text" name="quantity" class="quantity" value="1">
                             <button class="plus_btn">+</button>
                         </div>
+                         
+
                     `
-                }
+                cartContainer.appendChild(cartItem);
+                
+
+
+               
+            }
            
-            cartContainer.appendChild(cartItem);
         }
-        function updateSelectedColor(color) {
+       
+
+
+        
+        function updateSelectedColor(selectColor) {
             let cartItemTitles = document.querySelectorAll(".cartItem_title");
 
+            // console.log(cartItemTitle.innerText.includes(selectColor))
             // 更新購物車中的所有項目的顏色文字
             cartItemTitles.forEach(cartItemTitle => {
-                cartItemTitle.innerText = `${goodsTitle.innerText} - ${color}`;
+            console.log('selectColor',selectColor)
+                cartItemTitle.innerText = `${goodsTitle.innerText} - ${selectColor}`;
+
             });
         }
 
@@ -669,9 +738,6 @@
             
         }
 
-        manifierImg.onclick =()=>{
-            // alert('0000')
-        }
 
 
         favoriteBtn.addEventListener('click',()=>{
@@ -682,17 +748,7 @@
             
         })
 
-        // window.onscroll = function() {
-        //     var navbar = document.querySelector('.container');
-        //     let logo = document.querySelector('.logo')
-        //     if (window.pageYOffset > 0 ) {
-        //         // navbar.style.height = "70px";  // 導航欄的高度變小
-        //         navbar.style.backgroundColor = "#183165";    
-        //         navbar.style.position = "fixed";  // 導航欄固定在頂部
-
-        //     } 
-        // }
-
+    
 
 
         // 加載 footer.html
