@@ -1,7 +1,12 @@
+:root{
+    --color-primary:#183165;
+    /* var(--color-primary) */
+    /* var(--color-secondary) */
+    --color-secondary:#e6dac0;
+}
 .reserve_container{
     width: 600px;
     height: 650px;
-    /* height: 600px; */
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -10,10 +15,10 @@
     background-image: url(../img/wallpaper2.png);
     padding: 30px;
     border-radius: 20px;
-    opacity: 0.1;
+    opacity: 1;
     pointer-events: none;
     transition: opacity .5s;
-    /* text-align: center; */
+    z-index: 55;
 }
 .reserve_show{
     opacity: 1;
@@ -21,6 +26,7 @@
 }
 .reserve_container>h2{
     text-align: center;
+    color: var(--color-primary);
 }
 
 .cancel_btn{
@@ -46,7 +52,6 @@
 }
 
 input[type="radio"],input[type="checkbox"]{
-    /*    去除選項框後藉由label選取   */
     display: none;
 }
 
@@ -89,7 +94,6 @@ input[type="text"],input[type="tel"]{
 }
 .lastName,.firstName{
     width: 80%;
-    /* margin: 0 10px; */
 }
 
 input[type="date"]{
@@ -98,7 +102,6 @@ input[type="date"]{
 .reserve_container>p, label[for="phone"],label[for="lastName"],label[for="firstName"]{
     display: block;
     margin: 16px 0;
-    /* background-color: yellowgreen; */
 }
 
 

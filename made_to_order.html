@@ -66,7 +66,7 @@
         .order_outer h2{
             font-size: 2rem;
             letter-spacing: 5px;
-            color: #183165;
+            color: var(--color-primary);
             /* border-bottom: 1px solid #183165; */
             /* width: 20%; */
             /* margin: 10px; */
@@ -178,9 +178,10 @@
             background-image: url(./img/wallpaper2.png);
             padding: 30px;
             border-radius: 20px;
-            opacity: 0.1;
+            opacity: 0;
             pointer-events: none;
             transition: opacity .5s;
+            z-index: 55;
         }
         .reserve_show{
             opacity: 1;
@@ -188,6 +189,7 @@
         }
         .reserve_container>h2{
             text-align: center;
+            color: var(--color-primary);
         }
 
         .cancel_btn{
@@ -340,9 +342,12 @@
                 margin: 8px 0;
             }
         }
+
+        
     </style>
 </head>
 <body>
+   
     <header>
         <nav class="container">
                 <a href="/index.html"><img class="logo" src="./img/logo.png"></a>
@@ -599,10 +604,11 @@
                 </form>
             </div>
 
-            <!--  要不要做遮罩 -->
-            <div class="overlay"></div>
         </div>
     </div>
+    <div class="black_overlay"></div>
+
+
     <div id="footer"></div>
 
 
@@ -610,7 +616,7 @@
     <script src="./js/header.js"></script>
 
     <script>
-
+        
 
 
 
@@ -622,22 +628,25 @@
         let mapTph = document.querySelector('.map_tph')
         let TPH = document.getElementById('TPH')
 
+        let blackOverlay = document.querySelector('.black_overlay')
         reserveBtn.addEventListener('click',()=>{
             reserve.classList.toggle('reserve_show')
             console.log(window.getComputedStyle(reserve).getPropertyValue('opacity'))
+            blackOverlay.style.display = "block"
+            // blackOverlay.style.top = 
+            console.log( 'window.scrollY', window.scrollY)
+            console.log( 'document.body.scrollTop', document.body.scrollTop)
         })
         cancelBtn.addEventListener('click',()=>{
             reserve.classList.remove('reserve_show')
-
+            blackOverlay.style.display = "none"
         })
         TPE.addEventListener('click',()=>{ 
             mapTpe.classList.add('tpe_show')
             if(mapTpe.classList.contains('tpe_show')){
                 mapTph.classList.remove('tph_show')
             }
-            }
-            
-        )
+        })
         TPH.addEventListener('click',()=>{ 
             mapTph.classList.add('tph_show')
             if(mapTph.classList.contains('tph_show')){

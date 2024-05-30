@@ -336,14 +336,7 @@
             background-color: var(--color-secondary);
 
         }
-        .body_mask{
-            width: 100vw;
-            height: 100vh;
-            background-color: #0000009a;
-            position: absolute;
-            z-index: 50;
-            display: none;
-        }
+        
         @media screen and (max-width:1400px) {
            
             
@@ -355,7 +348,7 @@
     </style>
 </head>
 <body>
-    <div class="body_mask"></div>
+    <div class="black_overlay"></div>
     <header>
         <nav class="container">
                 <a href="/index.html"><img class="logo" src="./img/logo.png"></a>
@@ -381,7 +374,7 @@
                                 <li class="dropdown_item"><a href="">耳環 Earring</a></li>
                                 <li class="dropdown_item"><a href="">耳夾 Earclip</a></li>
                                 <li class="dropdown_item"><a href="">戒指 Rings</a></li>
-                                <li class="dropdown_item"><a href="">項鍊 Necklaces</a></li>
+                                <li class="dropdown_item"><a href="necklace.html">項鍊 Necklaces</a></li>
                                 <li class="dropdown_item"><a href="">手鍊 Bracelets</a></li>
                                 <li class="dropdown_item"><a href="">訂婚鑽戒 Engagement Rings</a></li>
                                 <li class="dropdown_item"><a href="">結婚對戒 Wedding Rings</a></li>
@@ -409,7 +402,7 @@
     </header>
     <ol class="breadcrumb">
         <li><a href="./index.html">首頁</a></li>
-        <li>項鍊</li>
+        <li>項鍊 Necklaces</li>
     </ol>
     <div class="product_container">
         <div class="product_wrapper">
@@ -519,7 +512,9 @@
                 
     </div>
     
-    <div class="cart_icon"><i class="fa-solid fa-bag-shopping"></i></div>
+    <div class="cart_icon">
+        <i class="fa-solid fa-bag-shopping"></i>
+    </div>
     <div id="footer"></div>
 
 
@@ -631,18 +626,18 @@
             cartIcon.style.transform = `translateX(${0}px)`;
         }
         
-        let bodyMask = document.querySelector('.body_mask')
+        let black_overlay = document.querySelector('.black_overlay')
         
         cartIcon.onclick = ()=>{
             cartContainer.style.transform = `translateX(${0}px)`;
-            bodyMask.style.display = "block"
+            black_overlay.style.display = "block"
 
         }
         let cartCancel = document.querySelector(".cart_cancel");
         cartCancel.onclick = ()=>{
             cartContainer.style.transform = `translateX(${550}px)`;
             console.log(cartContainer)
-            bodyMask.style.display = "none"
+            black_overlay.style.display = "none"
 
         }
         function addCartItem(){
@@ -679,10 +674,7 @@
 
                     `
                 cartContainer.appendChild(cartItem);
-                
-
-
-               
+                             
             }
            
         }
