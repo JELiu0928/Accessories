@@ -5,7 +5,7 @@ body{
     font-family: "Playfair Display", serif;
     /*防止左右滾動*/
     overflow-x: hidden; 
-    background-image: url(../img/wallpaper.webp);
+    /* background-image: url(../img/wallpaper.webp); */
 
 }
 .black_overlay{
@@ -523,7 +523,9 @@ button.btn-next{
     font-size: 2rem;
     margin: 16px 0;
 }
-.design_container>h2 ,.atelier>h2{
+.design_container>h2 ,
+.atelier>h2,
+.article_container>h2{
     padding: 35px 0;
     color: #183165;
     padding-bottom: 40px;
@@ -590,8 +592,31 @@ button.btn-next{
 .design_txt>p:first-child{
     font-size: 2rem;
 }
-.atelier{
-    padding: 10%;
+.article_wraaper{
+    display: grid;
+    padding: 0 100px 100px 100px;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 30px;
+}
+.article img{
+    width: 100%;
+    cursor: pointer;
+}
+.article p{
+    font-size: 1.2rem;
+}
+.article a{
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    font-weight: bold;
+
+}
+.article:hover a{
+    text-shadow: 2px 2px 5px #ffffff;
+}
+/* .atelier{
+    padding: 0 100px 100px 100px;
     display: flex;
     flex-direction: column;
     align-items:center ;
@@ -610,9 +635,8 @@ button.btn-next{
     border-radius: 5px;
     width: 10%;
     padding: 1%;
-    /* margin: 3%; */
     cursor: pointer;
-}
+} */
 
 @keyframes aaa {
     0%{
@@ -743,7 +767,12 @@ button.btn-next{
     button.btn-next{
         right: 28%;
     }
-   
+    .article_wraaper{
+        
+        grid-template-columns: repeat(1,1fr);
+        
+        gap: 30px;
+    }
 
 }
 
@@ -801,7 +830,7 @@ button.btn-next{
         z-index: 20;
         /* transform: scale(0); */
         opacity: 0;
-        transition: opacity 1s;
+        transition: opacity .5s;
     }
     .menu .menu_link{
         order: 1;
@@ -831,15 +860,12 @@ button.btn-next{
     
     
     ul.dropdown .dropdown_item{
-       
         overflow: hidden;
-
     }
     /* 二級菜單 */
     
     .dropdown .dropdown_item>a{
         padding: 10px;
-        /* padding: 0 10px; */
         border-radius: 0px;
         color: var(--color-primary);
         border-bottom: 1px solid #ffffff76;
@@ -847,12 +873,11 @@ button.btn-next{
     }
     .dropdown .dropdown_item:last-child>a{
         border-bottom: none;
-
     }
     ul.dropdown .dropdown_item:hover{
         background-color: rgba(255, 255, 255, 0.15);
         overflow: hidden;
-
+        
     }
     /* 下拉選單 */
     ul.menu_link .dropdown_link .dropdown::before {
@@ -860,13 +885,9 @@ button.btn-next{
         position: absolute;
         top: 15px;
         left: -15px;
-        /* transform: translateY(-50%); */
-        /* width: 0; */
-        /* height: 0; */
         border-top: 15px solid  transparent;
         border-bottom: 15px solid transparent;
-        /* border-left: 15px solid transparent; */
-        border-right: 15px solid hsla(0, 0%, 100%, 0.5);
+        border-right: 15px solid hsla(0, 0%, 100%, 0.7);
       }
 
 
@@ -885,12 +906,20 @@ button.btn-next{
         color: var(--color-primary);
         box-shadow: none;
         margin: 0;
+        
+    }
+    .dropdown .dropdown_item:first-child{
+        border-radius: 0 20px 0 0 ;
+    }
+    .dropdown .dropdown_item:last-child{
+        border-radius: 0 0 20px 0 ;
     }
    
     
     /* 直立nav */
-    .menu ul.menu_link .flex-1>a:hover,.menu .social_icon li>a:hover{
-        /* background-color: transparent; */
+    .menu ul.menu_link .flex-1>a:hover,
+    .menu .social_icon li>a:hover{
+        background-color: transparent;
         color: var(--color-secondary);
         font-weight: bold;
         font-size: 2.1rem;
@@ -899,15 +928,9 @@ button.btn-next{
     }   
     .menu_link>li>a{
         padding: 10px 0;
-        /* background-color: #a79684; */
         color: #183165;
-        /* margin-left: 20px; */
         margin: 0 20px;
         margin-bottom: 10px;
-        /* background-color: rgba(255, 255, 255, 0.5); */
-        /* backdrop-filter: blur(10px); */
-        /* border-radius: 10px; */
-        /* box-shadow: 1px 1px 10px #ffffff; */
         font-size: 2rem;
         transition: transform .3s;
     }
@@ -923,6 +946,11 @@ button.btn-next{
         width: 100%;
         transform-origin: 0 0;
         transform: scale(0);
+        /* overflow: hidden; */
+    
+    }
+    .dropdown_link .dropdown .dropdown_item:hover a{
+        text-shadow: 1px 1px 3px rgb(255, 255, 255);
     
     }
     .menu_toggle{

@@ -25,6 +25,9 @@
         header{
             background-image: none;
             height: 70px;
+            /* width: 100vw; */
+            overflow: hidden;
+
         }
         .container{
             height: 70px;
@@ -86,12 +89,10 @@
         #img_mask{
             width: 200px;
             height: 200px;
-            background-color: hsla(221, 62%, 25%, 0.397);
-            /* border: #183165 5px solid; */
+            background-color: rgba(0, 0, 0, 0.1);
             position: absolute;
             display: none;
-            /* top: 0; */
-            /* left: 0; */
+          
 
         }
         .originImg{
@@ -119,6 +120,7 @@
             object-fit: cover;
             cursor: pointer;
             box-shadow: 2px 2px 10px  #888 ;
+            border-radius: 10px;
         }
         .thumbnail img:hover{
             transform: scale(1.1);
@@ -162,11 +164,20 @@
             margin-top: 30px;
             width: 300px;
             height: 40px;
-
-
-            /* line-height: 30px; */
-            /* vertical-align: middle; */
+            background-image: linear-gradient(to right,#395288 ,#1a397a );
+            box-shadow: 0px 4px 0px var(--color-primary);
+            transition: all 0.2s ease-in-out;
+            /* cursor: pointer; */
         }
+        #add_cart:hover{
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 0px var(--color-primary);
+        }
+        #add_cart:active{
+            transform: translateY(3px);
+            box-shadow: 0px 1px 0px var(--color-primary);
+        }
+       
         input[type="text"]{
             outline: none;
             text-align: center;
@@ -300,8 +311,22 @@
             content: 'NT';
         }
 
+        /* 結帳紐 */
+        .checkout{
+            line-height: 30px;
+            width: 100%;
+            padding: 15px;
+            background-color: #fff;
+            color: var(--color-primary);
+            position: absolute;
+            bottom: -60px;
+            left: 0;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         .cart_icon{
-            background-color: yellow;
+            /* background-color: yellow; */
             position: absolute;
             top: 500px;
             left: 0;
@@ -309,12 +334,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 50px;
+            width: 120px;
             height: 50px;
             font-size: 30px;
-            transform: translateX(-50px);
+            transform: translateX(-150px);
             transition: 1s ease-in-out;
-            
+            background-image: linear-gradient(to right,#4c6394 ,#1a397a );
+            color: #fff;
+            box-shadow: 2px 2px 10px #888;
+        }
+        .fa-bag-shopping{
+            padding: 0 10px;
         }
         .cart_cancel{
             background-color: rgb(255, 255, 255);
@@ -337,12 +367,39 @@
 
         }
         
-        @media screen and (max-width:1400px) {
-           
+        .moreGoods{
+            width: 100%;
+            margin: 100px;
+        }
+        .moreGoods ul{
+            display: grid;
+            width: 90%;
+            grid-template-columns: repeat(5,1fr);
+            gap: 20px;
             
         }
+        .moreGoods img{
+            width: 300px
+        }
+        @media screen and (max-width:1600px) {
+            .product_container{  width: 75%;  }
+            
+        }
+        @media screen and (max-width:1400px) {
+            .product_container{  width: 85%;  }
+           
+        }
+        @media screen and (max-width:1200px) {
+            .product_container{  width: 95%; }
+
+        }
         @media screen and (max-width:992px) {
-          
+            .product_wrapper{
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: none;
+                margin: 100px;
+            }
             
         }
     </style>
@@ -487,33 +544,45 @@
                 <li><img src="./img/EternalNecklace/06.webp" alt=""></li>
             </ul>
         </div>
+        <div class="moreGoods">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="./img/earrings/02.webp" alt="">
+                        <p></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/earrings/04.webp" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/necklace/04.webp" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/earrings/05.webp" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/necklace/06.webp" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="cart_container">
         <div class="cart_cancel"><i class="fa-solid fa-arrow-right"></i></div> 
-        <!-- <div id="cart_item"> -->
-
-            <!-- <div id="cart_img"></div> -->
-                <!-- <img src="./img/EternalNecklace/01.webp" alt=""> -->
-            
-            <!-- <div id="cartItem_title">${goodsTitle.innerText}</div> -->
-            
-            <!-- <div id="cartbtn_group"> -->
-                <!-- <span id="total">${金額}</span> -->
-                <!-- <button id="minus_btn">-</button> -->
-                <!-- <input type="text" name="quantity" id="quantity" value="1"> -->
-                <!-- <button id="plus_btn">+</button> -->
-            <!-- </div> -->
-        <!-- </div> -->
-        <!-- <div id="cart_img"></div> -->
-            <!-- <div id="cartItem_title"></div> -->
-            <!-- <div id="cartbtn_group">   </div>-->
-                
-            
-                
+        <div class="checkout">結帳</div>
     </div>
     
     <div class="cart_icon">
-        <i class="fa-solid fa-bag-shopping"></i>
+        <span>Cart</span>
+        <i class="fa-solid fa-cart-shopping"></i>
     </div>
     <div id="footer"></div>
 
@@ -615,6 +684,10 @@
                 let currentNum = quantity.value
                 if(quantity.value <= 1){
                     cartItem.remove();
+                    cartContainer.style.transform = `translateX(${550}px)`;
+                    console.log(cartContainer)
+                    black_overlay.style.display = "none"
+            
                 }else{
                     quantity.value = currentNum - 1
                     total.innerText = parseInt(goodPrice) * parseInt(quantity.value)
@@ -638,6 +711,7 @@
             cartContainer.style.transform = `translateX(${550}px)`;
             console.log(cartContainer)
             black_overlay.style.display = "none"
+
 
         }
         function addCartItem(){
@@ -668,6 +742,7 @@
                             <input type="text" name="quantity" class="quantity" value="1">
                             <button class="plus_btn">+</button>
                         </div>
+                        
                          
 
                     `
@@ -730,13 +805,13 @@
 
 
 
-        favoriteBtn.addEventListener('click',()=>{
-            if( favoriteBtn.classList.contains('fa-regular')){
-                favoriteBtn.classList.toggle('fa-solid')
-                // favoriteBtn.style.color = 'red'
-            }
+        // favoriteBtn.addEventListener('click',()=>{
+        //     if( favoriteBtn.classList.contains('fa-regular')){
+        //         favoriteBtn.classList.toggle('fa-solid')
+        //         // favoriteBtn.style.color = 'red'
+        //     }
             
-        })
+        // })
 
     
 
