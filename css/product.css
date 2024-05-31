@@ -66,8 +66,49 @@ header{
 .product_wrapper .product a:hover{
     text-shadow: 2px 2px 5px #ffffff;
 }
+.product_wrapper .product .product_item>p::before{
+    content: 'NT';
+}
+/* 各個產品添加hover時效果 */
 .product_item .img_wrapper{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+
+    overflow: hidden;
+}
+
+.product_item .img_wrapper::before,
+.product_item .img_wrapper::after{
+    content: '';
+    width: 25%;
+    height: 30%;
+    background-color: #183165;
+    opacity: 1;
+    position: absolute;
+    transition: 1s;
+}
+.product_item .img_wrapper::before{
+    right: 0;
+    top: 0;
+    border-radius: 0 15px 0 100%;
+}
+.product_item .img_wrapper::after{
+    left: 0;
+    bottom: 0;
+    border-radius: 0 100% 0 15px;
+}
+.product_item .img_wrapper:hover:before,
+.product_item .img_wrapper:hover:after{
+    width: 150%;
+    height: 150%;
+    opacity: 0.1;
+    /* border-radius: 15px; */
+
 }
 .addcart_btn{
     background-color: #183165;
@@ -76,12 +117,16 @@ header{
     border-radius: 10px;
     position: absolute;
     left: 50%;
-    bottom: 10%;
-    transform: translateX(-50%);
+    bottom: 0%;
+    /* transform: translateX(-50%); */
+    transform: translate(-50%,100%);
     color: #fff;
-    opacity: 0;
-    transition: all .3s;
-    text-shadow: none
+    /* opacity: 0; */
+    transition: all .5s;
+    text-shadow: none;
+    z-index: 5;
+
+
 }
 .addcart_btn:active{
     transform:translateX(-50%) scale(0.93);
@@ -89,6 +134,8 @@ header{
 
 .product_item .img_wrapper:hover .addcart_btn{
     opacity: 1;
+    transform: translate(-50%,-100%);
+
 }
 .sidebar,.product{
     padding: 20px;
