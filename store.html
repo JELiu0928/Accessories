@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>productEarring</title>
+    <title>store</title>
     <!-- 引入font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +12,77 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/product.css">
     <style>
-        .sidebar li:nth-child(2),.sidebar li:hover{
-            /* background-color: #a79684; */
-            background-color: #fff;
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            letter-spacing: 1.5px;
         }
-        .sidebar li:nth-child(2) a, .sidebar li:hover a {
-            color: #183165;
+        
+        thead>tr>th{
+            border-top: 5px solid var(--color-primary);
+            border-bottom: 1px solid var(--color-primary);
+            background-color: #fff;
+            padding: 15px 0;
+            /* height: 30px; */
+        }
+        tbody tr{
+            padding: 20px;
+            /* box-sizing: content-box; */
+        }
+        tbody tr:nth-child(even){
+            background-color: #dddddd86;
+        }
+        tbody tr:nth-child(odd){
+            background-color: #ffffff86;
+        }
+        td{
+
+            text-align: center;
+            border-bottom: 1px solid var(--color-primary);
+            /* background-color: #ffffff; */
+           
+
+        }
+        td>a>i{
+            color: var(--color-primary);
+        }
+       
+        tr:hover td,tr:hover a>i{
+            background-color: var(--color-primary);
+            color: #fff;
+            transition: .2s;
+            /* font-weight: bold; */
+            text-shadow: 1px 1px 3px #aaa;
+            /* opacity: .5; */
+
+        }
+        .store_table{
+           margin: 25px;
+        }
+        .store_name{
+            width: 25%;
+        }
+        .store_open{
+            width: 25%;
+
+        }
+        .store_address{
+            width: 35%;
+            
+        }
+        .store_nav{
+            width: 15%;
+
+        }
+        p{
+            margin: 0;
+        }
+        .opan_time{
+            padding: 20px;
+        }
+        .sidebar a.sidebar_select{
+            color: var(--color-primary);
+            background-color: #fff;
         }
     </style>
 </head>
@@ -42,7 +107,7 @@
                     </ul>
                     <ul class="menu_link">
                         <li class="dropdown_link flex-1">
-                            <a href="product.html" data-menu_item="PRODUCT">PRODUCT</a>
+                            <a href="product.html">PRODUCT</a>
                             <ul class="dropdown">
                                 <li class="dropdown_item"><a href="">耳環 Earring</a></li>
                                 <li class="dropdown_item"><a href="">耳夾 Earclip</a></li>
@@ -54,7 +119,7 @@
                             </ul>
                         </li>
                         <li class="dropdown_link flex-1">
-                            <a href="made_to_order.html" data-menu_item="CONTACT">DESIGNS</a>
+                            <a href="made_to_order.html">DESIGNS</a>
                             <ul class="dropdown">
                                 <li class="dropdown_item"><a href="">結婚對戒 Wedding Rings</a></li>
                                 <li class="dropdown_item"><a href="">訂婚鑽戒 Engagement Rings</a></li>
@@ -63,8 +128,8 @@
                                 <li class="dropdown_item"><a href="">客製化 Made To Order</a></li>
                             </ul>
                         </li>
-                        <li class="flex-1"><a href="" data-menu_item="CONTACT">CONTACT</a></li>
-                        <li class="flex-1"><a href="login.html" data-menu_item="LOGIN">LOGIN</a></li>
+                        <li class="flex-1"><a href="store.html">STORES</a></li>
+                        <li class="flex-1"><a href="login.html">LOGIN</a></li>
                     </ul>
                 </div>
                 <div class="menu_btn">
@@ -75,186 +140,115 @@
     </header>
     <ol class="breadcrumb">
         <li><a href="./index.html">首頁</a></li>
-        <li>耳環 Earring</li>
+        <li>門市</li>
     </ol>
-    <div class="product_container">
-        <div class="product_wrapper">
+    <div class="product_container common_container">
+        <div class="product_wrapper common_wrapper ">
             <ul class="sidebar">
-                <li><a href="./product.html">全部商品</a></li>
-                <li><a href="#">耳環 Earring</a></li>
-                <li><a href="#">耳夾 Earclip</a></li>
-                <li><a href="">戒指 Rings</a></li>
-                <li><a href="">項鍊 Necklaces</a></li>
-                <li><a href="">手鍊 Bracelets</a></li>
-                <li><a href="">訂婚鑽戒 Engagement Rings</a></li>
-                <li><a href="">結婚對戒 Wedding Rings</a></li>
+                <li><a href="#" class="storeBtn">全部區域 Store</a></li>
+                <li><a href="#" class="northBtn">北部 North</a></li>
+                <li><a href="#" class="centralBtn">中部 Central</a></li>
+                <li><a href="#" class="southBtn">南部 South</a></li>
             </ul>
-            <div class="product">
-                <!-- <div class="product_item">
-                    <a href="#">
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/01.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>盛開的雛菊夾式耳環 Blooming Daisy Ear Clip</p>
-                    </a>
-                    <p>NT$310</p>
-                </div>
-                <div class="product_item">
-                    <a href="#">                      
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/02.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>黛妃珍珠耳環2色 Diana Pearl Earring</p>
-                    </a>
-                    <p>NT$363</p>
-                </div>
-                <div class="product_item">
-                    <a href="#">
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/03.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>[純銀]圓的流動耳環2色Round Flow Earring</p>
-                    </a>
-                    <p>NT$450</p>
-                </div> 
-                <div class="product_item">
-                    <a href="#">
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/04.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>[採用施華洛世奇水晶純銀]沉默的高雅耳環12色  Crystals from Swarovski Silent Elegant Earring</p>
-                    </a>
-                    <p>NT$416</p>
-                </div>
-                <div class="product_item">
-                    <a href="#">
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/05.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>[純銀]幸運之吻耳環3色 Lucky Kiss Earring</p>
-                    </a>
-                    <p>NT$257</p>
-                </div>
-                <div class="product_item">
-                    <a href="#">
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/06.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>星辰耳環組2色Star Earring Set</p>
-                    </a>
-                    <p>NT$462</p>
-                </div>
-                <div class="product_item">
-                    <a href="#">
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/07.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>[純銀]純真音符耳環3色 Pure Note Earring</p>
-                    </a>
-                    <p>NT$429</p>
-                </div>
-                <div class="product_item">
-                    <a href="#">
-               
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/08.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>[鋼飾]沈淪之夏耳環3色Fallen Summer Earring</p>
-                    </a>
-                    <p>NT$187</p>
-                </div>
-                <div class="product_item">
-                    <a href="#">    
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/09.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>[銀針]黛安娜之星耳環2色Diana Star Earring</p>
-                    </a>
-                        <p>NT$429</p>
-                        
-                </div>
-                <div class="product_item">
-                    <a href="#">
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/10.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>[純銀]心纏耳環2色Winding Earring</p>
-                    </a>
-                        <p>NT$560</p>
-                </div>
-                <div class="product_item">
-                    <a href="#">
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/11.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>[銀針]日光傾城耳環Sunny Allure Earring</p>
+            <table class="store_table">
+                <thead>
+                    <tr>
+                        <th class="store_name">門市名稱</th>
+                        <th class="store_open">open</th>
+                        <th class="store_address">地址</th>
+                        <th class="store_nav">導航</th>
+                    </tr>    
+                </thead>
+                <tbody></tbody>
 
-                    </a>
-                    <p>NT$363</p>
-                </div>
-                <div class="product_item">
-                    <a href="#">
-                        <div class="img_wrapper">
-                            <img src="./img/earrings/12.webp" alt="" class="w-100 pd_img" />
-                            <div class="addcart_btn">加入購物車</div>
-                        </div>
-                        <p>[銀針]春季水仙花耳環組2色Spring Daffodil Earring Set</p>
-                    </a>
-                    <p>NT$528</p>
-                </div> -->
-               
-                <ol class="product_page">
-                    <li><a href="">1</a></li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li><a href="">4</a></li>
-                    <li><a href="">5</a></li>
-                    <li><a href="">></a></li>
-                </ol>
-            </div>
+            </table>
         </div>
+        <a href="" ></a>
     </div>
     <div id="footer"></div>
 
 
     <script src="./js/header.js"></script>
-    <script type="module" src="./js/productItem.js"></script>
+    <script type="module" src="./js/store.js"></script>
 
     <script type="module" >
-        import { earringItems } from "./js/productItem.js";
+        import { stores } from "./js/store.js";
         
-        console.log(earringItems)
-        earringItems.forEach(Item => { 
-            let product = document.querySelector('.product')
-            let productPage = document.querySelector('.product_page')
-            let productItem = document.createElement('div')
-            productItem.classList.add('product_item')
-            console.log(productItem)
-            // console.log(Item.imgSrc)
-            productItem.innerHTML = `
-                <a href="#">
-                    <div class="img_wrapper">
-                        <img src="${Item.imgSrc}" alt="" class="pd_img" />
-                        <div class="addcart_btn">加入購物車</div>
-                    </div>
-                    <p>${Item.name}</p>
-                </a>
-                <p>${Item.price}</p>
-            `
-            product.insertBefore(productItem,productPage)
-        });
+        console.log(stores)
+        console.log(typeof stores)
+        // 先取出區域region，再迭代區域內門市
+        // for(let region in stores)
+        // console.log('region',region.north)
+        
+        
+        let storeTable = document.querySelector('.store_table tbody')
+        window.onload = ()=>{
+            displayRegion('all')
+            document.querySelector('.storeBtn').classList.toggle('sidebar_select')
 
+        }
+        // 分開取出各區域
+        document.querySelector('.storeBtn').onclick = ()=>{
+            displayRegion('all')
+            selectRegion('storeBtn')
+
+        }
+        document.querySelector('.northBtn').onclick = ()=>{
+            displayRegion('north')
+            selectRegion('northBtn')
+        }
+        document.querySelector('.centralBtn').onclick = ()=>{
+            displayRegion('central')
+            selectRegion('centralBtn')
+            
+        }
+        document.querySelector('.southBtn').onclick = ()=>{
+            displayRegion('south')
+            // document.querySelector('.').classList.toggle('sidebar_select')
+            selectRegion('southBtn')
+        }
+
+        function selectRegion(btn){
+            document.querySelectorAll('.sidebar a').forEach((btn)=>{
+                btn.classList.remove('sidebar_select')
+            })
+           
+            document.querySelector(`.${btn}`).classList.add('sidebar_select')
+
+
+        }
+        function displayRegion(region){
+            // 將各區門市解構賦值給全部門市
+            const allStore = [...stores.north,...stores.central,...stores.south]
+            // let regionStore = stores[region]
+            // 將三元運算結果賦值給regionStore
+            let regionStore = region === 'all' ? allStore : stores[region];
+            
+            console.log('allStore',allStore)
+            storeTable.innerHTML = ""
+            regionStore.forEach((Item)=>{
+                let storeItem = document.createElement('tr')
+                storeItem.classList.add(`${region}_store`)
+                // 有的門市只有一個營業時間，判斷後加入
+                let openTimes = `<p>${Item.open}</p>`;
+                if (Item.open2) {
+                    openTimes += `<p>${Item.open2}</p>`;
+                }
+                storeItem.innerHTML = 
+                    `   <td>${Item.name}</td>
+                        <td class="opan_time">
+                            ${openTimes}
+                        </td>
+                        <td>${Item.address}</td>
+                        <td><a href="${Item.map}" target="_blank"><i class="fa-solid fa-map-location-dot"></i></a></td>
+                    `
+                    console.log(storeItem)
+                    storeTable.appendChild(storeItem)
+            })
+        }
+
+
+        
 
 
         // 加載 footer.html

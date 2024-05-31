@@ -54,6 +54,18 @@ header{
     align-items: center;
     position: relative;
 }
+/* 有sidebar的容器 */
+.common_container{
+    width: 85%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.common_wrapper{
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+
 .menu{
     position: relative;
     height: 45px;

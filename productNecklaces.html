@@ -13,9 +13,13 @@
     <link rel="stylesheet" href="./css/product.css">
     <style>
         
-       .sidebar li:nth-child(5) a {
+       /* .sidebar li:nth-child(5) a {
             background-color: #fff;
             color: #183165;
+        } */
+        .sidebar a.sidebar_select{
+            color: var(--color-primary);
+            background-color: #fff;
         }
     </style>
 </head>
@@ -61,7 +65,7 @@
                                 <li class="dropdown_item"><a href="">客製化 Made To Order</a></li>
                             </ul>
                         </li>
-                        <li class="flex-1"><a href="" data-menu_item="CONTACT">CONTACT</a></li>
+                        <li class="flex-1"><a href="" data-menu_item="CONTACT">STORES</a></li>
                         <li class="flex-1"><a href="login.html" data-menu_item="LOGIN">LOGIN</a></li>
                     </ul>
                 </div>
@@ -72,17 +76,17 @@
         </nav>
     </header>
     <ol class="breadcrumb">
-        <li><a href="./index.html">首頁</a></li>
-        <li>項鍊 Necklaces</li>
+        <!-- <li><a href="./index.html">首頁</a></li>
+        <li>項鍊 Necklaces</li> -->
     </ol>
-    <div class="product_container">
-        <div class="product_wrapper">
+    <div class="common_container">
+        <div class="common_wrapper">
             <ul class="sidebar">
-                <li><a href="#">全部商品</a></li>
-                <li><a href="./productEarring.html">耳環 Earring</a></li>
+                <!-- <li><a href="#">全部商品</a></li> -->
+                <li><a href="#" class="earringBtn">耳環 Earring</a></li>
                 <li><a href="#">耳夾 Earclip</a></li>
                 <li><a href="#">戒指 Rings</a></li>
-                <li><a href="./productNecklaces.html">項鍊 Necklaces</a></li>
+                <li><a href="#" class="necklaceBtn">項鍊 Necklaces</a></li>
                 <li><a href="#">手鍊 Bracelets</a></li>
                 <li><a href="#">訂婚鑽戒 Engagement Rings</a></li>
                 <li><a href="#">結婚對戒 Wedding Rings</a></li>
@@ -228,34 +232,96 @@
     <script type="module" src="./js/productItem.js"></script>
 
     <script type="module" >
-        import { necklaceItems } from "./js/productItem.js";
+        import { necklaceItems ,earringItems  } from "./js/productItem.js";
         
-        console.log(necklaceItems)
-        necklaceItems.forEach(Item => { 
-            let product = document.querySelector('.product')
-            let productPage = document.querySelector('.product_page')
-            let productItem = document.createElement('div')
-            productItem.classList.add('product_item')
-            console.log(productItem)
-            // console.log(Item.imgSrc)
-            productItem.innerHTML = `
-                <a href="#">
-                    <div class="img_wrapper">
-                        <img src="${Item.imgSrc}" alt="" class="pd_img" />
-                        <div class="addcart_btn">加入購物車</div>
-                    </div>
-                    <p>${Item.name}</p>
-                </a>
-                <p>${Item.price}</p>
+        // console.log(necklaceItems)
+        // necklaceItems.forEach(Item => { 
+        //     let product = document.querySelector('.product')
+        //     let productPage = document.querySelector('.product_page')
+        //     let productItem = document.createElement('div')
+        //     productItem.classList.add('product_item')
+        //     console.log(productItem)
+        //     productItem.innerHTML = `
+        //         <a href="#">
+        //             <div class="img_wrapper">
+        //                 <img src="${Item.imgSrc}" alt="" class="pd_img" />
+        //                 <div class="addcart_btn">加入購物車</div>
+        //             </div>
+        //             <p>${Item.name}</p>
+        //         </a>
+        //         <p>${Item.price}</p>
+        //     `
+        //     product.insertBefore(productItem,productPage)
+        // });
+    
+        window.onload = ()=>{
+            displaytype(earringItems)
+            selectRegion(document.querySelector('.earringBtn'))
+            console.log(earringItems)
+        }
+        document.querySelector('.earringBtn').onclick = ()=>{
+            displaytype(earringItems)
+            selectRegion(document.querySelector('.earringBtn'))
+            console.log(earringItems)
+        }
+        document.querySelector('.necklaceBtn').onclick = ()=>{
+            displaytype(necklaceItems)
+            selectRegion(document.querySelector('.necklaceBtn'))
+            console.log(necklaceItems)
+            console.log('內容',document.querySelector('.necklaceBtn').innerText)
+
+
+        }
+        let product = document.querySelector('.product')
+        let productPage = document.querySelector('.product_page')
+        let breadcrumb = document.querySelector('.breadcrumb')
+        function displaytype(type){
+            product.innerHTML = ""
+            type.forEach(Item => { 
+                let productItem = document.createElement('div')
+                productItem.classList.add('product_item')
+                console.log(productItem)
+                productItem.innerHTML = `
+                    <a href="#">
+                        <div class="img_wrapper">
+                            <img src="${Item.imgSrc}" alt="" class="pd_img" />
+                            <div class="addcart_btn">加入購物車</div>
+                        </div>
+                        <p>${Item.name}</p>
+                    </a>
+                    <p>${Item.price}</p>
+                `
+                
+                // product.insertBefore(productItem,productPage)
+                product.appendChild(productItem)
+            });
+            product.appendChild(productPage)
+
+        }
+
+        function selectRegion(btn){
+            breadcrumb.innerHTML = ""
+
+            document.querySelectorAll('.sidebar a').forEach((btn)=>{
+                btn.classList.remove('sidebar_select')
+            })
+           
+            btn.classList.add('sidebar_select')
+            breadcrumb.innerHTML = `
+                <li><a href="./index.html">首頁</a></li>
+                <li>${btn.innerText}</li>
             `
-            product.insertBefore(productItem,productPage)
-        });
+            console.log('內容',btn.innerText)
+        }
+
         // 加載 footer.html
         fetch('footer.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('footer').innerHTML = html;
             });
+
+
     </script>
 </body>
 </html>
