@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/necklace.css">
     <style>
         :root{
             --color-primary:#183165;
@@ -34,7 +35,7 @@
             background-image: url(./img/wallpaper.webp);
             position: fixed;
         }
-        .breadcrumb{
+        /* .breadcrumb{
             color: #183165;
             display: flex;
         }
@@ -46,427 +47,8 @@
         }
         .breadcrumb li:first-child:after{
             content: '\00A0\00A0/\00A0\00A0';
-        }
-        .product_container{
-            width: 65%;
-            margin: 0 auto;
-            box-sizing: border-box;
-        }
-        .product_wrapper{
-            display: grid;
-            grid-template-columns: 45% 55%;
-        }
-        .goods_img{
-            display: flex;
-            flex-direction: column;
-            
-        }
-        .manifier{
-            width: 400px;
-            height: 400px;
-            position: relative;
-        }
-        /* .manifier>img{
-            width: 100%;
         } */
-        .magnifier_show{
-            width: 400px;
-            height: 400px;
-            overflow: hidden;
-            position: absolute;
-            top: 0;
-            left: 400px;
-            opacity: 1;
-            z-index: 2;
-            display: none;
-        }
-        #manifier_img{
-            width: 800px;
-            height: 800px;
-            position: absolute;
-          
-        }
-        #img_mask{
-            width: 200px;
-            height: 200px;
-            background-color: rgba(0, 0, 0, 0.1);
-            position: absolute;
-            display: none;
-          
-
-        }
-        .originImg{
-            background-image: url(./img/EternalNecklace/01.webp);
-            width: 400px;
-            height: 400px;
-            background-position: center;
-            background-size: cover;
-            transition: background-image 0.3s ease-in-out;
-        }
-        .thumbnail{
-            display: grid;
-            /* grid-template-columns: repeat(4,calc((100% - 30px) / 4)); */
-            grid-template-columns: repeat(4,85px);
-            grid-template-rows: repeat(3,85px);
-            /* grid-template-rows: repeat(2,calc((100% - 10px) / 2)); */
-            gap: 20px;
-            margin: 20px 0;
-            /* width: 100px; */
-            /* height: 100px; */
-        }
-        .thumbnail img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            cursor: pointer;
-            box-shadow: 2px 2px 10px  #888 ;
-            border-radius: 10px;
-        }
-        .thumbnail img:hover{
-            transform: scale(1.1);
-            transition: .5s;
-        }
-        .price{
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-        .price::before{
-            content: 'NT';
-        }
-        .colorBtn,#add_cart{
-            border: none;
-            background-color: var(--color-primary);
-            color: #fff;
-            width: 150px;
-            padding: 10px;
-            border-radius: 10px;   
-            cursor: pointer;         
-        }
-        .colorBtn:hover,.input_group >button:hover{
-            background-color: #fff;
-            color: var(--color-primary);
-        }
-        label{
-            /* display: block; */
-        }
-        .input_group >button{
-            border: none;
-            width: 35px;
-            height: 35px;
-            cursor: pointer;
-            background-color: var(--color-primary);
-            color: #fff;
-            border-radius: 5px;
-
-        }
-        #add_cart{
-            /* display: block; */
-            margin-top: 30px;
-            width: 300px;
-            height: 40px;
-            background-image: linear-gradient(to right,#395288 ,#1a397a );
-            box-shadow: 0px 4px 0px var(--color-primary);
-            transition: all 0.2s ease-in-out;
-            /* cursor: pointer; */
-        }
-        #add_cart:hover{
-            transform: translateY(-2px);
-            box-shadow: 0px 6px 0px var(--color-primary);
-        }
-        #add_cart:active{
-            transform: translateY(3px);
-            box-shadow: 0px 1px 0px var(--color-primary);
-        }
-       
-        input[type="text"]{
-            outline: none;
-            text-align: center;
-            height: 35px;
-            border: none;
-        }
-        .good_describe{
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            width: 100%;
-            align-items: center;
-        }
-        .good_describe ul li:first-child{
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .good_describe >h4,.moreGoods>h4{
-            width: 200px;
-            color: var(--color-primary);
-            font-size: 2rem;
-            border-bottom: 3px solid var(--color-primary);
-            padding: 20px;
-           
-        }
-       
-        .goods_box{
-            position: relative;
-        }
-        .goods_box p>span:first-child{
-            color: var(--color-primary);
-            font-weight: bold;
-        }
-        .goods_box p>span:last-child{
-            color: #888;
-            font-size: 0.9rem;
-            /* font-weight: bold; */
-        }
-        .favorite{
-            position: absolute;
-            /* right: 0; */
-            /* top: 0; */
-            font-size: 2rem;
-            color: red;
-        }
-        input[type="radio"]{
-            display: none;
-                
-        }
-        input[type="radio"]+label{
-            
-            background-color: var(--color-primary);
-            color: #fff;
-            width: 150px;
-            padding: 10px;
-            border-radius: 10px;   
-            cursor: pointer;
-                
-        }
-
-        input[type="radio"]+label:hover,input[type="radio"]:checked +label{
-            color: var(--color-primary);
-            background-color: #fff;
-        }
-
-
-        .cart_container{
-            /* display: none; */
-
-            position: absolute;
-            right: -550px;
-            top: 0;
-            background-image: url(./img/wallpaper.webp);
-            /* background-color: var(--color-primary); */
-            width: 450px;
-            /* height: 100%; */
-            /* z-index: 20; */
-            z-index: 51;
-            padding: 10px;
-            text-align: center;
-            color: #fff;
-            /* transform: translateX(550px); */
-            transition: 1s;
-
-        }
-        .cart_item{
-            background-color: transparent;
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: 120px 300px;
-            grid-template-rows: repeat(2,1fr);
-            align-items: center;
-            justify-items: center;
-        }
-        .cart_img{
-            width: 100px;
-            height: 100px;
-            background-position: center;
-            background-size: cover;
-            grid-row: 1/3;
-            /* grid-column: 1/4; */
-        }
-        .cart_img img{
-            /******test******/
-            width: 100%;
-        }
-        .cartbtn_group>button{
-            border: none;
-            width: 25px;
-            height: 25px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            background-color: var(--color-secondary);
-            color: #000;
-            border-radius: 50%;
-        }
-        .cartbtn_group>input{
-            width: 20px;
-            height: 20px;
-            background-color: transparent;
-            font-size: 1.2rem;
-            color: #fff;
-        }
-        .cartbtn_group span+button{
-            /* display: inline-block; */
-            margin-left: 30px;
-        }
-        .subtotal {
-            font-size: 1.2rem;
-        }
-        .subtotal::before{
-            content: 'NT';
-        }
-
-        .cart_container .total{
-            line-height: 30px;
-            width: 50%;
-            padding: 15px 0;
-            background-color: #fff;
-            color: var(--color-primary);
-            position: absolute;
-            bottom: -60px;
-            left: 0;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        /* 結帳紐 */
-        .checkout{
-            line-height: 30px;
-            width: 50%;
-            padding: 15px 0;
-            background-color: #fff;
-            color: var(--color-primary);
-            position: absolute;
-            bottom: -60px;
-            right: 0;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 1;
-        }
-        .checkout::before{
-            content: '';
-            height: 100%;
-            /* height: 100%; */
-            width: 0%;
-            background-color: var(--color-secondary);
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: -1;
-            
-            transition: .5s;
-        }
-        .checkout:hover{
-        /* background-color: aqua;} */
-            color:var(--color-primary);
-            letter-spacing: 2px;
-        }
-
-        .checkout:hover::before{
-            width: 100%;
-        }
-
-        .cart_icon{
-            /* background-color: yellow; */
-            position: absolute;
-            top: 500px;
-            left: 0;
-            /* margin: auto; */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 120px;
-            height: 50px;
-            font-size: 30px;
-            transform: translateX(-150px);
-            transition: 1s ease-in-out;
-            background-image: linear-gradient(to right,#4c6394 ,#1a397a );
-            color: #fff;
-            box-shadow: 2px 2px 10px #888;
-        }
-        .fa-bag-shopping{
-            padding: 0 10px;
-        }
-        .cart_cancel{
-            background-color: rgb(255, 255, 255);
-            position: absolute;
-            bottom:  50px;
-            left: -50px;
-            /* margin: auto; */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            font-size: 30px;
-            color: var(--color-primary);
-            box-shadow: -2px 2px 4px var(--color-primary);
-            
-        }
-        .cart_cancel:active{
-            background-color: var(--color-secondary);
-
-        }
-        /* 更多 */
-        .moreGoods{
-            box-sizing: border-box;
-            width: 100%;
-            padding: 100px;
-            text-align: center;
-        }
-        .moreGoods ul{
-            display: grid;
-            /* width: 90%; */
-            grid-template-columns: repeat(5,1fr);
-            gap: 20px;
-            
-        }
-        .moreGoods img{
-            border-radius: 50%;
-            box-shadow: 2px 2px 5px #888;
-            width: 90%;
-            animation: heartbeat infinite 1s ease-in;
-        }
         
-        .moreGoods ul li a>p{
-            color:#183165;
-        }
-        .moreGoods ul li a:hover p{
-            text-shadow: 2px 2px 5px #ffffff;
-        }
-        .moreGoods>h4{
-            margin: 40px auto;
-            /* padding: 20px; */
-        }
-        @keyframes heartbeat {
-            0%{
-                transform: scale(1.05);
-            }
-            50%{
-                transform: scale(1);
-            }
-            100%{
-                transform: scale(1.05);
-            }
-        }
-        @media screen and (max-width:1600px) {
-            .product_container{  width: 75%;  }
-            
-        }
-        @media screen and (max-width:1400px) {
-            .product_container{  width: 85%;  }
-           
-        }
-        @media screen and (max-width:1200px) {
-            .product_container{  width: 95%; }
-
-        }
-        @media screen and (max-width:992px) {
-            .product_wrapper{
-                display: grid;
-                grid-template-rows: 1fr 1fr;
-                grid-template-columns: none;
-                margin: 100px;
-            }
-            
-        }
     </style>
 </head>
 <body>
@@ -539,15 +121,7 @@
                     </div>
                 </div>
                 <div class="thumbnail">
-                    <!-- <img src="./img/EternalNecklace/01.webp" alt="">
-                    <img src="./img/EternalNecklace/02.webp" alt="">
-                    <img src="./img/EternalNecklace/03.webp" alt="">
-                    <img src="./img/EternalNecklace/04.webp" alt="">
-                    <img src="./img/EternalNecklace/05.webp" alt="">
-                    <img src="./img/EternalNecklace/06.webp" alt="">
-                    <img src="./img/EternalNecklace/07.webp" alt="">
-                    <img src="./img/EternalNecklace/08.webp" alt="">
-                    <img src="./img/EternalNecklace/09.webp" alt=""> -->
+                    <!-- 迭代放入縮圖 -->
                 </div>
               
             </div>
@@ -558,21 +132,11 @@
                 <p>全館任選四件82折，優惠後特價 NT$298</p>
                 <p class="price">363</p>
                 <p>顏色：</p>
-                <!-- <button class="colorBtn">Silver / 銀色 </button> -->
-                <!-- <button class="colorBtn">Rose Gold / 玫瑰金</button> -->
                 <input type="radio" id="silver" name="color" value="silver">
                 <label for="silver">Silver / 銀色</label>
                 <input type="radio" id="roseGold" name="color" value="roseGold">
                 <label for="roseGold">Rose Gold / 玫瑰金</label>
-
-                <!-- <p></p> -->
-                <div class="input_group">
-                    <!-- <label for="quantity">數量</label>
-                    <button id="minus_btn">-</button>
-                    <input type="text" name="quantity" id="quantity" value="1">
-                    <button id="plus_btn">+</button> -->
-                    <button id="add_cart">加入購物車</button>
-                </div>
+                <button id="add_cart">加入購物車</button>
                 <p>
                     <span>付款</span>
                     <span>超商貨到付款《刻字、訂製、預購無法使用貨到付款》、超商代碼、信用卡一次付清與國內分期零利率、ATM轉帳、LINE Pay、PayPal</span>	
@@ -581,9 +145,7 @@
                     <span>配送</span>
                     <span>超商取貨、本島與外島宅配、海外順豐速運 Pay、PayPal</span>	
                 </p>  
-                    
-                
-                <!-- <div class="favorite"><i class="fa-regular fa-heart"></i>加入追蹤清單</div> -->
+    
             </div>
         </div>
         <div class="good_describe">
@@ -609,36 +171,7 @@
     <div class="moreGoods">
         <h4>產品推薦</h4>
         <ul class="moreList">
-            <!-- <li>
-                <a href="#">
-                    <img src="./img/earrings/02.webp" alt="">
-                    <p>黛妃珍珠耳環2色 Diana Pearl Earring</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">                    
-                    <img src="./img/necklace/04.webp" alt="">
-                    <p>[純銀] 海的思念鎖骨鍊 / 3色 / Sea Longing Necklace</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="./img/earrings/12.webp" alt="">
-                    <p>[銀針] 春季水仙花耳環組2色Spring Daffodil Earring Set</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="./img/necklace/06.webp" alt="">
-                    <p>[純銀] 心中的星光鎖骨鍊 / 2色 / Starlight In The Heart Necklace</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="./img/earrings/10.webp" alt="">
-                    <p>[純銀] 心纏耳環2色Winding Earring</p>
-                </a>
-            </li> -->
+            <!-- 隨機放入五項產品 -->
         </ul>
     </div>
     <div class="cart_container">
@@ -659,298 +192,297 @@
 
     <script src="./js/header.js"></script>
 
-    <script type="module" src="./js/productItem.js"></script>
-
-    <script type="module" >
-        import { necklaceItems ,earringItems  } from "./js/productItem.js";
-        
-   
-        let favoriteBtn = document.querySelector(".fa-heart");
-        let imgMask = document.getElementById("img_mask");
-        let originImg = document.querySelector(".originImg");
-        let manifierImg = document.getElementById("manifier_img");
-        let manifierShow = document.querySelector(".magnifier_show");
-        let thumbnail = document.querySelector(".thumbnail");
-        let goodsTitle = document.querySelector(".goods_title");
-        let addCartBtn = document.getElementById("add_cart");
-        let cartItemTitle = document.getElementById("cartItem_title");
-        let silver = document.getElementById("silver");
-        let roseGold = document.getElementById("roseGold");
-        let goodPrice = document.querySelector(".price").innerText;
-        // let colorBtn = document.querySelectorAll('.colorBtn')
-        let cartContainer = document.querySelector(".cart_container");
-        let cartIcon = document.querySelector(".cart_icon");
-        // let cartbtnGroup = document.querySelector('cartbtn_group')
-        let originImgBgImg = window.getComputedStyle(originImg).getPropertyValue('background-image')
-        let thumbnailArr = [
-            "./img/EternalNecklace/01.webp",
-            "./img/EternalNecklace/02.webp",
-            "./img/EternalNecklace/03.webp",
-            "./img/EternalNecklace/04.webp",
-            "./img/EternalNecklace/05.webp",
-            "./img/EternalNecklace/06.webp",
-            "./img/EternalNecklace/07.webp",
-            "./img/EternalNecklace/08.webp",
-            "./img/EternalNecklace/09.webp"
-        ]
-        
+    <!-- <script type="module" src="./js/productItem.js"></script> -->
+    <!-- 因為在./js/necklace.js引入productItem.js(用了import) ，js會當成模塊
+            故要用模塊來引入 -->
+    <script  type="module">
+        import { myNecklace } from './js/necklace.js';
+        myNecklace();
 
 
-        let selectColor = ''
-        roseGold.onclick = ()=>{
-            originImg.style.backgroundImage = `url(${thumbnailArr[0]})`
-            manifierImg.src = thumbnailArr[0]
-            selectColor = 'roseGoldColor'
-        
-        }
-        silver.onclick = ()=>{
-            originImg.style.backgroundImage = `url(${thumbnailArr[1]})`
-            manifierImg.src = thumbnailArr[1]
-            selectColor = 'silverColor'
-            // updateSelectedColor(selectColor) 
-           
-        }
-        
-        for(let i = 0;i <= thumbnailArr.length-1 ; i++){
-            let myImg = document.createElement('img')
-            myImg.setAttribute('src',thumbnailArr[i])
-            thumbnail.appendChild(myImg)
-            // 點選縮圖後上方大圖會改變
-            myImg.onclick = ()=>{
-                originImg.style.backgroundImage = `url(${thumbnailArr[i]})`
-                manifierImg.src = thumbnailArr[i]
-            }
-        }   
-       
-        addCartBtn.onclick = ()=>{
-            if(selectColor == ''){
-                return
-            }
-            
-            addCartItem();
-            let cartItems = document.querySelectorAll(".cart_item");
-            // 獲取最新產生的購物車項目
-            let cartItem = cartItems[cartItems.length - 1]; 
-            let cartImg = cartItem.querySelector(".cart_img");
-            console.log('cartItems[0]',cartItems[0])
-            console.log('cartItems[1]',cartItems[1])
-            // 選擇該顏色時，購物車照片要是該顏色
-            if(cartImg.classList.contains('silverColor')){
-                cartImg.style.backgroundImage = `url(${thumbnailArr[1]})`
-            }else{
-                cartImg.style.backgroundImage = `url(${thumbnailArr[0]})`
-            }
-
-            
-
-           
-            let plusBtn = cartItem.querySelector('.plus_btn')
-            let minusBtn = cartItem.querySelector('.minus_btn')
-            let quantity = cartItem.querySelector('.quantity')
-            // subtotal = 單價*個數 ； total = 總計
-            let subtotal = cartItem.querySelector('.subtotal')
-            // let total = document.querySelector('.total')
-            // total = subtotal
-            // console.log('total',total.innerText)
-            plusBtn.onclick = ()=>{
-                let currentNum = quantity.value
-                quantity.value = `${parseInt(currentNum) + 1}`
-                subtotal.innerText = parseInt(goodPrice) * parseInt(quantity.value)
-                total = subtotal
-                console.log('plustotal',total.innerText)
-                updateTotal()
-            }
-
-            minusBtn.onclick = ()=>{
-                let currentNum = quantity.value
-                if(quantity.value <= 1){
-                    cartItem.remove();
-                    cartContainer.style.transform = `translateX(${550}px)`;
-                    console.log(cartContainer)
-                    black_overlay.style.display = "none"
-            
-                }else{
-                    quantity.value = currentNum - 1
-                    subtotal .innerText = parseInt(goodPrice) * parseInt(quantity.value)
-                    total = subtotal
-                    console.log('minustotal',total.innerText)
-                }
-                updateTotal()
-                
-            }
-
-            cartIcon.style.transform = `translateX(${0}px)`;
-        }
-        
-        let black_overlay = document.querySelector('.black_overlay')
-        
-        cartIcon.onclick = ()=>{
-            // cartContainer.style.transform = `translateX(${0}px)`;
-            cartContainer.style.right = `${0}px`;
-            black_overlay.style.display = "block"
-
-        }
-        let cartCancel = document.querySelector(".cart_cancel");
-        cartCancel.onclick = ()=>{
-            // cartContainer.style.transform = `translateX(${550}px)`;
-            cartContainer.style.right = `${-550}px`;
-            console.log(cartContainer)
-            black_overlay.style.display = "none"
-        }
-        // 加進購物車品項
-        function addCartItem(){
-            let cartItem ;
-            let existCartItem = document.querySelector(`.cart_item[data-color="${selectColor}"]`)
-            
-            console.log(existCartItem)
-            if(existCartItem){
-                
-                let existItemQuantity = existCartItem.querySelector('.quantity')
-                let currentQuantity = parseInt(existItemQuantity.value)
-                existItemQuantity.value = currentQuantity + 1
-                let existCartItemImg = existCartItem.querySelector(`.cart_img`)
-                // existCartItemImg.style.backgroundImage = existCartItemImg.style.backgroundImage
-                // console.log()
-            }else{
-
-                cartItem = document.createElement('div')
-                cartItem.classList.add('cart_item')
-                // 創建一個購物車項目時帶上data-color屬性 = 選擇的顏色
-                cartItem.dataset.color = selectColor;
-                cartItem.innerHTML = 
-                    `   <div class="cart_img ${selectColor}"></div>
-                        <div class="cartItem_title">${goodsTitle.innerText} - ${selectColor}</div>
-                        <div class="cartbtn_group">
-                            <span class="subtotal "> ${goodPrice}</span>
-                            <button class="minus_btn">-</button>
-                            <input type="text" name="quantity" class="quantity" value="1">
-                            <button class="plus_btn">+</button>
-                        </div>
-                        
-                    `
-                cartContainer.appendChild(cartItem);
-                             
-            }
-            updateTotal()
-        }
-        // 更新購物車總金額
-        function updateTotal(){
-            let total = 0
-            let subtotals = document.querySelectorAll('.subtotal')
-            subtotals.forEach((subtotal)=>{
-                console.log('subtotal',subtotal)
-                total += parseInt(subtotal.innerText)
-                // subtotalArr.push(subtotal)
-                // console.log(parseInt(subtotalArr[0]))
-            })
-            document.querySelector('.total span:last-child').innerText = total
-            console.log('total',total.innerText)
-        }
-        
-
-        // 更新購物車項目文字
-        function updateSelectedColor(selectColor) {
-            let cartItemTitles = document.querySelectorAll(".cartItem_title");
-
-            // console.log(cartItemTitle.innerText.includes(selectColor))
-            // 更新購物車中的所有項目的顏色文字
-            cartItemTitles.forEach(cartItemTitle => {
-            console.log('selectColor',selectColor)
-                cartItemTitle.innerText = `${goodsTitle.innerText} - ${selectColor}`;
-
-            });
-        }
-
-
-        //隨機取項鍊產品
-        let moreList = document.querySelector('.moreList')
-        // console.log('randomNum',randomNum)
-        // document.createElement('li')
-        // necklaceItems.forEach((Item,randomNum)=>{
-            // console.log('Item[randomNum].imgSrc',Item[randomNum].imgSrc)
-        let randomIndexArr = []    
-        for(let i = 0 ; i < 5 ; i++){
-            let randomNum = Math.floor(Math.random()* necklaceItems.length )
-
-            // randomNum = Math.floor(Math.random()* necklaceItems.length )
-            // 如果陣列中已含有隨機數，將i遞減使for迴圈再跑選取一次
-            if(randomIndexArr.includes(randomNum)){
-                // randomNum = Math.floor(Math.random()* necklaceItems.length )
-                i--;
-                continue
-            }
-            randomIndexArr.push(randomNum)    
-            // console.log(necklaceItems[randomNum].name)
-            
-                let myLi =  document.createElement('li')
-                myLi.innerHTML = `
-                    <a href="#">
-                        <img src="${necklaceItems[randomNum].imgSrc}" alt="">
-                        <p>${necklaceItems[randomNum].name}</p>
-                    </a>
-                    `
-                    moreList.appendChild(myLi)
-            }
-        
-        // })
-
-
-
-
-        //放大鏡功能
-        originImg.onmouseover = () =>{
-            imgMask.style.display = 'block'
-            manifierShow.style.display = 'block'
-        }
-        originImg.onmouseout = () =>{
-            imgMask.style.display = 'none'
-            manifierShow.style.display = 'none'
-            
-        }
-        // coordinate:座標
-        originImg.onmousemove = (coordinate)=>{
-            // 圖片相對於視窗的位置
-            let originImgCoordinate = originImg.getBoundingClientRect()
-            // console.log('originImgCoordinate',originImgCoordinate)
-            // console.log('coordinate.clientX',coordinate.clientX)
-            let mouseX = coordinate.clientX - originImgCoordinate.left - 100
-            let mouseY = coordinate.clientY - originImgCoordinate.top - 100
-            // console.log(mouseX)
-            
-            if(mouseX >= 200){mouseX = 200}
-            if(mouseX < 0){mouseX = 0}
-            if(mouseY >= 200){mouseY = 200}
-            if(mouseY < 0){mouseY = 0}
-            imgMask.style.left = `${mouseX}px`
-            imgMask.style.top = `${mouseY}px`
-
-            let manifierImg2 = window.getComputedStyle(manifierImg).getPropertyValue('left')
-            // console.log(manifierImg2)
-            manifierImg.style.left = `${-2 * mouseX}px`
-            manifierImg.style.top = `${-2 * mouseY}px`
-
-            
-        }
-
-
-
-        // favoriteBtn.addEventListener('click',()=>{
-        //     if( favoriteBtn.classList.contains('fa-regular')){
-        //         favoriteBtn.classList.toggle('fa-solid')
-        //         // favoriteBtn.style.color = 'red'
-        //     }
-            
-        // })
-
-    
-
-
-        // 加載 footer.html
-        fetch('footer.html')
+         // 加載 footer.html
+         fetch('footer.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('footer').innerHTML = html;
             });
+    </script>
+    <script  >
+    
+        // import { necklaceItems ,earringItems  } from "./js/productItem.js";
+        
+   
+        // let favoriteBtn = document.querySelector(".fa-heart");
+        // let imgMask = document.getElementById("img_mask");
+        // let originImg = document.querySelector(".originImg");
+        // let manifierImg = document.getElementById("manifier_img");
+        // let manifierShow = document.querySelector(".magnifier_show");
+        // let thumbnail = document.querySelector(".thumbnail");
+        // let goodsTitle = document.querySelector(".goods_title");
+        // let addCartBtn = document.getElementById("add_cart");
+        // let cartItemTitle = document.getElementById("cartItem_title");
+        // let silver = document.getElementById("silver");
+        // let roseGold = document.getElementById("roseGold");
+        // let goodPrice = document.querySelector(".price").innerText;
+        // // let colorBtn = document.querySelectorAll('.colorBtn')
+        // let cartContainer = document.querySelector(".cart_container");
+        // let cartIcon = document.querySelector(".cart_icon");
+        // // let cartbtnGroup = document.querySelector('cartbtn_group')
+        // let originImgBgImg = window.getComputedStyle(originImg).getPropertyValue('background-image')
+        // let thumbnailArr = [
+        //     "./img/EternalNecklace/01.webp",
+        //     "./img/EternalNecklace/02.webp",
+        //     "./img/EternalNecklace/03.webp",
+        //     "./img/EternalNecklace/04.webp",
+        //     "./img/EternalNecklace/05.webp",
+        //     "./img/EternalNecklace/06.webp",
+        //     "./img/EternalNecklace/07.webp",
+        //     "./img/EternalNecklace/08.webp",
+        //     "./img/EternalNecklace/09.webp"
+        // ]
+        
+
+
+        // let selectColor = ''
+        // roseGold.onclick = ()=>{
+        //     originImg.style.backgroundImage = `url(${thumbnailArr[0]})`
+        //     manifierImg.src = thumbnailArr[0]
+        //     selectColor = 'roseGoldColor'
+        
+        // }
+        // silver.onclick = ()=>{
+        //     originImg.style.backgroundImage = `url(${thumbnailArr[1]})`
+        //     manifierImg.src = thumbnailArr[1]
+        //     selectColor = 'silverColor'
+        //     // updateSelectedColor(selectColor) 
+           
+        // }
+        
+        // for(let i = 0;i <= thumbnailArr.length-1 ; i++){
+        //     let myImg = document.createElement('img')
+        //     myImg.setAttribute('src',thumbnailArr[i])
+        //     thumbnail.appendChild(myImg)
+        //     // 點選縮圖後上方大圖會改變
+        //     myImg.onclick = ()=>{
+        //         originImg.style.backgroundImage = `url(${thumbnailArr[i]})`
+        //         manifierImg.src = thumbnailArr[i]
+        //     }
+        // }   
+       
+        // addCartBtn.onclick = ()=>{
+        //     if(selectColor == ''){
+        //         return
+        //     }
+            
+        //     addCartItem();
+        //     let cartItems = document.querySelectorAll(".cart_item");
+        //     // 獲取最新產生的購物車項目
+        //     let cartItem = cartItems[cartItems.length - 1]; 
+        //     let cartImg = cartItem.querySelector(".cart_img");
+        //     console.log('cartItems[0]',cartItems[0])
+        //     console.log('cartItems[1]',cartItems[1])
+        //     // 選擇該顏色時，購物車照片要是該顏色
+        //     if(cartImg.classList.contains('silverColor')){
+        //         cartImg.style.backgroundImage = `url(${thumbnailArr[1]})`
+        //     }else{
+        //         cartImg.style.backgroundImage = `url(${thumbnailArr[0]})`
+        //     }
+
+            
+
+           
+        //     let plusBtn = cartItem.querySelector('.plus_btn')
+        //     let minusBtn = cartItem.querySelector('.minus_btn')
+        //     let quantity = cartItem.querySelector('.quantity')
+        //     // subtotal = 單價*個數 ； total = 總計
+        //     let subtotal = cartItem.querySelector('.subtotal')
+        //     // let total = document.querySelector('.total')
+        //     // total = subtotal
+        //     // console.log('total',total.innerText)
+        //     plusBtn.onclick = ()=>{
+        //         let currentNum = quantity.value
+        //         quantity.value = `${parseInt(currentNum) + 1}`
+        //         subtotal.innerText = parseInt(goodPrice) * parseInt(quantity.value)
+        //         total = subtotal
+        //         console.log('plustotal',total.innerText)
+        //         updateTotal()
+        //     }
+
+        //     minusBtn.onclick = ()=>{
+        //         let currentNum = quantity.value
+        //         if(quantity.value <= 1){
+        //             cartItem.remove();
+        //             cartContainer.style.transform = `translateX(${550}px)`;
+        //             console.log(cartContainer)
+        //             black_overlay.style.display = "none"
+            
+        //         }else{
+        //             quantity.value = currentNum - 1
+        //             subtotal .innerText = parseInt(goodPrice) * parseInt(quantity.value)
+        //             total = subtotal
+        //             console.log('minustotal',total.innerText)
+        //         }
+        //         updateTotal()
+                
+        //     }
+
+        //     cartIcon.style.transform = `translateX(${0}px)`;
+        // }
+        
+        // let black_overlay = document.querySelector('.black_overlay')
+        
+        // cartIcon.onclick = ()=>{
+        //     // cartContainer.style.transform = `translateX(${0}px)`;
+        //     cartContainer.style.right = `${0}px`;
+        //     black_overlay.style.display = "block"
+
+        // }
+        // let cartCancel = document.querySelector(".cart_cancel");
+        // cartCancel.onclick = ()=>{
+        //     // cartContainer.style.transform = `translateX(${550}px)`;
+        //     cartContainer.style.right = `${-550}px`;
+        //     console.log(cartContainer)
+        //     black_overlay.style.display = "none"
+        // }
+        // // 加進購物車品項
+        // function addCartItem(){
+        //     let cartItem ;
+        //     let existCartItem = document.querySelector(`.cart_item[data-color="${selectColor}"]`)
+            
+        //     console.log(existCartItem)
+        //     if(existCartItem){
+                
+        //         let existItemQuantity = existCartItem.querySelector('.quantity')
+        //         let currentQuantity = parseInt(existItemQuantity.value)
+        //         existItemQuantity.value = currentQuantity + 1
+        //         let existCartItemImg = existCartItem.querySelector(`.cart_img`)
+        //         // existCartItemImg.style.backgroundImage = existCartItemImg.style.backgroundImage
+        //         // console.log()
+        //     }else{
+
+        //         cartItem = document.createElement('div')
+        //         cartItem.classList.add('cart_item')
+        //         // 創建一個購物車項目時帶上data-color屬性 = 選擇的顏色
+        //         cartItem.dataset.color = selectColor;
+        //         cartItem.innerHTML = 
+        //             `   <div class="cart_img ${selectColor}"></div>
+        //                 <div class="cartItem_title">${goodsTitle.innerText} - ${selectColor}</div>
+        //                 <div class="cartbtn_group">
+        //                     <span class="subtotal "> ${goodPrice}</span>
+        //                     <button class="minus_btn">-</button>
+        //                     <input type="text" name="quantity" class="quantity" value="1">
+        //                     <button class="plus_btn">+</button>
+        //                 </div>
+                        
+        //             `
+        //         cartContainer.appendChild(cartItem);
+                             
+        //     }
+        //     updateTotal()
+        // }
+        // // 更新購物車總金額
+        // function updateTotal(){
+        //     let total = 0
+        //     let subtotals = document.querySelectorAll('.subtotal')
+        //     subtotals.forEach((subtotal)=>{
+        //         console.log('subtotal',subtotal)
+        //         total += parseInt(subtotal.innerText)
+        //         // subtotalArr.push(subtotal)
+        //         // console.log(parseInt(subtotalArr[0]))
+        //     })
+        //     document.querySelector('.total span:last-child').innerText = total
+        //     console.log('total',total.innerText)
+        // }
+        
+
+        // // 更新購物車項目文字
+        // function updateSelectedColor(selectColor) {
+        //     let cartItemTitles = document.querySelectorAll(".cartItem_title");
+
+        //     // console.log(cartItemTitle.innerText.includes(selectColor))
+        //     // 更新購物車中的所有項目的顏色文字
+        //     cartItemTitles.forEach(cartItemTitle => {
+        //     console.log('selectColor',selectColor)
+        //         cartItemTitle.innerText = `${goodsTitle.innerText} - ${selectColor}`;
+
+        //     });
+        // }
+
+
+        // //隨機取項鍊產品
+        // let moreList = document.querySelector('.moreList')
+        // // console.log('randomNum',randomNum)
+        // // document.createElement('li')
+        // // necklaceItems.forEach((Item,randomNum)=>{
+        //     // console.log('Item[randomNum].imgSrc',Item[randomNum].imgSrc)
+        // let randomIndexArr = []    
+        // for(let i = 0 ; i < 5 ; i++){
+        //     let randomNum = Math.floor(Math.random()* necklaceItems.length )
+
+        //     // randomNum = Math.floor(Math.random()* necklaceItems.length )
+        //     // 如果陣列中已含有隨機數，將i遞減使for迴圈再跑選取一次
+        //     if(randomIndexArr.includes(randomNum)){
+        //         // randomNum = Math.floor(Math.random()* necklaceItems.length )
+        //         i--;
+        //         continue
+        //     }
+        //     randomIndexArr.push(randomNum)    
+        //     // console.log(necklaceItems[randomNum].name)
+            
+        //         let myLi =  document.createElement('li')
+        //         myLi.innerHTML = `
+        //             <a href="#">
+        //                 <img src="${necklaceItems[randomNum].imgSrc}" alt="">
+        //                 <p>${necklaceItems[randomNum].name}</p>
+        //             </a>
+        //             `
+        //             moreList.appendChild(myLi)
+        //     }
+        
+        // // })
+
+
+
+
+        // //放大鏡功能
+        // originImg.onmouseover = () =>{
+        //     imgMask.style.display = 'block'
+        //     manifierShow.style.display = 'block'
+        // }
+        // originImg.onmouseout = () =>{
+        //     imgMask.style.display = 'none'
+        //     manifierShow.style.display = 'none'
+            
+        // }
+        // // coordinate:座標
+        // originImg.onmousemove = (coordinate)=>{
+        //     // 圖片相對於視窗的位置
+        //     let originImgCoordinate = originImg.getBoundingClientRect()
+        //     // console.log('originImgCoordinate',originImgCoordinate)
+        //     // console.log('coordinate.clientX',coordinate.clientX)
+        //     let mouseX = coordinate.clientX - originImgCoordinate.left - 100
+        //     let mouseY = coordinate.clientY - originImgCoordinate.top - 100
+        //     // console.log(mouseX)
+            
+        //     if(mouseX >= 200){mouseX = 200}
+        //     if(mouseX < 0){mouseX = 0}
+        //     if(mouseY >= 200){mouseY = 200}
+        //     if(mouseY < 0){mouseY = 0}
+        //     imgMask.style.left = `${mouseX}px`
+        //     imgMask.style.top = `${mouseY}px`
+
+        //     let manifierImg2 = window.getComputedStyle(manifierImg).getPropertyValue('left')
+        //     // console.log(manifierImg2)
+        //     manifierImg.style.left = `${-2 * mouseX}px`
+        //     manifierImg.style.top = `${-2 * mouseY}px`
+
+            
+        // }
+
+    
+
+
+       
     </script>
 </body>
 </html>
