@@ -19,14 +19,14 @@
         }
         body{
             background-image: url(./img/wallpaper2.png);
-            overflow-x: hidden;
+            /* overflow-x: hidden; */
             /* filter: brightness(0.5); */
         }
         header{
             background-image: none;
             height: 70px;
             /* width: 100vw; */
-            overflow: hidden;
+            /* overflow: hidden; */
 
         }
         .container{
@@ -195,12 +195,13 @@
             font-size: 1.5rem;
             font-weight: bold;
         }
-        .good_describe >h4{
+        .good_describe >h4,.moreGoods>h4{
             width: 200px;
             color: var(--color-primary);
             font-size: 2rem;
             border-bottom: 3px solid var(--color-primary);
             padding: 20px;
+           
         }
        
         .goods_box{
@@ -244,8 +245,10 @@
 
 
         .cart_container{
+            /* display: none; */
+
             position: absolute;
-            right: 0;
+            right: -550px;
             top: 0;
             background-image: url(./img/wallpaper.webp);
             /* background-color: var(--color-primary); */
@@ -256,7 +259,7 @@
             padding: 10px;
             text-align: center;
             color: #fff;
-            transform: translateX(550px);
+            /* transform: translateX(550px); */
             transition: 1s;
 
         }
@@ -304,25 +307,60 @@
             /* display: inline-block; */
             margin-left: 30px;
         }
-        .total{
+        .subtotal {
             font-size: 1.2rem;
         }
-        .total::before{
+        .subtotal::before{
             content: 'NT';
         }
 
-        /* 結帳紐 */
-        .checkout{
+        .cart_container .total{
             line-height: 30px;
-            width: 100%;
-            padding: 15px;
+            width: 50%;
+            padding: 15px 0;
             background-color: #fff;
             color: var(--color-primary);
             position: absolute;
             bottom: -60px;
             left: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        /* 結帳紐 */
+        .checkout{
+            line-height: 30px;
+            width: 50%;
+            padding: 15px 0;
+            background-color: #fff;
+            color: var(--color-primary);
+            position: absolute;
+            bottom: -60px;
+            right: 0;
             font-weight: bold;
             cursor: pointer;
+            z-index: 1;
+        }
+        .checkout::before{
+            content: '';
+            height: 100%;
+            /* height: 100%; */
+            width: 0%;
+            background-color: var(--color-secondary);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            
+            transition: .5s;
+        }
+        .checkout:hover{
+        /* background-color: aqua;} */
+            color:var(--color-primary);
+            letter-spacing: 2px;
+        }
+
+        .checkout:hover::before{
+            width: 100%;
         }
 
         .cart_icon{
@@ -366,20 +404,47 @@
             background-color: var(--color-secondary);
 
         }
-        
+        /* 更多 */
         .moreGoods{
+            box-sizing: border-box;
             width: 100%;
-            margin: 100px;
+            padding: 100px;
+            text-align: center;
         }
         .moreGoods ul{
             display: grid;
-            width: 90%;
+            /* width: 90%; */
             grid-template-columns: repeat(5,1fr);
             gap: 20px;
             
         }
         .moreGoods img{
-            width: 300px
+            border-radius: 50%;
+            box-shadow: 2px 2px 5px #888;
+            width: 90%;
+            animation: heartbeat infinite 1s ease-in;
+        }
+        
+        .moreGoods ul li a>p{
+            color:#183165;
+        }
+        .moreGoods ul li a:hover p{
+            text-shadow: 2px 2px 5px #ffffff;
+        }
+        .moreGoods>h4{
+            margin: 40px auto;
+            /* padding: 20px; */
+        }
+        @keyframes heartbeat {
+            0%{
+                transform: scale(1.05);
+            }
+            50%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(1.05);
+            }
         }
         @media screen and (max-width:1600px) {
             .product_container{  width: 75%;  }
@@ -463,7 +528,6 @@
     </ol>
     <div class="product_container">
         <div class="product_wrapper">
-           
             <div class="goods_img">
                 <div class="manifier">
                     <div class="originImg">
@@ -487,8 +551,6 @@
                 </div>
               
             </div>
-           
-
             <div class="goods_box">
                 <h1 class="goods_title">[鋼飾] 永恆承諾鎖骨鍊 / Eternal Commitment Necklace / 2色 </h1>
                 <p>全館兩件9折，優惠後特價 NT$327</p>
@@ -523,7 +585,6 @@
                 
                 <!-- <div class="favorite"><i class="fa-regular fa-heart"></i>加入追蹤清單</div> -->
             </div>
-
         </div>
         <div class="good_describe">
             <h4>商品描述</h4>
@@ -544,39 +605,48 @@
                 <li><img src="./img/EternalNecklace/06.webp" alt=""></li>
             </ul>
         </div>
-        <div class="moreGoods">
-            <ul>
-                <li>
-                    <a href="#">
-                        <img src="./img/earrings/02.webp" alt="">
-                        <p></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="./img/earrings/04.webp" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="./img/necklace/04.webp" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="./img/earrings/05.webp" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="./img/necklace/06.webp" alt="">
-                    </a>
-                </li>
-            </ul>
-        </div>
+    </div>
+    <div class="moreGoods">
+        <h4>產品推薦</h4>
+        <ul class="moreList">
+            <!-- <li>
+                <a href="#">
+                    <img src="./img/earrings/02.webp" alt="">
+                    <p>黛妃珍珠耳環2色 Diana Pearl Earring</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">                    
+                    <img src="./img/necklace/04.webp" alt="">
+                    <p>[純銀] 海的思念鎖骨鍊 / 3色 / Sea Longing Necklace</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/earrings/12.webp" alt="">
+                    <p>[銀針] 春季水仙花耳環組2色Spring Daffodil Earring Set</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/necklace/06.webp" alt="">
+                    <p>[純銀] 心中的星光鎖骨鍊 / 2色 / Starlight In The Heart Necklace</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/earrings/10.webp" alt="">
+                    <p>[純銀] 心纏耳環2色Winding Earring</p>
+                </a>
+            </li> -->
+        </ul>
     </div>
     <div class="cart_container">
         <div class="cart_cancel"><i class="fa-solid fa-arrow-right"></i></div> 
+        <div class="total">
+            <span>總計：NT</span>
+            <span>0</span>
+        </div>
         <div class="checkout">結帳</div>
     </div>
     
@@ -589,7 +659,12 @@
 
     <script src="./js/header.js"></script>
 
-    <script>
+    <script type="module" src="./js/productItem.js"></script>
+
+    <script type="module" >
+        import { necklaceItems ,earringItems  } from "./js/productItem.js";
+        
+   
         let favoriteBtn = document.querySelector(".fa-heart");
         let imgMask = document.getElementById("img_mask");
         let originImg = document.querySelector(".originImg");
@@ -640,7 +715,7 @@
             let myImg = document.createElement('img')
             myImg.setAttribute('src',thumbnailArr[i])
             thumbnail.appendChild(myImg)
-            // 點選縮圖後上方大圖繪改變
+            // 點選縮圖後上方大圖會改變
             myImg.onclick = ()=>{
                 originImg.style.backgroundImage = `url(${thumbnailArr[i]})`
                 manifierImg.src = thumbnailArr[i]
@@ -672,12 +747,18 @@
             let plusBtn = cartItem.querySelector('.plus_btn')
             let minusBtn = cartItem.querySelector('.minus_btn')
             let quantity = cartItem.querySelector('.quantity')
-            let total = cartItem.querySelector('.total')
+            // subtotal = 單價*個數 ； total = 總計
+            let subtotal = cartItem.querySelector('.subtotal')
+            // let total = document.querySelector('.total')
+            // total = subtotal
+            // console.log('total',total.innerText)
             plusBtn.onclick = ()=>{
                 let currentNum = quantity.value
                 quantity.value = `${parseInt(currentNum) + 1}`
-                total.innerText = parseInt(goodPrice) * parseInt(quantity.value)
-
+                subtotal.innerText = parseInt(goodPrice) * parseInt(quantity.value)
+                total = subtotal
+                console.log('plustotal',total.innerText)
+                updateTotal()
             }
 
             minusBtn.onclick = ()=>{
@@ -690,9 +771,11 @@
             
                 }else{
                     quantity.value = currentNum - 1
-                    total.innerText = parseInt(goodPrice) * parseInt(quantity.value)
+                    subtotal .innerText = parseInt(goodPrice) * parseInt(quantity.value)
+                    total = subtotal
+                    console.log('minustotal',total.innerText)
                 }
-               
+                updateTotal()
                 
             }
 
@@ -702,18 +785,19 @@
         let black_overlay = document.querySelector('.black_overlay')
         
         cartIcon.onclick = ()=>{
-            cartContainer.style.transform = `translateX(${0}px)`;
+            // cartContainer.style.transform = `translateX(${0}px)`;
+            cartContainer.style.right = `${0}px`;
             black_overlay.style.display = "block"
 
         }
         let cartCancel = document.querySelector(".cart_cancel");
         cartCancel.onclick = ()=>{
-            cartContainer.style.transform = `translateX(${550}px)`;
+            // cartContainer.style.transform = `translateX(${550}px)`;
+            cartContainer.style.right = `${-550}px`;
             console.log(cartContainer)
             black_overlay.style.display = "none"
-
-
         }
+        // 加進購物車品項
         function addCartItem(){
             let cartItem ;
             let existCartItem = document.querySelector(`.cart_item[data-color="${selectColor}"]`)
@@ -737,24 +821,34 @@
                     `   <div class="cart_img ${selectColor}"></div>
                         <div class="cartItem_title">${goodsTitle.innerText} - ${selectColor}</div>
                         <div class="cartbtn_group">
-                            <span class="total"> ${goodPrice}</span>
+                            <span class="subtotal "> ${goodPrice}</span>
                             <button class="minus_btn">-</button>
                             <input type="text" name="quantity" class="quantity" value="1">
                             <button class="plus_btn">+</button>
                         </div>
                         
-                         
-
                     `
                 cartContainer.appendChild(cartItem);
                              
             }
-           
+            updateTotal()
         }
-       
-
-
+        // 更新購物車總金額
+        function updateTotal(){
+            let total = 0
+            let subtotals = document.querySelectorAll('.subtotal')
+            subtotals.forEach((subtotal)=>{
+                console.log('subtotal',subtotal)
+                total += parseInt(subtotal.innerText)
+                // subtotalArr.push(subtotal)
+                // console.log(parseInt(subtotalArr[0]))
+            })
+            document.querySelector('.total span:last-child').innerText = total
+            console.log('total',total.innerText)
+        }
         
+
+        // 更新購物車項目文字
         function updateSelectedColor(selectColor) {
             let cartItemTitles = document.querySelectorAll(".cartItem_title");
 
@@ -766,6 +860,41 @@
 
             });
         }
+
+
+        //隨機取項鍊產品
+        let moreList = document.querySelector('.moreList')
+        // console.log('randomNum',randomNum)
+        // document.createElement('li')
+        // necklaceItems.forEach((Item,randomNum)=>{
+            // console.log('Item[randomNum].imgSrc',Item[randomNum].imgSrc)
+        let randomIndexArr = []    
+        for(let i = 0 ; i < 5 ; i++){
+            let randomNum = Math.floor(Math.random()* necklaceItems.length )
+
+            // randomNum = Math.floor(Math.random()* necklaceItems.length )
+            // 如果陣列中已含有隨機數，將i遞減使for迴圈再跑選取一次
+            if(randomIndexArr.includes(randomNum)){
+                // randomNum = Math.floor(Math.random()* necklaceItems.length )
+                i--;
+                continue
+            }
+            randomIndexArr.push(randomNum)    
+            // console.log(necklaceItems[randomNum].name)
+            
+                let myLi =  document.createElement('li')
+                myLi.innerHTML = `
+                    <a href="#">
+                        <img src="${necklaceItems[randomNum].imgSrc}" alt="">
+                        <p>${necklaceItems[randomNum].name}</p>
+                    </a>
+                    `
+                    moreList.appendChild(myLi)
+            }
+        
+        // })
+
+
 
 
         //放大鏡功能

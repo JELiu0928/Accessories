@@ -26,7 +26,7 @@ export let necklaceItems = [
         imgSrc:'./img/necklace/05.webp'
     },
     {
-        name:'純銀] 心中的星光鎖骨鍊 / 2色 / Starlight In The Heart Necklace',
+        name:'[純銀] 心中的星光鎖骨鍊 / 2色 / Starlight In The Heart Necklace',
         price:1050,
         imgSrc:'./img/necklace/06.webp'
     },
