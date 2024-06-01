@@ -23,23 +23,14 @@
         }
        
         header{
-            background-image: none;
+            background: none;
             height: 70px;
         }
         .container{
-            height: 70px;
+            /* height: 70px; */
             /* background-image: url(./img/wallpaper.webp); */
-            position: fixed;
+            /* position: fixed; */
         }
-        .menu_link li a {
-            text-shadow: 0 0 10px var(--color-primary);
-        }
-        .menu ul.menu_link li a:hover,.dropdown .dropdown_item:hover{
-            background-color: #e6dac0;
-            color: #183165;
-            text-shadow: none;
-        }
-        
         body{
             background: url(./img/loginbg.jpg.webp);
             background-size: cover;
@@ -47,32 +38,22 @@
             background-attachment: fixed;
         }
         .login_container {
-            /* box-sizing: border-box; */
             width: 900px;
             height: 600px;
             margin: 50px auto;
             background-color: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
-            /* border: 2px solid #ffffff; */
             box-shadow: 0 15px 40px rgba(255, 255, 255, 0.5);
-
             display: flex;
-
-          
             transition: .8s ease-in;
-        
         }
         
         .login_container .left,.login_container .right{
-            /* float: left; */
             width: 50%;
             height: 100%;
             padding: 20px;
-            /* background: url('./img/diamond.jpg');
-            background-size: cover; */
             box-sizing: border-box;
             overflow: hidden;
-            /* border: red solid 1px; */
             position: relative;
         }
         .left{
@@ -81,9 +62,6 @@
             z-index: 0;
             opacity: 0;
             transition:1s;
-            /* transform:rotateY(360deg); */
-
-
         }
         .registerImg{
             /* REGISTER */
@@ -114,14 +92,11 @@
             opacity: 1;
             left: 0;
             top: 0;
-
             width: 50%;
             height: 100%;
             object-fit: cover;
             object-position: 75%;
-            /* margin: 5px; */
             transition: 1s;
-          
         }
         .opacity-1{
             opacity: 1;
@@ -131,40 +106,23 @@
         .opacity-0{
             opacity: 0;
             z-index: 0;
-            /* transform:rotateY(360deg); */
-
-        }
-       
-        p{
-            text-align: center;
-
-        }
-        label{
-            /* margin: 20px 0; */
-            /* padding: 20px; */
-            /* border: 1px solid #183165; */
-        }
-        .login_container .right::before{
-
         }
         .login_container .right{
-            /* float: right; */
             width: 50%;
             height: 100%;
             box-sizing: border-box;
-            /* background-image: url(./img/01.webp); */
-            /* background-size: cover; */
         }
         .commonArea{
             width: 100%;
             height: 100%;
             padding: 25px;
             box-sizing: border-box;
-            /* text-align: center; */
         }
         .commonArea p{
             font-weight: bold;
             color: var(--color-primary);
+            text-align: center;
+
         }
         .commonArea input{
             width: 100%;
@@ -181,20 +139,15 @@
             border: none;
             border-bottom: 2px solid var(--color-primary);
             outline: none;
-            /* background-color: rgba(255, 255, 255, 0.3); */
             background-color: transparent;
             height: 30px;
             padding: 5px;
-            /* border-radius: 10px; */
-            /* box-shadow: 2px 2px 5px #555 */
-            /* caret-color: #63fbd7; */
         }
         
         .commonArea input[type="text"]:focus,
         .commonArea input[type="password"]:focus,
         .commonArea input[type="tel"]:focus,
         .commonArea input[type="email"]:focus{
-            /* border-bottom: 2px solid  var(--color-secondary); */
             border-image: linear-gradient(#63fbd7,#05defa) 1;
             animation: colorChange 3s linear infinite;
 
@@ -214,6 +167,7 @@
             background-color: var(--color-primary);
             cursor: pointer;
             border-radius: 20px;
+            transition: all 1s;
         }
         .log_in_btn:hover,.goRegister:hover,.register_btn:hover{
             background-color: #fff;
@@ -222,7 +176,7 @@
         .commonArea .forget_Psw ,.commonArea .have_account{
             display: flex;
             color:  var(--color-primary);
-            font-size: 12px;
+            font-size: 1rem;
             font-weight: bold;
             justify-content: end;
             margin-bottom: 10px;
@@ -230,41 +184,45 @@
         .right{
             position: relative;
         }
-        .exit{
-            position: absolute;
-            top: 5px;
-            right: 5px;
-        }
-        .exit a{
-            color: var(--color-primary);
-            font-size: 20px;
-        }
-        .commonArea .sns {
-            display: block;
-            text-decoration: none;
-            text-align: center;
-            width: 100%;
-            height: 30px;
-            line-height: 30px;
-            border-radius: 20px;
-            cursor: pointer;
-            margin-top: 5px;
-        }
         .fb {
             background-color: rgb(8, 65, 156);
+          
         }
-        .commonArea .sns >i,.commonArea .sns{
+        .commonArea .sns{
+            width: 100%;
+            display: flex;
+            height: 70px;
+
+        }
+        .commonArea .sns>button{
+            width: 50%;
+            margin: 10px;
             color: #fff;
-            font-size: 12px;
+            border-radius: 35px;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            
+
         }
         .line {
             background-color: rgb(0, 162, 32);
         }
-
         #footer {
             margin-top: 15%;
         }
-
+        .sns>button:hover .fa-facebook{
+            transform: translateX(48px) scale(2);
+        }
+        .sns>button:hover .fa-line{
+            transform: translateX(32px) scale(2);
+        }
+        .sns>button>span,.sns>button>i{
+            transition: .5s;
+        }
+        .sns>button:hover span {
+            opacity: 0;
+        }
 
     </style>
 </head>
@@ -291,23 +249,23 @@
                         <li class="dropdown_link flex-1">
                             <a href="product.html">PRODUCT</a>
                             <ul class="dropdown">
-                                <li class="dropdown_item"><a href="">耳環 Earring</a></li>
-                                <li class="dropdown_item"><a href="">耳夾 Earclip</a></li>
-                                <li class="dropdown_item"><a href="">戒指 Rings</a></li>
-                                <li class="dropdown_item"><a href="">項鍊 Necklaces</a></li>
-                                <li class="dropdown_item"><a href="">手鍊 Bracelets</a></li>
-                                <li class="dropdown_item"><a href="">訂婚鑽戒 Engagement Rings</a></li>
-                                <li class="dropdown_item"><a href="">結婚對戒 Wedding Rings</a></li>
+                                <li class="dropdown_item"><a href="product.html">耳環 Earring</a></li>
+                                <li class="dropdown_item"><a href="#">耳夾 Earclip</a></li>
+                                <li class="dropdown_item"><a href="#">戒指 Rings</a></li>
+                                <li class="dropdown_item"><a href="#">項鍊 Necklaces</a></li>
+                                <li class="dropdown_item"><a href="#">手鍊 Bracelets</a></li>
+                                <li class="dropdown_item"><a href="#">訂婚鑽戒 Engagement Rings</a></li>
+                                <li class="dropdown_item"><a href="#">結婚對戒 Wedding Rings</a></li>
                             </ul>
                         </li>
                         <li class="dropdown_link flex-1">
                             <a href="made_to_order.html">DESIGNS</a>
                             <ul class="dropdown">
-                                <li class="dropdown_item"><a href="">結婚對戒 Wedding Rings</a></li>
-                                <li class="dropdown_item"><a href="">訂婚鑽戒 Engagement Rings</a></li>
-                                <li class="dropdown_item"><a href="">珠寶 Gems</a></li>
-                                <li class="dropdown_item"><a href="">雕刻 Engraving</a></li>
-                                <li class="dropdown_item"><a href="">客製化 Made To Order</a></li>
+                                <li class="dropdown_item"><a href="#">結婚對戒 Wedding Rings</a></li>
+                                <li class="dropdown_item"><a href="#">訂婚鑽戒 Engagement Rings</a></li>
+                                <li class="dropdown_item"><a href="#">珠寶 Gems</a></li>
+                                <li class="dropdown_item"><a href="#">雕刻 Engraving</a></li>
+                                <li class="dropdown_item"><a href="made_to_order.html">客製化 Made To Order</a></li>
                             </ul>
                         </li>
                         <li class="flex-1"><a href="store.html">STORES</a></li>
@@ -320,11 +278,6 @@
                 <div class="menu_bg "></div>
         </nav>
     </header>
-    <!-- <ol class="breadcrumb">
-        <li><a href="./index.html">首頁</a></li>
-        <li>食材宅配</li>
-    </ol>
-     -->
     <div class="login_container">
         <img class="loginImg " src="./img/design01.jpg.webp" alt="">
         <img class="registerImg " src="./img/design02.jpg.webp" alt="">
@@ -342,39 +295,33 @@
                     <input type="email" pattern="" name="email" id="email" placeholder="" required>
                     <a class="have_account" href="#">Already have an account?</a>
                     <button class="register_btn">註冊</button>
-
-                    
-                    
                 </form>
             </div>
         </div>
         <div class="right ">
             <div class="commonArea">
                 <p>LOGIN</p>
-                <form action="#">
+                <form action="javascript:;">
                     <label for="loginUsername">Username</label>
                     <input id="loginUsername" type="text" name="username" placeholder="">
                     <label for="loginPassword">Password</label>
                     <input id="loginPassword" type="password" name="password" placeholder="">
-                    <a class="forget_Psw" href="#">Forget Password</a>
+                    <a class="forget_Psw" href="javascript:;">Forget Password</a>
                     <button class="log_in_btn">登入</button>
                     <button class="goRegister">沒有帳號，去註冊</button>
                     
-                    <a class="sns fb" href="">
-                        <i class="fa-brands fa-facebook"></i>
-                        使用FACEBOOK登入
-                    </a>
-                    <a class="sns line" href="">
-                        <i class="fa-brands fa-line"></i>
-                        使用LINE登入
-                    </a>
+                    <div class="sns">
+                        <button class=" fb">
+                            <i class="fa-brands fa-facebook"></i>
+                            <span>FACEBOOK登入</span>
+                        </button>
+                        <button class="line">
+                            <i class="fa-brands fa-line"></i>
+                            <span>LINE登入</span>
+                        </button>
+                    </div>
                 </form>
             </div>
-            <!-- <div class="exit">
-                <a href="">
-                    <i class="fa-solid fa-circle-xmark"></i>
-                </a>
-            </div> -->
         </div>
         
     </div>
@@ -392,9 +339,7 @@
         let right = document.querySelector('.right')
         let left = document.querySelector('.left')
         let loginImg = document.querySelector('.loginImg')
-        // let ImgOpacity = parseInt(window.getComputedStyle(registerImg).getPropertyValue('opacity'))
-        // let ImgZIndex = parseInt(window.getComputedStyle(registerImg).getPropertyValue('z-index'))
-        // console.log('opacity = ',ImgOpacity)
+
         haveAccount.onclick = ()=>{
             left.classList.toggle('opacity-1')
             left.classList.add('opacity-0')
@@ -406,27 +351,7 @@
                 right.classList.toggle('opacity-1')
                 loginImg.classList.remove('opacity-0')
                 loginImg.classList.toggle('opacity-1')
-
             }
-            // else if( right.classList.contains('opacity-1') && loginImg.classList.contains('opacity-1')){
-               
-            // }
-           
-            // registerImg.style.opacity = ImgOpacity - 1
-            // left.style.opacity = ImgOpacity - 1
-            // registerImg.style.zIndex = ImgZIndex -2
-            // loginImg.style.opacity = ImgOpacity
-
-
-            // console.log('registerImg.style.opacity = ',registerImg.style.opacity)
-            // console.log('left.style.opacity = ',left.style.opacity)
-            // console.log('registerImg.style.zIndex = ',registerImg.style.zIndex)
-            // console.log('loginImg.style.opacity = ',loginImg.style.opacity)
-
-            // loginImg.style.opacity = ImgOpacity - 1
-            // console.log( registerImg.style.ImgOpacity)
-            // console.log(registerImg.style.zIndex)
-            // console.log(document.querySelector('.registerImg').style.opacity)
         }
         goRegisterBtn.onclick = ()=>{
          
@@ -440,22 +365,6 @@
                     registerImg.classList.toggle('opacity-0')
                     registerImg.classList.ad('opacity-1')
                 }
-
-
-            // left.classList.toggle('opacity-1')
-            // registerImg.classList.toggle('opacity-1')
-            // let ImgOpacity = window.getComputedStyle(registerImg).getPropertyValue('opacity')
-            // let ImgZIndex = window.getComputedStyle(registerImg).getPropertyValue('z-index')
-            
-            // right.style.opacity = ImgOpacity -1
-            // console.log('right.style.opacity',right.style.opacity)
-            // registerImg.style.zIndex = ImgZIndex -2
-            // console.log('registerImg.style.zIndex',registerImg.style.zIndex)
-            // registerImg.style.opacity = ImgOpacity + 1
-            // left.style.opacity = ImgOpacity + 1
-            // console.log('left.style.opacity',left.style.opacity)
-            // loginImg.style.opacity = ImgOpacity -1
-            // console.log('loginImg.style.opacity',loginImg.style.opacity)
 
         }
 

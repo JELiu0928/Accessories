@@ -65,6 +65,43 @@ header{
     grid-template-columns: 25% 75%;
 }
 
+/* 共用麵包屑 */
+.breadcrumb{
+    color: #183165;
+    display: flex;
+}
+.breadcrumb a{
+    color: #183165;
+}
+.breadcrumb a:hover{
+    border-bottom: #183165 1px solid;
+}
+.breadcrumb li:first-child:after{
+    content: '\00A0\00A0/\00A0\00A0';
+}
+
+/*跳出廣告圖*/
+.advertise{
+    position: fixed;
+    z-index: 51;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    height: 400px;
+    aspect-ratio:2/1;
+    background: url(../img/advertise.jpg);
+    background-size: cover;
+    display: none;
+}
+.cancel_btn{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    font-size: 25px;
+    color: #fff;
+}
 
 .menu{
     position: relative;
@@ -115,7 +152,7 @@ header{
     /* background-color: transparent; */
     color: var(--color-secondary);
     font-weight: bold;
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     text-shadow: 0 0 2px var(--color-primary);
 }
 .menu_link li a{
@@ -170,7 +207,8 @@ header{
 ul.dropdown .dropdown_item:hover{
     /* font-size: 2rem; */
     background-color: var(--color-secondary);
-    text-shadow: 0 1px 5px var(--color-primary) ;
+    text-shadow: 0 0 3px #13254d,
+    0 1px 5px var(--color-primary) ;
     font-weight: bold;
     /* font-size: 1.1rem; */
     letter-spacing: 2.5px;
@@ -615,28 +653,7 @@ button.btn-next{
 .article:hover a{
     text-shadow: 2px 2px 5px #ffffff;
 }
-/* .atelier{
-    padding: 0 100px 100px 100px;
-    display: flex;
-    flex-direction: column;
-    align-items:center ;
-    
-    position: relative;
 
-    
-}
-.atelier img{
-    width: 90%;
-}
-.atelier>button{
-    background-color: #183165;
-    border: none;
-    color: #fff;
-    border-radius: 5px;
-    width: 10%;
-    padding: 1%;
-    cursor: pointer;
-} */
 
 @keyframes aaa {
     0%{
@@ -799,11 +816,11 @@ button.btn-next{
         display: block;
         position: fixed;
         text-align: end;
-        left: 0;
+        right: 0;
         top: 0;
         font-size: 20px;
         color: #fff;
-        width: 100%;
+        width: 14%;
         line-height: 75px;
     } 
     .menu_btn>span{
@@ -828,7 +845,6 @@ button.btn-next{
         left: 0;
         top: 75px;
         z-index: 20;
-        /* transform: scale(0); */
         opacity: 0;
         transition: opacity .5s;
     }
@@ -850,12 +866,9 @@ button.btn-next{
 
     .flex-1{
         width: 300px;
-        /* background-color: steelblue; */
-
     }
     .dropdown_link{
         position: relative;
-        
     }
     
     
@@ -863,7 +876,6 @@ button.btn-next{
         overflow: hidden;
     }
     /* 二級菜單 */
-    
     .dropdown .dropdown_item>a{
         padding: 10px;
         border-radius: 0px;
@@ -887,7 +899,7 @@ button.btn-next{
         left: -15px;
         border-top: 15px solid  transparent;
         border-bottom: 15px solid transparent;
-        border-right: 15px solid hsla(0, 0%, 100%, 0.7);
+        border-right: 15px solid rgba(255, 255, 255, 0.7);
       }
 
 

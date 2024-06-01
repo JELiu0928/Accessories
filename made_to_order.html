@@ -10,16 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <!-- <link rel="stylesheet" href="./css/reserve.css"> -->
+    <link rel="stylesheet" href="./css/made_to_order.css">
     <style>
         body{
             background-image: none;
-            /* background-image: url(./img/wallpaper2.png); */
-
             background-color: #fff;
         }
-        header{
-            background-image: none;
+        body header{
+            background: none;
             height: 70px;
         }
         .container{
@@ -27,321 +25,7 @@
             background-image: url(./img/wallpaper.webp);
             position: fixed;
         }
-        /*          made_to_order:      ;*/
-        .order_container{
-            width: 100%;
-            /* height: 50%; */
-            /* text-align: center; */
-            
-        }
-        .banner>img{
-            width: 100%;
-            /* object-fit: cover; */
-        }
-        .banner{
-            position: relative;
-        }
-        .banner_text{
-            position: absolute;
-            right: 15%;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #fff;
-            font-family: monospace;
-            letter-spacing: 3px;
-            font-size: 1rem;
-            
-        }
-        .banner_text p:first-child{
-            font-family: "Playfair Display",serif;
-            font-weight: bold;
-            font-size: 2rem;
-            margin: 16px 0;
-        }
-        .order_outer{
-            margin:  200px;
-            text-align: center;
-            /* border: 2px solid red; */
-        }
-        .order_outer h2{
-            font-size: 2rem;
-            letter-spacing: 5px;
-            color: var(--color-primary);
-            /* border-bottom: 1px solid #183165; */
-            /* width: 20%; */
-            /* margin: 10px; */
-        }
-        .arrangement_inner{
-            display: grid;
-            grid-template-columns: repeat(2,1fr );
-            align-items: center;
-        }
-        .arrangement_inner>img{
-            justify-self: end;
-            width: 300px;
-            /* width: 80%; */
-        }
         
-        .order_text {
-            text-align: start;
-            /* margin: 0 5%; */
-        }
-       
-        .shape_inner{
-            display: grid;
-            /* grid-template-columns: repeat(4,1fr); */
-            grid-template-columns: repeat(4, calc((100% - 60px) / 4));
-            justify-content: center;
-            gap: 20px;
-            margin-top: 80px;
-            /* width: 80%; */
-            /* margin: 0 20px; */
-        }
-    
-        .order_item>img{
-            width: 200px;
-
-        }
-        .arrangement,.shape,.bullion,.combination,.gems{
-            margin: 200px 0;
-        }
-        .bullion_inner{
-            margin-top: 80px;
-            display: grid;
-            grid-template-columns: repeat(3, calc((100% - 40px) / 3));
-            gap: 20px;
-        }
-        .bullion_inner>img{
-            width: 500px;
-
-
-        }
-        div[class$="inner"],h2+p{
-            font-size: 0.9rem;
-            font-family: monospace;
-            letter-spacing: 3px;
-        }
-
-        .texture_inner{
-            margin-top: 80px;
-            display: grid;
-            grid-template-columns: repeat(4, calc((100% - 60px) / 4));
-            /* grid-template-rows: repeat(2, 1fr); */
-            gap: 20px;
-        }
-        .combination_inner{
-            margin-top: 80px;
-            display: grid;
-            grid-template-columns: repeat(3, calc((100% - 40px) / 3));
-            gap: 20px;
-        }
-        .gems_inner{
-            margin-top: 80px;
-            display: grid;
-            grid-template-columns: repeat(2,1fr );
-            align-items: center;
-            justify-items: center;
-            margin: 0 25px;
-        }
-        .gems_inner>img{
-            width: 450px;
-            border-radius: 30px;
-            /* justify-self: end; */
-            margin-right: 25px;
-        }
-        .motif_inner{
-            margin-top: 80px;
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            align-items: center;
-            justify-items: center;
-            margin: 0 25px;
-        }
-        .motif_inner>img{
-            width: 450px;
-            border-radius: 30px;
-            margin-left: 25px;
-        }
-       
-        .atelier{
-            position: relative;
-        }
-
-        .reserve_container{
-            width: 600px;
-            height: 650px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 20%;
-            /* transform: translateY(); */
-            background-image: url(./img/wallpaper2.png);
-            padding: 30px;
-            border-radius: 20px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity .5s;
-            z-index: 55;
-        }
-        .reserve_show{
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .reserve_container>h2{
-            text-align: center;
-            color: var(--color-primary);
-        }
-
-        .cancel_btn{
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            cursor: pointer;
-            font-size: 25px;
-            color: var(--color-primary);
-        }
-        .reserve_form{
-            position: relative;
-        }
-        .reserve_form >div[class^="map"] {
-            position: absolute;
-            right: 0;
-            top: 0;
-            opacity: 0;
-        }
-        .reserve_form .map_tpe.tpe_show,.reserve_form .map_tph.tph_show{
-            opacity: 1;
-
-        }
-        
-        input[type="radio"],input[type="checkbox"]{
-            display: none;
-        }
-    
-        input[type="radio"]+label,select,input[type="date"],.submit{
-            color: #fff;
-            display: inline-block;
-            background-color: var(--color-primary);
-            cursor: pointer;
-            padding: 10px;
-            transition: .3s;
-            border: none;
-        }
-        .submit{
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        input[type="radio"]+label:hover,input[type="radio"]:checked +label,.submit:hover
-        {
-            color: var(--color-primary);
-            background-color: #fff;
-        }
-        
-        input[type="text"],input[type="tel"]{
-            display: block;
-            box-sizing: border-box;
-            background-color: rgb(240, 229, 214); 
-            padding: 10px;
-            width: 100%;
-            margin-bottom: 10px;
-            border: 0;
-            border-bottom: 5px solid var(--color-primary);
-            font-size: 18px;
-            outline: none;
-        }
-        .fullname{
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-        .lastName,.firstName{
-            width: 80%;
-        }
-        
-        input[type="date"]{
-            width: 200px;
-        }
-        .reserve_container>p, label[for="phone"],label[for="lastName"],label[for="firstName"]{
-            display: block;
-            margin: 16px 0;
-        }
-
-
-        @media screen and (max-width:1200px) {
-            .order_outer{
-                margin:  120px;
-            }
-            .texture_inner{
-                grid-template-columns: repeat(3, calc((100% - 40px) / 3));
-            }
-            .gems_inner>img,.motif_inner>img{
-                width: 400px;
-            }
-        }
-        @media screen and (max-width:992px) {
-            .shape_inner{
-                grid-template-columns: repeat(2, calc((100% - 20px) / 2));
-                margin: 0 100px;
-                margin-top: 80px;
-            }
-            .order_outer{
-                margin:  30px;
-            }
-            .gems_inner>img,.motif_inner>img{
-                /* width: 400px; */
-                margin: 10px;
-            }
-        }
-        @media screen and (max-width:768px) {
-            .banner_text{
-                right: 8%;
-                font-size: 0.8rem;
-            }
-            .banner_text p:first-child{
-                font-size: 1.5rem;
-            }
-            .shape_inner{
-                margin: 0;
-                margin-top: 80px;
-            }
-            .bullion_inner,.texture_inner{
-                grid-template-columns: repeat(2, calc((100% - 20px) / 2));
-            }
-            
-            .gems_inner>img,.motif_inner>img{
-                margin: 10px;
-            }
-            /* 表單 */
-            .reserve_container{
-                width: 450px;
-                height: 760px;
-                opacity: .8;
-                pointer-events: none;
-
-            }
-            .reserve_show{
-                opacity: 1;
-                pointer-events: auto;
-            }
-            .reserve_container>h2{
-                font-size: 1.5rem;
-                margin: 0;
-            }
-            .reserve_form >div[class^="map"] {
-                position: static;
-                display: none;
-            }
-            .reserve_form .map_tpe.tpe_show,.reserve_form .map_tph.tph_show{
-                /* opacity: 1; */
-                display: block;
-                margin-top: 5px;
-            }
-            
-            .reserve_form>p, label[for="phone"],label[for="lastName"],label[for="firstName"]{
-                margin: 8px 0;
-            }
-        }
 
         
     </style>
@@ -369,7 +53,7 @@
                     <ul class="menu_link">
                         <!-- <li  class="flex-1"><a href="" data-menu_item="HOME">HOME</a></li> -->
                         <li class="dropdown_link flex-1">
-                            <a href="product.html" data-menu_item="PRODUCT">PRODUCT</a>
+                            <a href="product.html" >PRODUCT</a>
                             <ul class="dropdown">
                                 <li class="dropdown_item"><a href="">耳環 Earring</a></li>
                                 <li class="dropdown_item"><a href="">耳夾 Earclip</a></li>
@@ -381,7 +65,7 @@
                             </ul>
                         </li>
                         <li class="dropdown_link flex-1">
-                            <a href="made_to_order.html" data-menu_item="CONTACT">DESIGNS</a>
+                            <a href="made_to_order.html" >DESIGNS</a>
                             <ul class="dropdown">
                                 <li class="dropdown_item"><a href="">結婚對戒 Wedding Rings</a></li>
                                 <li class="dropdown_item"><a href="">訂婚鑽戒 Engagement Rings</a></li>
@@ -390,8 +74,8 @@
                                 <li class="dropdown_item"><a href="">客製化 Made To Order</a></li>
                             </ul>
                         </li>
-                        <li class="flex-1"><a href="" data-menu_item="CONTACT">CONTACT</a></li>
-                        <li class="flex-1"><a href="login.html" data-menu_item="LOGIN">LOGIN</a></li>
+                        <li class="flex-1"><a href="store.html" >STORES</a></li>
+                        <li class="flex-1"><a href="login.html" >LOGIN</a></li>
                     </ul>
                 </div>
                 <div class="menu_btn">
@@ -533,12 +217,35 @@
                 <p>新增鑽石或天然石</p>
                 <div class="gems_inner">
                     <img src="./img/order/gems.jpg.webp" alt="">
-                    <div class="order_text">
-                        <p>可在主石的旁邊或戒指的內側，</p>
-                        <p>加上鑽石或誕生石等喜歡的天然石。</p>
+                    <div class="stones">
+                        <!-- <a href="#" class="stone_item">
+                            <img src="./img/gems/stone_id_1.jpg" alt="">
+                            <div>
+                                <span>紅寶石</span> 
+                                <i class="fa-regular fa-gem"></i>
+                            </div>
+                        </a> -->
+                        <!-- <a href="#" class="stone_item">
+                            <img src="./img/gems/stone_id_1.jpg" alt="">
+                            <span>紅寶石</span>
+                        </a>
+                        <a href="#" class="stone_item">
+                            <img src="./img/gems/stone_id_1.jpg" alt="">
+                            <span>紅寶石</span>
+                        </a>
+                        <a href="#" class="stone_item">
+                            <img src="./img/gems/stone_id_1.jpg" alt="">
+                            <span>紅寶石</span>
+                        </a> -->
+
                     </div>
+                    <!-- <p>可在主石的旁邊或戒指的內側，</p>
+                    <p>加上鑽石或誕生石等喜歡的天然石。</p> -->
                 </div>
             </div>
+
+
+
             <div class="motif">
                 <h2>MOTIF</h2>
                 <p>根據主題設計戒指</p>
@@ -551,6 +258,9 @@
                 </div>
             </div>
         </div>
+
+
+
         <div class="atelier">
             <h2>Atelier</h2>
             <img src="./img/atelier.jpg.webp" alt="">
@@ -615,8 +325,8 @@
 
     <script src="./js/header.js"></script>
 
-    <script>
-        
+    <script type="module">
+        import { gemsArr } from "./js/gems.js";
 
 
 
@@ -667,6 +377,25 @@
         reserveDate[0].setAttribute('max', month);
         
 
+        let stones = document.querySelector('.stones')
+        console.log(gemsArr)
+        gemsArr.forEach(Item => { 
+            
+            let stoneItem = document.createElement('a')
+            stoneItem.setAttribute('href','#')
+            stoneItem.classList.add('stone_item')
+            stoneItem.innerHTML = `
+                <img src="${Item.imgSrc}" alt="">
+                <div>
+                    <span>${Item.name}</span> 
+                    <i class="fa-regular fa-gem"></i>
+                </div>
+            `
+            
+            // product.insertBefore(productItem,productPage)
+            stones.appendChild(stoneItem)
+        });
+       
 
         // console.log(date);
         // console.log(twoMonths);

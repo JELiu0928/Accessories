@@ -1,15 +1,4 @@
-:root{
-    /* --color-primary:#183165; */
-    /* var(--color-primary) */
-    /* var(--color-secondary) */
-    /* --color-secondary:#e6dac0; */
-}
-body{
-    /* background-image: url(../img/wallpaper2.png); */
-    /* overflow-x: hidden; */
-    /* filter: brightness(0.5); */
-}
-header{
+body header{
     background-image: none;
     height: 70px;
     /* width: 100vw; */
