@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>productNecklaces</title>
+    <title>product</title>
     <!-- 引入font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,17 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/product.css">
-    <style>
-        
-       /* .sidebar li:nth-child(5) a {
-            background-color: #fff;
-            color: #183165;
-        } */
-        .sidebar a.sidebar_select{
-            color: var(--color-primary);
-            background-color: #fff;
-        }
-    </style>
+ 
 </head>
 <body>
     <header>
@@ -58,11 +48,11 @@
                         <li class="dropdown_link flex-1">
                             <a href="made_to_order.html" >DESIGNS</a>
                             <ul class="dropdown">
-                                <li class="dropdown_item"><a href="">結婚對戒 Wedding Rings</a></li>
-                                <li class="dropdown_item"><a href="">訂婚鑽戒 Engagement Rings</a></li>
-                                <li class="dropdown_item"><a href="">珠寶 Gems</a></li>
-                                <li class="dropdown_item"><a href="">雕刻 Engraving</a></li>
-                                <li class="dropdown_item"><a href="">客製化 Made To Order</a></li>
+                                <li class="dropdown_item"><a href="#">結婚對戒 Wedding Rings</a></li>
+                                <li class="dropdown_item"><a href="#">訂婚鑽戒 Engagement Rings</a></li>
+                                <li class="dropdown_item"><a href="#">珠寶 Gems</a></li>
+                                <li class="dropdown_item"><a href="#">雕刻 Engraving</a></li>
+                                <li class="dropdown_item"><a href="made_to_order">客製化 Made To Order</a></li>
                             </ul>
                         </li>
                         <li class="flex-1"><a href="store.html" >STORES</a></li>
@@ -81,7 +71,6 @@
     <div class="common_container">
         <div class="common_wrapper">
             <ul class="sidebar">
-                <!-- <li><a href="#">全部商品</a></li> -->
                 <li><a href="#" class="earringBtn">耳環 Earring</a></li>
                 <li><a href="#">耳夾 Earclip</a></li>
                 <li><a href="#">戒指 Rings</a></li>
@@ -109,7 +98,7 @@
     <script type="module" src="./js/productItem.js"></script>
 
     <script type="module" >
-        import { necklaceItems ,earringItems  } from "./js/productItem.js";
+        import { necklaceItems ,earringItems } from "./js/productItem.js";
         
         // console.log(necklaceItems)
         // necklaceItems.forEach(Item => { 

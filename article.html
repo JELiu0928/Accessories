@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>article</title>
+    <!-- 引入font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/product.css">
+    <style>
+        img{
+            width: 100%;
+        }
+        .about_container{
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 100px;
+        }
+        .about_text{
+            color: var(--color-primary);
+            letter-spacing: 2px;
+        }
+        .about_text>h3{
+            font-size: 2rem;
+        }
+        .article_container>h2{
+            text-align: center;
+        }
+        button{
+            width: 200px;
+            height: 50px;
+            border-radius: 30px;
+            display: block;
+            background-color: var(--color-primary);
+            color: #fff;
+            margin: 0 auto;
+            border: 1px solid #aaa;
+            cursor: pointer;
+            
+        }
+        button>i {
+            transition: .5s;
+        }
+        button::before{
+            content: 'MORE ';
+        }
+        button:hover i{
+            transform: translateX(30px);
+        }
+        .article_wraaper {
+            display: grid;
+            padding: 0 100px 50px 100px;
+        }
+        .article_container{
+            margin-bottom: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/index.html"><img class="logo" src="./img/logo.png"></a>
+            <div class="menu ">
+                <ul class="social_icon">
+                    <li>
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-line"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                </ul>
+                <ul class="menu_link">
+                    <li class="dropdown_link flex-1">
+                        <a href="product.html">PRODUCT</a>
+                        <ul class="dropdown">
+                            <li class="dropdown_item"><a href="">耳環 Earring</a></li>
+                            <li class="dropdown_item"><a href="">耳夾 Earclip</a></li>
+                            <li class="dropdown_item"><a href="">戒指 Rings</a></li>
+                            <li class="dropdown_item"><a href="necklace.html">項鍊 Necklaces</a></li>
+                            <li class="dropdown_item"><a href="">手鍊 Bracelets</a></li>
+                            <li class="dropdown_item"><a href="">訂婚鑽戒 Engagement Rings</a></li>
+                            <li class="dropdown_item"><a href="">結婚對戒 Wedding Rings</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown_link flex-1">
+                        <a href="made_to_order.html">DESIGNS</a>
+                        <ul class="dropdown">
+                            <li class="dropdown_item"><a href="">結婚對戒 Wedding Rings</a></li>
+                            <li class="dropdown_item"><a href="">訂婚鑽戒 Engagement Rings</a></li>
+                            <li class="dropdown_item"><a href="">珠寶 Gems</a></li>
+                            <li class="dropdown_item"><a href="">雕刻 Engraving</a></li>
+                            <li class="dropdown_item"><a href="">客製化 Made To Order</a></li>
+                        </ul>
+                    </li>
+                    <li class="flex-1"><a href="store.html">STORES</a></li>
+                    <li class="flex-1"><a href="login.html">LOGIN</a></li>
+                </ul>
+            </div>
+            <div class="menu_btn">
+                <span>MENU <i class="fa-solid fa-bars"></i></span>
+            </div>
+            <div class="menu_bg "></div>
+        </nav>
+    </header>
+    <ol class="breadcrumb">
+        <li><a href="./index.html">首頁</a></li>
+        <li>品牌文章 Article</li>
+    </ol>
+    <div class="article_container">
+        <h2>熱門文章</h2>
+        <div class="article_wraaper">
+            <div class="article">
+                <img src="./img/article/01.webp" alt="">
+                <p>Apr. 03, 2024</p>
+                <a href="#">耳洞新手必備，養耳棒配戴攻略完整解析</a>
+            </div>
+            <div class="article">
+                <img src="./img/article/02.webp" alt="">
+                <p>Nov. 23, 2023</p>
+                <a href="#">這樣搭不踩雷！不同領口對應項鍊搭配公式一次學會</a>
+            </div>
+            <div class="article">
+                <img src="./img/article/03.webp" alt="">
+                <p>Aug. 28, 2023</p>
+                <a href="#">獨家設計｜STONE 礦石企劃</a>
+            </div>
+            <div class="article">
+                <img src="./img/article/04.webp" alt="">
+                <p>May. 04, 2023</p>
+                <a href="#">甜蜜旋風來襲！愛心狂撒時尚圈</a>
+            </div>
+        </div>
+        <h2>時尚穿搭</h2>
+        <div class="article_wraaper">
+            <div class="article">
+                <img src="./img/article/02.webp" alt="">
+                <p>Nov. 23, 2023</p>
+                <a href="#">這樣搭不踩雷！不同領口對應項鍊搭配公式一次學會</a>
+            </div>
+            <div class="article">
+                <img src="./img/article/09.webp" alt="">
+                <p>Jan. 06, 2023</p>
+                <a href="#">跟上新中式穿搭熱潮， 打造出全新高級復古時髦感</a>
+            </div>
+            <div class="article">
+                <img src="./img/article/04.webp" alt="">
+                <p>May. 04, 2023</p>
+                <a href="#">甜蜜旋風來襲！愛心狂撒時尚圈</a>
+            </div>
+            <div class="article">
+                <img src="./img/article/08.webp" alt="">
+                <p>Mar. 15, 2023</p>
+                <a href="#">耳環這樣搭也能時髦爆棚！風靡時尚圈耳環疊搭法</a>
+            </div>
+        </div>
+        <button><i class="fa-solid fa-arrow-right"></i></button>
+        <h2>飾品保養</h2>
+        <div class="article_wraaper">
+            <div class="article">
+                <img src="./img/article/01.webp" alt="">
+                <p>Apr. 03, 2024</p>
+                <a href="#">耳洞新手必備，養耳棒配戴攻略完整解析</a>
+            </div>
+            <div class="article">
+                <img src="./img/article/05.webp" alt="">
+                <p>Jul. 21, 2022</p>
+                <a href="#">要怎麼分辨純銀真偽呢？教你簡單三步驟</a>
+            </div>
+            <div class="article">
+                <img src="./img/article/06.webp" alt="">
+                <p>Apr. 08, 2022</p>
+                <a href="#">簡單3分鐘！ 快速秒懂飾品材質</a>
+            </div>
+            <div class="article">
+                <img src="./img/article/07.webp" alt="">
+                <p>Dec. 10, 2019</p>
+                <a href="#">純銀飾品保養教學｜讓銀飾起死回生的小步驟</a>
+            </div>
+        </div>
+        <button><i class="fa-solid fa-arrow-right"></i></button>
+
+    </div>
+
+
+    <div id="footer"></div>
+
+
+    <script src="./js/header.js"></script>
+ 
+
+    <script>
+        
+
+        // 加載 footer.html
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer').innerHTML = html;
+            });
+    </script>
+</body>
+</html>

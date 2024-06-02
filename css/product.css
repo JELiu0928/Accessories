@@ -58,6 +58,8 @@ body header{
 .common_wrapper .product a,
 .common_wrapper .product .product_item>p{
     color:#183165;
+    font-size: 1.05rem;
+    letter-spacing: 2px;
 }
 .common_wrapper .product a:hover{
     text-shadow: 2px 2px 5px #ffffff;
@@ -158,7 +160,7 @@ body header{
     grid-column: -4/-1;
     justify-content: end;
 }
-.product_page>li>a{
+.product .product_page>li>a{
     font-size: 1.5rem;
     padding: 5px 10px;
     margin: 0 10px;

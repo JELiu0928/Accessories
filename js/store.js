@@ -18,7 +18,7 @@ export const stores = {
         },
         {
             name:"新北中和 環球購物中心",
-            open:"  OPEN / 週一 ~ 週日 | 11:00 - 22:00",
+            open:"週一 ~ 週日 | 11:00 - 22:00",
             address:"新北市中和區中山路三段122號(2F)",
             map:"https://www.google.com.tw/maps/place/Bonny+%26+Read%E9%A3%BE%E5%93%81+%E6%96%B0%E5%8C%97%E4%B8%AD%E5%92%8C%E7%92%B0%E7%90%83%E9%96%80%E5%B8%82/@25.0061984,121.4751139,15z/data=!4m2!3m1!1s0x0:0x634d9e7f1768778c?sa=X&hl=zh-TW&ved=2ahUKEwjIpcy15Jz3AhXHw4sBHbCsAekQ_BJ6BAhQEAU"
         },
@@ -51,7 +51,7 @@ export const stores = {
         },
         {
             name:"台中 誠品生活480",
-            open:" 週日 ~ 週四 | 11:00 - 22:00",
+            open:"週日 ~ 週四 | 11:00 - 22:00",
             address:"台中市西屯區市政路480號(3F)",
             map:"https://www.google.com/maps/place/403%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E7%BE%8E%E6%9D%91%E8%B7%AF%E4%B8%80%E6%AE%B5117%E5%B7%B75%E8%99%9F/@24.1522416,120.6518933,15z/data=!3m1!4b1!4m14!1m7!3m6!1s0x34693d934d275703:0xdfd69f4c46a82ccf!2zQm9ubnkgJiBSZWFk6aO-5ZOBIOWPsOS4reWLpOe-jumWgOW4gg!8m2!3d24.1522419!4d120.662193!16s%2Fg%2F11lclz_x3p!3m5!1s0x34693d9c3bcfbbaf:0x8a0f71b667816028!8m2!3d24.1522419!4d120.662193!16s%2Fg%2F11c5p0gs3_?entry=ttu"
 

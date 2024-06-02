@@ -32,6 +32,7 @@ body header{
     display: grid;
     grid-template-columns: 45% 55%;
 }
+
 .goods_img{
     display: flex;
     flex-direction: column;
@@ -148,6 +149,27 @@ input[type="text"]{
     height: 35px;
     border: none;
 }
+.addcart_message{
+
+    background-color: #1830658f;
+    width: 100%;
+    height: 50px;
+    box-shadow: -2px 0px 10px #747474;
+    position: fixed;
+    left: 0;
+    bottom: -60px;
+    color: #fff;
+    /* transform: translate(-50%,-50%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+.fa-xmark{
+    /* position: absolute;
+    right: 10px;
+    top: 10px; */
+}
 .good_describe{
     display: flex;
     flex-direction: column;
@@ -211,12 +233,12 @@ input[type="radio"]+label:hover,input[type="radio"]:checked +label{
 .cart_container{
     /* display: none; */
 
-    position: absolute;
-    right: -550px;
+    position: fixed;
+    right: -560px;
     top: 0;
     background-image: url(../img/wallpaper.webp);
     /* background-color: var(--color-primary); */
-    width: 450px;
+    width: 480px;
     /* height: 100%; */
     /* z-index: 20; */
     z-index: 51;
@@ -230,13 +252,21 @@ input[type="radio"]+label:hover,input[type="radio"]:checked +label{
 .cart_item{
     background-color: transparent;
     width: 100%;
-    height: 100px;
+    /* flex-wrap: wrap; */
+    /* height: 100px; */
     padding: 10px;
     display: grid;
-    grid-template-columns: 120px 300px;
+    box-sizing: border-box;
+    grid-template-columns: 120px 350px;
     grid-template-rows: repeat(2,1fr);
     align-items: center;
     justify-items: center;
+
+
+
+}
+.cartItem_title{
+    text-align: left;
 }
 .cart_img{
     width: 100px;
@@ -250,6 +280,7 @@ input[type="radio"]+label:hover,input[type="radio"]:checked +label{
     /******test******/
     width: 100%;
 }
+
 .cartbtn_group>button{
     border: none;
     width: 25px;
@@ -329,7 +360,7 @@ input[type="radio"]+label:hover,input[type="radio"]:checked +label{
 
 .cart_icon{
     /* background-color: yellow; */
-    position: absolute;
+    position: fixed;
     top: 500px;
     left: 0;
     /* margin: auto; */

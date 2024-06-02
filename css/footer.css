@@ -1,0 +1,139 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul,li{
+    list-style: none;
+    padding: 0;
+}
+footer{
+    padding-top: 5%;
+    /* margin: 10% 0; */
+    /* background-color: #888; */
+    padding: 3vw 12vw;
+    background-image: url(../img/wallpaper.webp);
+    color: #ddd;
+}
+footer ul li{
+    display: block;
+    padding: 5px;
+}
+footer .contact_us p{
+    margin: 0;
+    padding: 5px;
+}
+h2{
+    margin: 15px 0 8px 0;
+    /* text-align: center; */
+}
+hr{
+    color: #ddd;
+}
+
+/* .about_us{background-color: pink;} */
+/* .service{background-color: tomato;} */
+/* .contact_us{background-color: lightblue;} */
+.footer_container{
+    display: flex;   
+}
+
+.service,.contact_us{
+    flex: 1;
+    flex-direction: column;
+    padding: 0 1.5vw;
+    /* text-align: center; */
+}
+.about_us,.follow_us{
+    flex: 0.8;
+    flex-direction: column;
+    padding: 0 1.5vw;
+    /* text-align: center; */
+}
+
+.social_icon{
+    display: flex;
+    /* justify-content: center; */
+    font-size: 20px;
+    /* justify-content: center; */
+}
+.social_icon li a i.fa-brands{
+    padding-right:5px;
+ 
+
+}
+.copyright{
+    text-align: center;
+    padding-top: 40px;
+    color: #aaa;
+}
+footer .contact_us p.address{
+    /* text-align: center; */
+    padding-left: 2.8vw ;
+}
+footer .footer_container ul li a{
+    color: #ddd;
+}
+
+.pagetop,.comment{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background-color: rgba(51, 51, 51, 0.6);
+    border:1px solid #fff;
+    transition: .5s;
+    border-radius: 50%;
+}
+.comment{
+    bottom: 80px;
+}
+
+i.fa-angle-up,.fa-comment-dots {
+    color: #fff;
+    width: 55px;
+    line-height: 55px;
+    display: block;
+    text-align: center;
+}
+.fa-comment-dots{
+    font-size: 1.3rem;
+}
+.pagetop:hover,.comment:hover{  background-color: var(--color-primary);}
+/*  媒體查詢    */
+@media (max-width:1400px){
+    .about_us,.service,.contact_us,.follow_us{
+        /* text-align: center; */
+        /* margin: 0; */
+        padding: 0 0.5vw;
+    }
+    footer .contact_us p.address{
+        padding-left: 2vw ;
+    }
+}
+@media (max-width:1200px){
+    footer{
+        padding: 2vw 8vw;
+    }
+    .about_us,.service,.contact_us,.follow_us{
+        padding: 0;
+
+    }
+    footer .contact_us p.address{
+        padding-left: 1vw ;
+    }
+}
+@media (max-width:992px){
+    footer .footer_container{
+        flex-direction: column;
+    }
+    .about_us,.service,.contact_us,.follow_us{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .social_icon{
+        justify-content: center;
+        opacity: 1;
+    }
+}
