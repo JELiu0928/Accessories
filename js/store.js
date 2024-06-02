@@ -68,7 +68,7 @@ export const stores = {
         {
             name:"台南 新光三越百貨小西門",
             open:"週一 ~ 週日 | 11:00 - 22:00 ",
-            address:"台北市信義區松壽路20號",
+            address:"台南市中西區西門路一段658-1號1樓",
             map:"https://www.google.com.tw/maps/place/Bonny+%26+Read%E9%A3%BE%E5%93%81+%E5%8F%B0%E5%8D%97%E6%96%B0%E5%85%89%E4%B8%89%E8%B6%8A%E5%B0%8F%E8%A5%BF%E9%96%80%E9%96%80%E5%B8%82/@22.9873418,120.1991126,15z/data=!4m2!3m1!1s0x0:0x380368b87bb78f4a?sa=X&hl=zh-TW&ved=2ahUKEwjzxc-x5pz3AhW9yosBHRq-AWwQ_BJ6BAg-EAU"
 
         },

@@ -563,7 +563,9 @@ button.btn-next{
 .article img{
     width: 100%;
     cursor: pointer;
+    animation: test 1s ease-in;
 }
+
 .article p{
     font-size: 1.2rem;
 }
@@ -917,6 +919,10 @@ button.btn-next{
         margin: 0 10px;
         color: var(--color-primary);
     }
+    .advertise{
+        width: 500px;
+        height: 250px;
+    }
 }
 
 @media screen and (max-width:768px) {
@@ -968,4 +974,16 @@ button.btn-next{
     button.btn-next{
         right: 16%;
     }
+}
+
+@media screen and (max-width:576px) {
+    
+    .article_wraaper{
+        padding: 0 50px 50px 50px;
+    }
+    .advertise{
+        width: 400px;
+        height: 250px;
+    }
+
 }
