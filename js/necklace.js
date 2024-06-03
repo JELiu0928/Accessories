@@ -65,8 +65,8 @@ export function myNecklace() {
         // 獲取最新產生的購物車項目
         let cartItem = cartItems[cartItems.length - 1]; 
         let cartImg = cartItem.querySelector(".cart_img");
-        console.log('cartItems[0]',cartItems[0])
-        console.log('cartItems[1]',cartItems[1])
+        // console.log('cartItems[0]',cartItems[0])
+        // console.log('cartItems[1]',cartItems[1])
         // 選擇該顏色時，購物車照片要是該顏色
         if(cartImg.classList.contains('silverColor')){
             cartImg.style.backgroundImage = `url(${thumbnailArr[1]})`
@@ -82,7 +82,7 @@ export function myNecklace() {
         let quantity = cartItem.querySelector('.quantity')
         // subtotal = 單價*個數 ； total = 總計
         let subtotal = cartItem.querySelector('.subtotal')
-        // let total = document.querySelector('.total')
+        let total = document.querySelector('.total')
         // total = subtotal
         // console.log('total',total.innerText)
         plusBtn.onclick = ()=>{
@@ -92,28 +92,41 @@ export function myNecklace() {
             // total = subtotal
             // console.log('plustotal',total.innerText)
             updateTotal()
+            // updateTotalAmount()
+            
         }
 
         minusBtn.onclick = ()=>{
+            // updateTotalAmount()
             let currentNum = quantity.value
             if(quantity.value <= 1){
                 cartItem.remove();
-                cartContainer.style.transform = `translateX(${560}px)`;
-                console.log(cartContainer)
+                // console.log('minusBtnAmount',amount.innerText)
+                // cartContainer.style.right = `${-560}px`;
+                // console.log('cartContainer.style.right',cartContainer.style.right)
+                // console.log(cartContainer)
                 black_overlay.style.display = "none"
-        
+                
             }else{
                 quantity.value = currentNum - 1
                 subtotal .innerText = parseInt(goodPrice) * parseInt(quantity.value)
                 total = subtotal
-                console.log('minustotal',total.innerText)
+                // console.log('minustotal',total)
             }
+            
+            // if(parseInt(amount.innerText) < 1){
+            if(document.querySelector('.total span:last-child').innerText == 363){
+                cartContainer.style.right = `${-560}px`;
+                console.log('amount.innerText= 0',amount.innerText)
+            }
+            console.log(document.querySelector('.total span:last-child').innerText)
             updateTotal()
+            // console.log('minusBtntotal',total)
             
         }
         
         cartIcon.style.transform = `translateX(${0}px)`;
-
+        
         // 加入購物車後提示
         let addcartMsg = document.querySelector('.addcart_message')
         addcartMsg.style.bottom = 0 + 'px'
@@ -122,6 +135,8 @@ export function myNecklace() {
             
         }, 3000);
     }
+
+
     
     let black_overlay = document.querySelector('.black_overlay')
     
@@ -173,20 +188,45 @@ export function myNecklace() {
                             
         }
         updateTotal()
+        // updateTotalAmount()
     }
     // 更新購物車總金額
     function updateTotal(){
         let total = 0
         let subtotals = document.querySelectorAll('.subtotal')
         subtotals.forEach((subtotal)=>{
-            console.log('subtotal',subtotal.innerText)
+            // console.log('subtotal',subtotal.innerText)
             total += parseInt(subtotal.innerText)
             // subtotalArr.push(subtotal)
             // console.log(parseInt(subtotalArr[0]))
+            // console.log('total內',total)
+
         })
         document.querySelector('.total span:last-child').innerText = total
-        console.log('total',total.innerText)
+        // console.log('total外',total)
     }
+
+    // //更新購物車總數量
+    // let amount = document.createElement('span')
+    // function updateTotalAmount(){
+    //     let quantity = 0
+    //     let quantitys = document.querySelectorAll('.quantity')
+    //     // console.log('quantitys',quantitys)
+    //     // amount = 0
+    //     // console.log('TotalAmount',totalAmount)
+    //     quantitys.forEach((totalAmount)=>{
+    //         // console.log('totalAmount.value',totalAmount.value)
+    //         quantity += parseInt(totalAmount.value)
+    //         // console.log(parseInt(subtotalArr[0]))
+    //         console.log(' updateTotalAmount的quantity',quantity)
+    //     })
+    //     amount.innerText = quantity
+    //     // console.log('amount.innerText',amount.innerText)
+
+    //     // console.log('total',total)
+    //     console.log('AAAAAAAAmount',amount.innerText)
+
+    // }
     
 
     // 更新購物車項目文字
@@ -239,9 +279,9 @@ export function myNecklace() {
             
             
             
-            //放大鏡功能
-            originImg.onmouseover = () =>{
-                imgMask.style.display = 'block'
+        //放大鏡功能
+    originImg.onmouseover = () =>{
+        imgMask.style.display = 'block'
         manifierShow.style.display = 'block'
     }
     originImg.onmouseout = () =>{

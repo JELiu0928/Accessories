@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/footer.css">
+
  
 </head>
 <body>
@@ -91,7 +93,53 @@
             </div>
         </div>
     </div>
-    <div id="footer"></div>
+
+    <footer>
+        <hr>
+        <div class="footer_container">
+            <a href="#" class="comment">
+                <i class="fa-solid fa-comment-dots"></i>
+            </a>
+            <a href="#" class="pagetop">
+                <i class="fa-solid fa-angle-up"></i>
+            </a>
+            <div class="about_us">
+                <h2>COMPANY</h2>
+                <ul>
+                    <li><a href="about.html">關於品牌 | About us</a></li>
+                    <li><a href="store.html">門市資訊 | Store-info</a></li>
+                    <li><a href="article.html">品牌文章 | Article</a></li>
+                </ul>
+            </div>
+            <div class="service">
+                <h2>SERVICE</h2>
+                <ul>
+                    <li><a href="#">售後服務 | After sales service</a></li>
+                    <li><a href="#">飾品保養 | Maintenance</a></li>
+                    <li><a href="#">運送政策 | Shipping Policy</a></li>
+                    <li><a href="#">常見問題 | FAQ</a></li>
+                    <li><a href="#">隱私權政策 | Privacy</a></li>
+                </ul>
+            </div>
+            <div class="contact_us">
+                <h2>CONTACT</h2>
+                <ul>
+                    <li>Tel | 0800-123-456</li>
+                    <li>Mail | service@gmail.com</li>
+                </ul>
+            </div>
+            <div class="follow_us">
+                <h2>FOLLOW US</h2>
+                <ul class="social_icon">
+                    <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-line"></i></a></li>
+                </ul>
+      
+            </div>
+        </div>
+        <p class="copyright">&copy;此網站為練習使用，不做商業用途</p>
+    </footer>
 
 
     <script src="./js/header.js"></script>
@@ -179,13 +227,6 @@
             `
             console.log('內容',btn.innerText)
         }
-
-        // 加載 footer.html
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('footer').innerHTML = html;
-            });
 
 
     </script>

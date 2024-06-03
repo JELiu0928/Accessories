@@ -60,17 +60,31 @@ dropdownLink.addEventListener('click',(event)=>{
 
 })
 
-window.onscroll = function() {
+function headerChange(){
     let navbar = document.querySelector('.container');
     // let logo = document.querySelector('.logo')
-    if (window.pageYOffset > 0 ) {
+    if (window.scrollY > 0 ) {
+        navbar.style.position = "fixed";  // 導航欄固定在頂部
         navbar.style.height = "70px";  // 導航欄的高度變小
         navbar.style.backgroundColor = "#183165";    
-        navbar.style.position = "fixed";  // 導航欄固定在頂部
 
     } else {
         navbar.style.backgroundColor = "none";  // 導航欄的背景白色
         navbar.style.backgroundColor = "transparent";  // 導航欄的背景白色     
         navbar.style.position = "static";  // 導航欄的定位恢復原狀
     }
+}
+window.onscroll = function() {
+    // let navbar = document.querySelector('.container');
+    // // let logo = document.querySelector('.logo')
+    // if (window.scrollY > 0 ) {
+    //     navbar.style.position = "fixed";  // 導航欄固定在頂部
+    //     navbar.style.height = "70px";  // 導航欄的高度變小
+    //     navbar.style.backgroundColor = "#183165";    
+
+    // } else {
+    //     navbar.style.backgroundColor = "none";  // 導航欄的背景白色
+    //     navbar.style.backgroundColor = "transparent";  // 導航欄的背景白色     
+    //     navbar.style.position = "static";  // 導航欄的定位恢復原狀
+    // }
 }

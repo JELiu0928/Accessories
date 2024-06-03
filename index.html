@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <!-- <link rel="stylesheet" href="./css/style2.css"> -->
     <!-- <link rel="stylesheet" href="./css/reserve.css"> -->
     
@@ -212,7 +213,7 @@
                 </a>
             </li>
             <li class="design_item">
-                <a  class="design_content" href="#">
+                <a class="design_content" href="#">
                     <img src="./img/design/design02.webp" alt="">
                     <span class="design_txt">
                         <p>GEMS</p>
@@ -221,7 +222,7 @@
                 </a>
              </li>
             <li class="design_item">
-                <a  class="design_content" href="#">
+                <a class="design_content" href="#">
                     <img src="./img/design/design03.webp" alt="">
                     <span class="design_txt">
                         <p>ENGRAVING</p>
@@ -282,6 +283,8 @@
                 </div>
 
             </div>
+            <a href="article.html" class="more_btn"><i class="fa-solid fa-arrow-right"></i></a>
+
         </div>
         <!-- <div class="atelier">
             <h2>Atelier</h2>
@@ -293,8 +296,52 @@
     </div>
 
     
-    <div id="footer"></div>
-
+    <!-- <div id="footer"></div> -->
+    <footer>
+        <hr>
+        <div class="footer_container">
+            <a href="#" class="comment">
+                <i class="fa-solid fa-comment-dots"></i>
+            </a>
+            <a href="#" class="pagetop">
+                <i class="fa-solid fa-angle-up"></i>
+            </a>
+            <div class="about_us">
+                <h2>COMPANY</h2>
+                <ul>
+                    <li><a href="about.html">關於品牌 | About us</a></li>
+                    <li><a href="store.html">門市資訊 | Store-info</a></li>
+                    <li><a href="article.html">品牌文章 | Article</a></li>
+                </ul>
+            </div>
+            <div class="service">
+                <h2>SERVICE</h2>
+                <ul>
+                    <li><a href="#">售後服務 | After sales service</a></li>
+                    <li><a href="#">飾品保養 | Maintenance</a></li>
+                    <li><a href="#">運送政策 | Shipping Policy</a></li>
+                    <li><a href="#">常見問題 | FAQ</a></li>
+                    <li><a href="#">隱私權政策 | Privacy</a></li>
+                </ul>
+            </div>
+            <div class="contact_us">
+                <h2>CONTACT</h2>
+                <ul>
+                    <li>Tel | 0800-123-456</li>
+                    <li>Mail | service@gmail.com</li>
+                </ul>
+            </div>
+            <div class="follow_us">
+                <h2>FOLLOW US</h2>
+                <ul class="social_icon">
+                    <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-line"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">&copy;此網站為練習使用，不做商業用途</p>
+    </footer>
 
    
     <script src="./js/header.js"></script>
@@ -428,31 +475,38 @@
         }, 5000);
 
 
+        
+        let designBanner = document.querySelector('.design_banner')
+        let designlist = document.querySelector('.designlist')
+        let article = document.querySelectorAll('.article')
+        console.log('article',article)
+        window.onscroll = function() {
+            headerChange()
+            // console.log(typeof window.scrollY)
+            // let navbar = document.querySelector('.container');
+            if (window.scrollY  >= 1500 ) {
+                designBanner.style.opacity = 1; 
+                console.log('scrollY',scrollY)
+            } 
+            if(window.scrollY  >= 2200 ) {
+               designlist.style.opacity = 1; 
+               designlist.style.transform = `translateY(${0}px)`;  
+               console.log('scrollY',scrollY)
 
-        // window.onscroll = function() {
-        // let navbar = document.querySelector('.container');
-        // let logo = document.querySelector('.logo')
-        // if (window.pageYOffset > 0 ) {
-        //     navbar.style.height = "70px";  // 導航欄的高度變小
-        //     navbar.style.backgroundColor = "#183165";    
-        //     navbar.style.position = "fixed";  // 導航欄固定在頂部
+            }
+            if(window.scrollY  >= 3300 ){
+                article.forEach((item)=>{
+                    item.style.opacity = 1; 
 
-        // } else {
-        //     navbar.style.backgroundColor = "none";  // 導航欄的背景白色
-        //     navbar.style.backgroundColor = "transparent";  // 導航欄的背景白色     
-        //     navbar.style.position = "static";  // 導航欄的定位恢復原狀
-        // }
-        // }
+                })
+
+                article[0].style.animation = `text-ltr 1.5s ease-in`
+                article[2].style.animation = `text-ltr 1.5s ease-in`
+                article[1].style.animation = `text-rtl 1.5s ease-in`
+                article[3].style.animation = `text-rtl 1.5s ease-in`
+            }
+        }
        
-        // footer.load("/footer.html")
-        // 加載 footer.html
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('footer').innerHTML = html;
-            });
-
-      
 
     </script>
 </body>

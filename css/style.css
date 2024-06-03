@@ -470,12 +470,14 @@ button.btn-next{
     /* padding: 35px 0; */
     background-image: url(../img/wallpaper2.png);
     width: 100%;
-    text-align: center;
+    text-align: center; 
+    padding-bottom: 50px;
 }
 .design_banner{
     position: relative;
     width: 100%;
-
+    transition: 5s;
+    opacity: 0;
 }
 .design_text{
     position: absolute;
@@ -513,6 +515,9 @@ button.btn-next{
     gap: 20px;
     width: 70%;
     margin: 0 auto; 
+    transition: 2s ease-in;
+    transform: translateY(300px);
+    opacity: 0;
 }
 .design_content{
     display: flex;
@@ -529,12 +534,16 @@ button.btn-next{
     position: relative;
     width: 100%;
     height: 100%;
-    filter: brightness(0.7);
+    /* filter: brightness(0.7); */
     transition:1s;
     overflow: hidden;
     border-radius: 30px;
 }
-.designlist .design_item:hover{
+.designlist .design_content>img{
+    filter: brightness(0.7);
+
+}
+.designlist .design_item:hover img{
     filter: brightness(1);
 }
 .designlist .design_item:hover a>img{
@@ -543,7 +552,7 @@ button.btn-next{
 
 .designlist .design_item .design_txt {
     position: absolute;
-    text-shadow: 1px 1px 10px #b8b8b8;
+    text-shadow: 0px 0px 5px #464646,1px 1px 5px #cacaca;
     text-align: center;
 }
 .design_txt>p{
@@ -555,7 +564,7 @@ button.btn-next{
 }
 .article_wraaper{
     display: grid;
-    padding: 0 100px 100px 100px;
+    padding: 0 100px 50px 100px;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(2,1fr);
     gap: 30px;
@@ -563,9 +572,11 @@ button.btn-next{
 .article img{
     width: 100%;
     cursor: pointer;
-    animation: test 1s ease-in;
+    /* animation: test 1s ease-in; */
 }
-
+.article{
+    opacity: 0;
+}
 .article p{
     font-size: 1.2rem;
 }
@@ -578,31 +589,28 @@ button.btn-next{
 .article:hover a{
     text-shadow: 2px 2px 5px #ffffff;
 }
+.article_container .more_btn{
+    width: 200px;
+    line-height: 50px;
+    border-radius: 30px;
+    display: block;
+    background-color: var(--color-primary);
+    color: #fff;
+    margin: 0 auto;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    
+}
+.article_container .more_btn>i {
+    transition: .5s;
+}
+.article_container .more_btn::before{
+    content: 'MORE ';
+}
+.article_container .more_btn:hover i{
+    transform: translateX(30px);
+}
 
-
-@keyframes aaa {
-    0%{
-        /* transform:  scale(0) translate(0%,0%); */
-        opacity: 0;
-       
-    }
-    25%{
-        /* transform:  scale(0.5) translate(25%,25%); */
-    }
-    50%{
-        /* transform:  scale(1) translate(50%,50%); */
-        /* transform:  scale(0);
-        width: 50%;
-        height: 100%; */
-    }
-    75%{
-        /* transform:  scale(1.5) translate(75%,75%); */
-    }
-    100%{
-        /* transform:  scale(2) translate(100%,100%); */
-        opacity: 1;
-    }
-    }
     
 @keyframes text-ltr {
     0%{
@@ -753,13 +761,13 @@ button.btn-next{
     }
     
     header nav.container {
-        position: relative;
+        /* position: relative; */
+        position: fixed;
         /*********   加上背景   ***************/
         /* background-color: tomato; */
         height: 75px;
 
     }
-
 
     .menu{
         display: flex;
@@ -782,7 +790,6 @@ button.btn-next{
         width: 300px;
         pointer-events: none;
     }
-       
     .menu .social_icon{
         order: 2;
         pointer-events: none;
@@ -795,7 +802,6 @@ button.btn-next{
     .dropdown_link{
         position: relative;
     }
-    
     
     ul.dropdown .dropdown_item{
         overflow: hidden;
@@ -884,7 +890,7 @@ button.btn-next{
         transform-origin: 0 0;
         transform: scale(0);
         /* overflow: hidden; */
-    
+
     }
     .dropdown_link .dropdown .dropdown_item:hover a{
         text-shadow: 1px 1px 3px rgb(255, 255, 255);

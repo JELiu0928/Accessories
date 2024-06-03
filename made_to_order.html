@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/made_to_order.css">
+    <link rel="stylesheet" href="./css/footer.css">
+
     <style>
         body{
             background-image: none;
@@ -51,7 +53,6 @@
                         </li>
                     </ul>
                     <ul class="menu_link">
-                        <!-- <li  class="flex-1"><a href="" data-menu_item="HOME">HOME</a></li> -->
                         <li class="dropdown_link flex-1">
                             <a href="product.html" >PRODUCT</a>
                             <ul class="dropdown">
@@ -102,7 +103,7 @@
                     <img src="./img/order/arrangement_animation.gif" alt="">
                     <div class="order_text">
                         <p>挑選喜歡的戒指款式，再加上專屬自己的點綴。</p>
-                        <p>自由發揮創意就是ith的客製化訂製最大的魅力。</p>
+                        <p>自由發揮創意就是TE的客製化訂製最大的魅力。</p>
                     </div>
                 </div>
             </div>
@@ -232,7 +233,8 @@
                 <div class="motif_inner">
                     <div class="order_text">
                         <p>我們將根據顧客的要求製作戒指，</p>
-                        <p>並透過設計圖等確認您對設計的構想。</p>
+                        <p>並透過設計圖等確認您對設計的構想，</p>
+                        <p>顧客試戴確認成品造型及戒圍等細節後，再正式製作戒指。</p>
                     </div>
                     <img src="./img/order/motif.jpg.webp" alt="">
                 </div>
@@ -298,8 +300,51 @@
     </div>
     <div class="black_overlay"></div>
 
-
-    <div id="footer"></div>
+    <footer>
+        <hr>
+        <div class="footer_container">
+            <a href="#" class="comment">
+                <i class="fa-solid fa-comment-dots"></i>
+            </a>
+            <a href="#" class="pagetop">
+                <i class="fa-solid fa-angle-up"></i>
+            </a>
+            <div class="about_us">
+                <h2>COMPANY</h2>
+                <ul>
+                    <li><a href="about.html">關於品牌 | About us</a></li>
+                    <li><a href="store.html">門市資訊 | Store-info</a></li>
+                    <li><a href="article.html">品牌文章 | Article</a></li>
+                </ul>
+            </div>
+            <div class="service">
+                <h2>SERVICE</h2>
+                <ul>
+                    <li><a href="#">售後服務 | After sales service</a></li>
+                    <li><a href="#">飾品保養 | Maintenance</a></li>
+                    <li><a href="#">運送政策 | Shipping Policy</a></li>
+                    <li><a href="#">常見問題 | FAQ</a></li>
+                    <li><a href="#">隱私權政策 | Privacy</a></li>
+                </ul>
+            </div>
+            <div class="contact_us">
+                <h2>CONTACT</h2>
+                <ul>
+                    <li>Tel | 0800-123-456</li>
+                    <li>Mail | service@gmail.com</li>
+                </ul>
+            </div>
+            <div class="follow_us">
+                <h2>FOLLOW US</h2>
+                <ul class="social_icon">
+                    <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-line"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">&copy;此網站為練習使用，不做商業用途</p>
+    </footer>
 
 
 
@@ -375,50 +420,6 @@
             // product.insertBefore(productItem,productPage)
             stones.appendChild(stoneItem)
         });
-       
-
-        // console.log(date);
-        // console.log(twoMonths);
-
-        // let menuBtn = document.querySelector(".menu_btn");
-        // let toggleBtn = document.querySelector(".fa-bars");
-        // let menuBg = document.querySelector(".menu_bg");
-        
-        // let menu = document.querySelector(".menu");
-        // let logo = document.querySelector(".logo")
-        // let dropdownLink = document.querySelector(".dropdown_link")
-        // let dropdown = document.querySelector(".dropdown")
-        // menuBtn.addEventListener('click',()=>{
-        //     toggleBtn.classList.toggle('fa-x')
-        //     menu.classList.toggle('menu_toggle')
-        //     menuBg.classList.toggle('menu_bg_show')
-        // })
-        // window.onscroll = function() {
-        //     var navbar = document.querySelector('.container');
-        //     let logo = document.querySelector('.logo')
-        //     if (window.pageYOffset > 0 ) {
-        //         // navbar.style.height = "70px";  // 導航欄的高度變小
-        //         navbar.style.backgroundColor = "#183165";    
-        //         navbar.style.position = "fixed";  // 導航欄固定在頂部
-
-        //     } 
-        // }
-
-
-        // fetch('reserve.html')
-        //     .then(response => response.text())
-        //     .then(html => {
-        //         document.getElementById('reserve').innerHTML = html;
-        // });  
-
-          // 加載 footer.html
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('footer').innerHTML = html;
-        });   
-
-        
     </script> 
 
 </body>

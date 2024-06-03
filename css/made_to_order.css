@@ -1,13 +1,9 @@
 /*          made_to_order:      ;*/
 .order_container{
     width: 100%;
-    /* height: 50%; */
-    /* text-align: center; */
-    
 }
 .banner>img{
     width: 100%;
-    /* object-fit: cover; */
 }
 .banner{
     position: relative;
@@ -32,15 +28,11 @@
 .order_outer{
     margin:  200px;
     text-align: center;
-    /* border: 2px solid red; */
 }
 .order_outer h2{
     font-size: 2rem;
     letter-spacing: 5px;
     color: var(--color-primary);
-    /* border-bottom: 1px solid #183165; */
-    /* width: 20%; */
-    /* margin: 10px; */
 }
 .arrangement_inner{
     display: grid;
@@ -50,24 +42,19 @@
 .arrangement_inner>img{
     justify-self: end;
     width: 300px;
-    /* width: 80%; */
 }
 
-.order_text {
+.arrangement_inner>.order_text {
     text-align: start;
     font-size: 1rem;
-    /* margin: 0 5%; */
 }
 
 .shape_inner{
     display: grid;
-    /* grid-template-columns: repeat(4,1fr); */
     grid-template-columns: repeat(4, calc((100% - 60px) / 4));
     justify-content: center;
     gap: 20px;
     margin-top: 80px;
-    /* width: 80%; */
-    /* margin: 0 20px; */
 }
 
 .order_item>img{
@@ -86,8 +73,6 @@
 }
 .bullion_inner>img{
     width: 500px;
-
-
 }
 div[class$="inner"],h2+p{
     font-size: 1rem;
@@ -99,7 +84,6 @@ div[class$="inner"],h2+p{
     margin-top: 80px;
     display: grid;
     grid-template-columns: repeat(4, calc((100% - 60px) / 4));
-    /* grid-template-rows: repeat(2, 1fr); */
     gap: 20px;
 }
 .combination_inner{
@@ -120,8 +104,6 @@ div[class$="inner"],h2+p{
 .gems_inner>img{
     width: 550px;
     border-radius: 30px;
-    /* justify-self: end; */
-    /* margin-right: 25px; */
 }
 .gems .stones{
     display: grid;
@@ -139,7 +121,6 @@ div[class$="inner"],h2+p{
 }
 .gems .stones .stone_item>img{
     width: 30%;
-    /* border: #183165 1px solid; */
     border-radius: 50%;
 
 }
@@ -159,7 +140,6 @@ div[class$="inner"],h2+p{
     margin-right: 5px;
     color: #ccc;
     font-size: 1.2rem;
-   
 }
 
 .motif_inner{
@@ -167,9 +147,9 @@ div[class$="inner"],h2+p{
     grid-template-columns: repeat(2,1fr);
     align-items: center;
     justify-items: center;
-    margin: 0 25px;
     margin-top: 80px;
 }
+
 .motif_inner>img{
     width: 550px;
     border-radius: 30px;
@@ -184,10 +164,7 @@ div[class$="inner"],h2+p{
     display: flex;
     flex-direction: column;
     align-items:center ;
-    
     position: relative;
-
-    
 }
 .atelier img{
     width: 90%;
@@ -246,7 +223,6 @@ div[class$="inner"],h2+p{
 }
 .reserve_form .map_tpe.tpe_show,.reserve_form .map_tph.tph_show{
     opacity: 1;
-
 }
 
 input[type="radio"],input[type="checkbox"]{
@@ -315,11 +291,6 @@ input[type="date"]{
     .gems_inner{
         display: grid;
         grid-template-columns: repeat(1,1fr );
-        /* align-items: center;
-        justify-items: center;
-        margin: 0 25px;
-        margin-top: 80px;
-        gap: 10px; */
     }
 }
 @media screen and (max-width:1200px) {
@@ -329,8 +300,30 @@ input[type="date"]{
     .texture_inner{
         grid-template-columns: repeat(3, calc((100% - 40px) / 3));
     }
-    .gems_inner>img,.motif_inner>img{
-        /* width: 400px; */
+    .arrangement_inner {
+        grid-template-columns: none;
+        grid-template-rows: auto auto;
+    }
+    .arrangement_inner > img {
+        justify-self: center;
+        /* width: 300px; */
+    }
+    .motif_inner>.order_text{
+        grid-area: m1;
+    }
+    .motif_inner>img{
+        grid-area: m2;
+        margin: 0;
+    }
+    .motif_inner{
+        grid-template-columns: none;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+        'm2'
+        'm1';
+    }
+    .arrangement_inner .order_text{
+        text-align: center;
     }
 }
 @media screen and (max-width:992px) {

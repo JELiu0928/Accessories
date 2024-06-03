@@ -55,10 +55,12 @@ body header{
     z-index: 2;
     display: none;
 }
+/* 放大鏡裡的圖 */
 #manifier_img{
     width: 800px;
     height: 800px;
     position: absolute;
+    object-fit: cover;
 }
 #img_mask{
     width: 200px;
@@ -176,6 +178,11 @@ input[type="text"]{
     text-align: center;
     width: 100%;
     align-items: center;
+}
+.good_describe ul li{
+    letter-spacing: 2px;
+    padding: 10px;
+    font-size: 1.1rem;
 }
 .good_describe ul li:first-child{
     font-size: 1.5rem;
