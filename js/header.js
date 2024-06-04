@@ -64,14 +64,15 @@ function headerChange(){
     let navbar = document.querySelector('.container');
     // let logo = document.querySelector('.logo')
     if (window.scrollY > 0 ) {
-        navbar.style.position = "fixed";  // 導航欄固定在頂部
-        navbar.style.height = "70px";  // 導航欄的高度變小
+        navbar.style.position = "fixed";  
+        navbar.style.height = "70px";  
+        // navbar.style.height = "100px";  
         navbar.style.backgroundColor = "#183165";    
 
     } else {
-        navbar.style.backgroundColor = "none";  // 導航欄的背景白色
-        navbar.style.backgroundColor = "transparent";  // 導航欄的背景白色     
-        navbar.style.position = "static";  // 導航欄的定位恢復原狀
+        navbar.style.backgroundColor = "none";  
+        navbar.style.backgroundColor = "transparent";  
+        navbar.style.position = "static";  
     }
 }
 window.onscroll = function() {

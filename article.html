@@ -31,9 +31,22 @@
         }
         .article_container>h2{
             text-align: center;
+            margin: 0;
+            padding-bottom: 0;
+            font-weight: bolder;
         }
+        .article_container>P{
+            text-align: center;
+            padding-bottom: 35px;
+            margin-bottom: 0;
+            color: var(--color-primary);
+            letter-spacing: 1.5px;
+            font-size: 1.2rem;
+        }
+        
         div.article{
             opacity: 1;
+          
         }
         .more_btn{
             text-align: center;
@@ -44,6 +57,13 @@
         }
         .article_container{
             margin-bottom: 100px;
+        }
+        .article>img{
+            transition: .3s;
+        }
+        .article>img:hover{
+            transform: scale(1.01);
+            box-shadow: 0 0 20px #fff;
         }
 
     </style>
@@ -106,6 +126,8 @@
     </ol>
     <div class="article_container">
         <h2>熱門文章</h2>
+        <p>MOST POPULAR</p>
+        
         <div class="article_wraaper">
             <div class="article">
                 <img src="./img/article/01.webp" alt="">
@@ -129,6 +151,7 @@
             </div>
         </div>
         <h2>時尚穿搭</h2>
+        <p>FASHION</p>
         <div class="article_wraaper">
             <div class="article">
                 <img src="./img/article/02.webp" alt="">
@@ -153,6 +176,7 @@
         </div>
         <a href="#" class="more_btn"><i class="fa-solid fa-arrow-right"></i></a>
         <h2>飾品保養</h2>
+        <P>MAINTENANCE</P>
         <div class="article_wraaper">
             <div class="article">
                 <img src="./img/article/01.webp" alt="">

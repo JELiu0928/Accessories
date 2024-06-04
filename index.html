@@ -12,8 +12,7 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <!-- <link rel="stylesheet" href="./css/style2.css"> -->
-    <!-- <link rel="stylesheet" href="./css/reserve.css"> -->
+  
     
 </head>
 <body>
@@ -76,17 +75,24 @@
             <p class="banner_text">Life does not have to be perfect to be wonderful.</p>
         </div>
     </header>
+    <!-- 倒數彈窗 -->
     <div class="advertise">
         <div class="cancel_btn">
             <i class="fa-solid fa-circle-xmark"></i>
         </div>
     </div>
     <div class="carousel">
-        <img id="csItem" src="./img/banner/banner01.jpg" alt="" class="carousel_item">
-        <img src="./img/banner/banner02.jpg" alt="" class="carousel_item">
-        <img src="./img/banner/banner03.jpg" alt="" class="carousel_item">
+        <a href="#"><img id="csItem" src="./img/banner/banner01.jpg" alt="" class="carousel_item"></a>
+        <a href="#"><img src="./img/banner/banner02.jpg" alt="" class="carousel_item"></a>
+        <a href="#"><img src="./img/banner/banner03.jpg" alt="" class="carousel_item"></a>
+        <a href="#"><img src="./img/banner/banner04.jpg" alt="" class="carousel_item"></a>
+        <a href="#"><img src="./img/banner/banner05.jpg" alt="" class="carousel_item"></a>
+        <a href="#"><img src="./img/banner/banner06.jpg" alt="" class="carousel_item"></a>
         
         <div class="carousel_nav">
+            <a class="cs_nav_item" href="javascript:;"></a>
+            <a class="cs_nav_item" href="javascript:;"></a>
+            <a class="cs_nav_item" href="javascript:;"></a>
             <a class="cs_nav_item" href="javascript:;"></a>
             <a class="cs_nav_item" href="javascript:;"></a>
             <a class="cs_nav_item" href="javascript:;"></a>
@@ -187,8 +193,6 @@
         
         <button class="btn-prev"><i class="fa-solid fa-caret-left"></i></button>
         <button class="btn-next"><i class="fa-solid fa-caret-right"></i></button>
-            
-   
     </div>
 
     <div class="design_container">
@@ -286,17 +290,10 @@
             <a href="article.html" class="more_btn"><i class="fa-solid fa-arrow-right"></i></a>
 
         </div>
-        <!-- <div class="atelier">
-            <h2>Atelier</h2>
-            <img src="./img/atelier.jpg.webp" alt="">
-            <p>歡迎來店試戴諮詢</p>
-            <button id="reserveBtn">預約</button>
-            <div id="reserve"></div>
-        </div> -->
+        
     </div>
 
-    
-    <!-- <div id="footer"></div> -->
+
     <footer>
         <hr>
         <div class="footer_container">
@@ -347,9 +344,6 @@
     <script src="./js/header.js"></script>
     <!-- <script src="./js/reserve.js"></script> -->
     <script>
-       
-
-
 
         // let carouselArr = ["./img/banner/banner01.webp","./img/banner/banner02.webp","./img/banner/banner03.webp"]
         let carouselItems = document.querySelectorAll(".carousel_item")
@@ -410,6 +404,7 @@
         // setNav();
         setTimeout(autoCarousel,3000)
          
+        // 新品左右移動
         let prevBtn = document.querySelector('.btn-prev')
         let nextBtn = document.querySelector('.btn-next')
         // let slideActive = document.querySelector('.slide_active')
@@ -428,7 +423,6 @@
                 console.log('currentTranslateX = ',currentTranslateX)
                 console.log('currentIndex = ',currentIndex)
             }
-
         })
         nextBtn.addEventListener('click',()=>{
             if(currentIndex < slides.length -1){
@@ -494,7 +488,7 @@
                console.log('scrollY',scrollY)
 
             }
-            if(window.scrollY  >= 3300 ){
+            if(window.scrollY  >= 3500 ){
                 article.forEach((item)=>{
                     item.style.opacity = 1; 
 

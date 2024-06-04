@@ -8,13 +8,13 @@ export function myNecklace() {
     let thumbnail = document.querySelector(".thumbnail");
     let goodsTitle = document.querySelector(".goods_title");
     let addCartBtn = document.getElementById("add_cart");
-    let cartItemTitle = document.getElementById("cartItem_title");
+    // let cartItemTitle = document.getElementById("cartItem_title");
     let silver = document.getElementById("silver");
     let roseGold = document.getElementById("roseGold");
     let goodPrice = document.querySelector(".price").innerText;
     let cartContainer = document.querySelector(".cart_container");
     let cartIcon = document.querySelector(".cart_icon");
-    let originImgBgImg = window.getComputedStyle(originImg).getPropertyValue('background-image')
+    // let originImgBgImg = window.getComputedStyle(originImg).getPropertyValue('background-image')
     let thumbnailArr = [
         "./img/EternalNecklace/01.webp",
         "./img/EternalNecklace/02.webp",
@@ -28,7 +28,7 @@ export function myNecklace() {
     ]
     
 
-
+    // 產品選色後變化
     let selectColor = ''
     roseGold.onclick = ()=>{
         originImg.style.backgroundImage = `url(${thumbnailArr[0]})`
@@ -43,7 +43,7 @@ export function myNecklace() {
         // updateSelectedColor(selectColor) 
         
     }
-    
+    // 縮圖
     for(let i = 0;i <= thumbnailArr.length-1 ; i++){
         let myImg = document.createElement('img')
         myImg.setAttribute('src',thumbnailArr[i])
@@ -56,6 +56,8 @@ export function myNecklace() {
     }   
     
     addCartBtn.onclick = ()=>{
+        
+
         if(selectColor == ''){
             return
         }
@@ -75,8 +77,6 @@ export function myNecklace() {
         }
         
         
-        
-        
         let plusBtn = cartItem.querySelector('.plus_btn')
         let minusBtn = cartItem.querySelector('.minus_btn')
         let quantity = cartItem.querySelector('.quantity')
@@ -85,6 +85,8 @@ export function myNecklace() {
         let total = document.querySelector('.total')
         // total = subtotal
         // console.log('total',total.innerText)
+
+        // subtotal.innerText = parseInt(goodPrice)
         plusBtn.onclick = ()=>{
             let currentNum = quantity.value
             quantity.value = `${parseInt(currentNum) + 1}`
@@ -105,11 +107,10 @@ export function myNecklace() {
                 // cartContainer.style.right = `${-560}px`;
                 // console.log('cartContainer.style.right',cartContainer.style.right)
                 // console.log(cartContainer)
-                black_overlay.style.display = "none"
                 
             }else{
                 quantity.value = currentNum - 1
-                subtotal .innerText = parseInt(goodPrice) * parseInt(quantity.value)
+                subtotal.innerText = parseInt(goodPrice) * parseInt(quantity.value)
                 total = subtotal
                 // console.log('minustotal',total)
             }
@@ -117,7 +118,9 @@ export function myNecklace() {
             // if(parseInt(amount.innerText) < 1){
             if(document.querySelector('.total span:last-child').innerText == 363){
                 cartContainer.style.right = `${-560}px`;
-                console.log('amount.innerText= 0',amount.innerText)
+                // console.log('amount.innerText= 0',amount.innerText)
+                black_overlay.style.display = "none"
+
             }
             console.log(document.querySelector('.total span:last-child').innerText)
             updateTotal()
@@ -131,15 +134,13 @@ export function myNecklace() {
         let addcartMsg = document.querySelector('.addcart_message')
         addcartMsg.style.bottom = 0 + 'px'
         setTimeout(() => {
-        addcartMsg.style.bottom = -60 + 'px'
-            
+            addcartMsg.style.bottom = -60 + 'px'
         }, 3000);
     }
 
 
-    
+    //購物車icon與遮罩
     let black_overlay = document.querySelector('.black_overlay')
-    
     cartIcon.onclick = ()=>{
         // cartContainer.style.transform = `translateX(${0}px)`;
         cartContainer.style.right = `${0}px`;
@@ -150,23 +151,26 @@ export function myNecklace() {
     cartCancel.onclick = ()=>{
         // cartContainer.style.transform = `translateX(${550}px)`;
         cartContainer.style.right = `${-560}px`;
-        console.log(cartContainer)
         black_overlay.style.display = "none"
+        // console.log(cartContainer)
     }
+
     // 加進購物車品項
     function addCartItem(){
         let cartItem ;
         let existCartItem = document.querySelector(`.cart_item[data-color="${selectColor}"]`)
         
-        console.log(existCartItem)
+        // console.log(existCartItem)
         if(existCartItem){
             
             let existItemQuantity = existCartItem.querySelector('.quantity')
             let currentQuantity = parseInt(existItemQuantity.value)
             existItemQuantity.value = currentQuantity + 1
-            let existCartItemImg = existCartItem.querySelector(`.cart_img`)
+            // let existCartItemImg = existCartItem.querySelector(`.cart_img`)
             // existCartItemImg.style.backgroundImage = existCartItemImg.style.backgroundImage
             // console.log()
+            let subtotal = existCartItem.querySelector('.subtotal');
+            subtotal.innerText = parseInt(goodPrice) * parseInt(existItemQuantity.value);
         }else{
             
             cartItem = document.createElement('div')
@@ -177,7 +181,7 @@ export function myNecklace() {
             `   <div class="cart_img ${selectColor}"></div>
                     <div class="cartItem_title">${goodsTitle.innerText} - ${selectColor}</div>
                     <div class="cartbtn_group">
-                        <span class="subtotal "> ${goodPrice}</span>
+                        <span class="subtotal">${goodPrice}</span>
                         <button class="minus_btn">-</button>
                         <input type="text" name="quantity" class="quantity" value="1">
                         <button class="plus_btn">+</button>
@@ -199,11 +203,12 @@ export function myNecklace() {
             total += parseInt(subtotal.innerText)
             // subtotalArr.push(subtotal)
             // console.log(parseInt(subtotalArr[0]))
-            // console.log('total內',total)
+            console.log('total內',total)
 
         })
         document.querySelector('.total span:last-child').innerText = total
-        // console.log('total外',total)
+        console.log('updateTotal',total)
+        console.log('document.querySelector(\'.total span:last-child\').innerText',document.querySelector('.total span:last-child').innerText)
     }
 
     // //更新購物車總數量
@@ -230,17 +235,17 @@ export function myNecklace() {
     
 
     // 更新購物車項目文字
-    function updateSelectedColor(selectColor) {
-        let cartItemTitles = document.querySelectorAll(".cartItem_title");
+    // function updateSelectedColor(selectColor) {
+    //     let cartItemTitles = document.querySelectorAll(".cartItem_title");
 
-        // console.log(cartItemTitle.innerText.includes(selectColor))
-        // 更新購物車中的所有項目的顏色文字
-        cartItemTitles.forEach(cartItemTitle => {
-        console.log('selectColor',selectColor)
-            cartItemTitle.innerText = `${goodsTitle.innerText} - ${selectColor}`;
+    //     // console.log(cartItemTitle.innerText.includes(selectColor))
+    //     // 更新購物車中的所有項目的顏色文字
+    //     cartItemTitles.forEach(cartItemTitle => {
+    //     console.log('selectColor',selectColor)
+    //         cartItemTitle.innerText = `${goodsTitle.innerText} - ${selectColor}`;
             
-        });
-    }
+    //     });
+    // }
     
 
     
@@ -263,18 +268,18 @@ export function myNecklace() {
         }
         randomIndexArr.push(randomNum)    
         // console.log(necklaceItems[randomNum].name)
-        
-            let myLi =  document.createElement('li')
-            myLi.innerHTML = `
-                <a href="#">
-                    <img src="${necklaceItems[randomNum].imgSrc}" alt="">
-                    <p>${necklaceItems[randomNum].name}</p>
-                </a>
-                `
-                moreList.appendChild(myLi)
-            }
+    
+        let myLi =  document.createElement('li')
+        myLi.innerHTML = `
+            <a href="#">
+                <img src="${necklaceItems[randomNum].imgSrc}" alt="">
+                <p>${necklaceItems[randomNum].name}</p>
+            </a>
+            `
+            moreList.appendChild(myLi)
+        }
             
-            // })
+
             
             
             

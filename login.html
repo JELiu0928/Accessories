@@ -45,7 +45,7 @@
             transition: .8s ease-in;
         }
         
-        .login_container .left,.login_container .right{
+        .login_container .register,.login_container .login{
             width: 50%;
             height: 100%;
             padding: 20px;
@@ -53,7 +53,7 @@
             overflow: hidden;
             position: relative;
         }
-        .left{
+        .register{
             /* REGISTER */
             position: relative;
             z-index: 0;
@@ -70,17 +70,20 @@
             width: 50%;
             height: 100%;
             object-fit: cover;
-            object-position:83%;
+            object-position: 65%;
             transition: 1s;
 
         }
-        .right{
-            /* login */
+       
+        .login_container .login{
+             /* login */
             position: relative;
             z-index: 0;
             opacity: 1;
             transition: 1s;
-
+            width: 50%;
+            height: 100%;
+            box-sizing: border-box;
         }
         .loginImg{
             /* login */
@@ -99,16 +102,16 @@
             opacity: 1;
             z-index: 10;
             transform:rotateY(360deg);
+            transition: transform 1s, opacity 1s, z-index 1s;
         }
         .opacity-0{
             opacity: 0;
             z-index: 0;
+            transition: transform 1s, opacity 1s, z-index 1s;
+            /* transform:rotateY(0deg); */
+
         }
-        .login_container .right{
-            width: 50%;
-            height: 100%;
-            box-sizing: border-box;
-        }
+        
         .commonArea{
             width: 100%;
             height: 100%;
@@ -178,9 +181,9 @@
             justify-content: end;
             margin-bottom: 10px;
         }
-        .right{
-            position: relative;
-        }
+        /* .right{
+           
+        } */
         .fb {
             background-color: rgb(8, 65, 156);
         }
@@ -202,9 +205,9 @@
         .line {
             background-color: rgb(0, 162, 32);
         }
-        #footer {
+        /* #footer {
             margin-top: 15%;
-        }
+        } */
         .sns>button:hover .fa-facebook{
             transform: translateX(48px) scale(2);
         }
@@ -217,7 +220,61 @@
         .sns>button:hover span {
             opacity: 0;
         }
+       /*  @media screen and (max-width:992px) {
+            .login_container {
+                position: relative;
+                width: 450px;
+                height: 600px;
+                display: block;
+                
+            }
+           
+            .login_container .login{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 2;
+                opacity: 0;
+                opacity: 1;
+                background: url('./img/design01.jpg.webp');
+                background-position: 70%;
+               
 
+            }
+            .loginImg{
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                height:100%;
+                object-fit: none;
+                object-position: 70% 35%;
+                opacity: 1;
+                display: none;
+                
+            }
+           
+            .registerImg{
+                display: none;
+                filter: blur(3px);
+                width: 100%;
+                position: absolute;
+                z-index: 0;
+                left: 0;
+                top: 0;
+                opacity: 0;
+            }
+            .login_container .register{
+                background: url('./img/design03.jpg.webp');
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
+                opacity: 0;
+            }
+        } */
     </style>
 </head>
 <body>
@@ -275,8 +332,8 @@
     <div class="login_container">
         <img class="loginImg " src="./img/design01.jpg.webp" alt="">
         <img class="registerImg " src="./img/design02.jpg.webp" alt="">
-        <div class="left ">
-            <div class="registerArea commonArea">
+        <div class="register ">
+            <div class="commonArea">
                 <p>REGISTER</p>
                 <form action="">
                     <label for="resUsername">Username</label>
@@ -292,7 +349,7 @@
                 </form>
             </div>
         </div>
-        <div class="right ">
+        <div class="login ">
             <div class="commonArea">
                 <p>LOGIN</p>
                 <form action="javascript:;">
@@ -373,37 +430,89 @@
         let haveAccount = document.querySelector('.commonArea .have_account')
         let goRegisterBtn = document.querySelector('.goRegister')
         let registerImg = document.querySelector('.registerImg')
-        let right = document.querySelector('.right')
-        let left = document.querySelector('.left')
+        let login = document.querySelector('.login')
+        let register = document.querySelector('.register')
         let loginImg = document.querySelector('.loginImg')
 
         haveAccount.onclick = ()=>{
-            left.classList.toggle('opacity-1')
-            left.classList.add('opacity-0')
-            registerImg.classList.toggle('opacity-1')
+            register.classList.remove('opacity-1')
+            register.classList.add('opacity-0')
+            registerImg.classList.remove('opacity-1')
             registerImg.classList.add('opacity-0')
 
-            if(right.classList.contains('opacity-0') && loginImg.classList.contains('opacity-0')){ 
-                right.classList.remove('opacity-0')
-                right.classList.toggle('opacity-1')
+            // if(login.classList.contains('opacity-0') && loginImg.classList.contains('opacity-0')){ 
+                login.classList.remove('opacity-0')
+                login.classList.add('opacity-1')
                 loginImg.classList.remove('opacity-0')
-                loginImg.classList.toggle('opacity-1')
-            }
+                loginImg.classList.add('opacity-1')
+            // }
         }
         goRegisterBtn.onclick = ()=>{
-         
-                right.classList.toggle('opacity-0')
-                loginImg.classList.toggle('opacity-0')
-                left.classList.toggle('opacity-1')
-                registerImg.classList.toggle('opacity-1')
-                if( left.classList.contains('opacity-0') && registerImg.classList.contains('opacity-0')){
-                    left.classList.toggle('opacity-0')
-                    left.classList.add('opacity-1')
-                    registerImg.classList.toggle('opacity-0')
-                    registerImg.classList.ad('opacity-1')
-                }
+               
+            login.classList.add('opacity-0')
+            login.classList.remove('opacity-1')
+            loginImg.classList.add('opacity-0')
+            loginImg.classList.remove('opacity-1')
+            // if( register.classList.contains('opacity-0') && registerImg.classList.contains('opacity-0')){
+                register.classList.remove('opacity-0')
+                register.classList.add('opacity-1')
+                registerImg.classList.remove('opacity-0')
+                registerImg.classList.add('opacity-1')
+            // }
+                // if(window.innerWidth < 992){
+                //     login.style.opacity = 0
+                //     register.style.opacity = 1
+                //     register.style.zIndex = 3
+                //     login.style.pointerEvents = "none"
+                //     register.style.pointerEvents = "auto"
 
-        }
+                // }
+                
+            }
+
+
+
+    //     function showRegister() {
+    //     login.classList.add('opacity-0');
+    //     login.classList.remove('opacity-1');
+    //     loginImg.classList.add('opacity-0');
+    //     loginImg.classList.remove('opacity-1');
+        
+    //     register.classList.add('opacity-1');
+    //     register.classList.remove('opacity-0');
+    //     registerImg.classList.add('opacity-1');
+    //     registerImg.classList.remove('opacity-0');
+    //     if(window.innerWidth < 992){
+    //         login.style.opacity = 0
+    //         register.style.opacity = 1
+    //         register.style.zIndex = 3
+    //         login.style.pointerEvents = "none"
+    //         register.style.pointerEvents = "auto"
+
+    //     }
+    // }
+
+    // function showLogin() {
+    //     register.classList.add('opacity-0');
+    //     register.classList.remove('opacity-1');
+    //     registerImg.classList.add('opacity-0');
+    //     registerImg.classList.remove('opacity-1');
+        
+    //     login.classList.add('opacity-1');
+    //     login.classList.remove('opacity-0');
+    //     loginImg.classList.add('opacity-1');
+    //     loginImg.classList.remove('opacity-0');
+    //     if(window.innerWidth < 992){
+    //         login.style.opacity = 1
+    //         register.style.opacity = 0
+    //         login.style.pointerEvents = "auto"
+    //         register.style.pointerEvents = "none"
+    //     }
+    // }
+
+    haveAccount.addEventListener('click', showLogin);
+    goRegisterBtn.addEventListener('click', showRegister);
+            console.log(window.innerWidth)
 
         window.onload = ()=>{
             window.onscroll = ()=>{
