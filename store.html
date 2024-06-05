@@ -11,72 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/store.css">
     <link rel="stylesheet" href="./css/footer.css">
 
     <style>
-        .common_container{
-            margin-bottom: 100px;
-        }
-        table{
-            border-collapse: collapse;
-            width: 100%;
-            letter-spacing: 1.5px;
-        }
-        
-        thead>tr>th{
-            border-top: 5px solid var(--color-primary);
-            border-bottom: 1px solid var(--color-primary);
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 15px 0;
-        }
-        tbody tr{
-            padding: 20px;
-        }
-        tbody tr:nth-child(even){
-            background-color: rgba(235, 235, 235, 0.699);
-        }
-        tbody tr:nth-child(odd){
-            background-color: rgba(190, 190, 190, 0.7);
-        }
-        td{
-            text-align: center;
-            border-bottom: 1px solid var(--color-primary);
-            padding: 10px;
-        }
-        td>a>i{
-            color: var(--color-primary);
-        }
        
-        tr:hover td,tr:hover a>i{
-            background-color: var(--color-primary);
-            color: #fff;
-            transition: .2s;
-            text-shadow: 1px 1px 3px #aaa;
-        }
-        .store_table{
-           margin: 25px;
-        }
-        .store_name,.store_open,.store_address{
-            width: 30%;
-        }
-        .store_nav{
-            width: 10%;
-        }
-        p{
-            margin: 0;
-        }
-        .opan_time{
-            padding: 20px;
-        }
-        @media screen and (max-width:1400px) {
-            .store_name{
-                width: 20%;
-            }
-            .store_open,.store_address{
-                width: 35%;
-            }
-        
-        }
     </style>
 </head>
 <body>
@@ -210,84 +149,6 @@
 
     <script src="./js/header.js"></script>
     <script type="module" src="./js/store.js"></script>
-
-    <script type="module" >
-        import { stores } from "./js/store.js";
-        
-        console.log(stores)
-        console.log(typeof stores)
-        // 先取出區域region，再迭代區域內門市
-        // for(let region in stores)
-        // console.log('region',region.north)
-        
-        
-        let storeTable = document.querySelector('.store_table tbody')
-        window.onload = ()=>{
-            displayRegion('all')
-            document.querySelector('.storeBtn').classList.toggle('sidebar_select')
-
-        }
-        // 分開取出各區域
-        document.querySelector('.storeBtn').onclick = ()=>{
-            displayRegion('all')
-            selectRegion('storeBtn')
-
-        }
-        document.querySelector('.northBtn').onclick = ()=>{
-            displayRegion('north')
-            selectRegion('northBtn')
-        }
-        document.querySelector('.centralBtn').onclick = ()=>{
-            displayRegion('central')
-            selectRegion('centralBtn')
-            
-        }
-        document.querySelector('.southBtn').onclick = ()=>{
-            displayRegion('south')
-            // document.querySelector('.').classList.toggle('sidebar_select')
-            selectRegion('southBtn')
-        }
-
-        function selectRegion(btn){
-            document.querySelectorAll('.sidebar a').forEach((btn)=>{
-                btn.classList.remove('sidebar_select')
-            })
-           
-            document.querySelector(`.${btn}`).classList.add('sidebar_select')
-
-
-        }
-        function displayRegion(region){
-            // 將各區門市解構賦值給全部門市
-            const allStore = [...stores.north,...stores.central,...stores.south]
-            // let regionStore = stores[region]
-            // 將三元運算結果賦值給regionStore
-            let regionStore = region === 'all' ? allStore : stores[region];
-            
-            console.log('allStore',allStore)
-            storeTable.innerHTML = ""
-            regionStore.forEach((Item)=>{
-                let storeItem = document.createElement('tr')
-                storeItem.classList.add(`${region}_store`)
-                // 有的門市只有一個營業時間，判斷後加入
-                let openTimes = `<p>${Item.open}</p>`;
-                if (Item.open2) {
-                    openTimes += `<p>${Item.open2}</p>`;
-                }
-                storeItem.innerHTML = 
-                    `   <td>${Item.name}</td>
-                        <td class="opan_time">
-                            ${openTimes}
-                        </td>
-                        <td>${Item.address}</td>
-                        <td><a href="${Item.map}" target="_blank"><i class="fa-solid fa-map-location-dot"></i></a></td>
-                    `
-                    console.log(storeItem)
-                    storeTable.appendChild(storeItem)
-            })
-        }
-
-
-    </script>
+    
 </body>
 </html>
