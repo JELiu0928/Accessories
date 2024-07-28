@@ -333,7 +333,7 @@ input[type="date"]{
         margin-top: 80px;
     }
     .order_outer{
-        margin:  30px;
+        margin:  15px;
     }
     .gems_inner>img,.motif_inner>img{
         /* width: 400px; */
@@ -341,9 +341,17 @@ input[type="date"]{
     }
 }
 @media screen and (max-width:768px) {
+    .order_container{
+        /* width: 100%; */
+        margin: 0;
+    }
+    .banner>img{
+        height: 600px;
+        object-fit: cover;
+    }
     .banner_text{
         right: 8%;
-        font-size: 0.8rem;
+        font-size: 0.95rem;
     }
     .banner_text p:first-child{
         font-size: 1.5rem;
@@ -356,9 +364,27 @@ input[type="date"]{
         grid-template-columns: repeat(2, calc((100% - 20px) / 2));
     }
     
+    .gems_inner{
+        margin: 0;
+        margin-top: 80px;
+    }
     .gems_inner>img,.motif_inner>img{
         margin: 10px;
     }
+    .gems_inner>img,.gems .stones,.motif_inner>img{
+        width: 430px;
+        /* border-radius: 30px; */
+    }
+    .atelier img {
+        width: 130%;
+    }
+    .atelier > button {
+        line-height: 35px;
+    }
+    .combination_inner{
+        grid-template-columns: repeat(2, calc((100% - 20px) / 2));
+    }
+    
     /* 表單 */
     .reserve_container{
         width: 450px;

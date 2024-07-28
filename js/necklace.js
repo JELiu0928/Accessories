@@ -185,9 +185,9 @@ export function myNecklace() {
                         <button class="minus_btn">-</button>
                         <input type="text" name="quantity" class="quantity" value="1">
                         <button class="plus_btn">+</button>
-                        </div>
-                        
-                        `
+                    </div>
+                    
+                    `
             cartContainer.appendChild(cartItem);
                             
         }
