@@ -1,4 +1,4 @@
-## 此為資策會個人小專，使用HTML、CSS、Javascript技術，並使用Git做版本控制
+## 此為資展國際個人小專，使用HTML、CSS、Javascript技術，並使用Git做版本控制
 製作此專題時已學習HTML、CSS、Javascript、Bootstrap、MYSQL，因資料庫串接尚未學習到，故先無使用MYSQL、因想嘗試自己切版及實現RWD，所以並未使用Bootstrap。
 
 > [!IMPORTANT]
