@@ -1,8 +1,6 @@
 ## 此為資展國際個人小專，使用HTML、CSS、Javascript技術，並使用Git做版本控制
 製作此專題時已學習HTML、CSS、Javascript、Bootstrap、MYSQL，因資料庫串接尚未學習到，故先無使用MYSQL、因想嘗試自己切版及實現RWD，所以並未使用Bootstrap。
 
-> [!IMPORTANT]
-> 目前已有改版，加入PHP並連接資料庫(repository：[Accessories_PHP](https://pages.github.com/](https://github.com/JELiu0928))，更新中！
 
 **主題發想**：曾與朋友討論說想做飾品販賣，所以選擇關於飾品官網及戒指客製化的網頁，本人的生日為28號，故LOGO品牌為Twenty-Eight。
 
