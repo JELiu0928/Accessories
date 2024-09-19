@@ -1,4 +1,5 @@
 ## 此為資展國際個人小專，使用HTML、CSS、Javascript技術，並使用Git做版本控制
+https://github.com/JELiu0928/Accessories
 製作此專題時已學習HTML、CSS、Javascript、Bootstrap、MYSQL，因資料庫串接尚未學習到，故先無使用MYSQL、因想嘗試自己切版及實現RWD，所以並未使用Bootstrap。
 
 
@@ -49,5 +50,6 @@
 ![image](https://github.com/user-attachments/assets/610d45ff-837a-4ff5-876b-2f4691419c7e)
 
 **未來改進方向**：因為手機與平板無法使用hover效果，之後會往點選效果方向進行改版，增進用戶體驗
+
 **參考來源**：©此網站為練習使用，不做商業用途
 ![image](https://github.com/user-attachments/assets/b5f293e4-e771-4dda-8582-0292c3e2908f)
